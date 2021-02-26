@@ -14,7 +14,7 @@ workflows:
     docker:
       - image: circleci/node:12.9.1-browsers
 
-    working_directory: ~/repo
+    working_directory: ~/repo/my-app
 steps:
       - checkout
 
