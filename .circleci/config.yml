@@ -9,11 +9,11 @@ jobs:
     steps:
       - checkout
       - run: cd my-app
-      - run: cd ls
+      - run: ls
       - run: yarn install
       - run: yarn test
 
 Workflows:
   test:
     jobs:
-      - build
+      - buildcd ls
