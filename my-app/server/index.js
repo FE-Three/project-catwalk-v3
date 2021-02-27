@@ -17,8 +17,14 @@ app.get('*', (req, res) => {
   console.log(req.path);
   axios({method: 'get',
          headers: {'Authorization': '2729e05f13787e05f65ecafdeb506b6c980d2b7b'},
-         url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-bld/${req.path}`
+         url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-bld${req.path}`
         })
-  .then(res => res.status(200).send(res))
-  .catch(err => res.send(err));
+  .then(response => {
+    // console.log(response);
+    res.status(200).send(response.data);
+  })
+  .catch(err => {
+    //console.log(err);
+    res.status(err.response.status).send(err.response.data);
+  });
 })
