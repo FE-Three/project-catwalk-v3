@@ -21,8 +21,8 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>learn react
-        <button>Go!</button>
+      <div>
+        Hello World!
       </div>
     )
   }
