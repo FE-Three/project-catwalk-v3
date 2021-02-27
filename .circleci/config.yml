@@ -8,13 +8,12 @@ jobs:
 
     steps:
       - checkout
-      - run: ls
-      - run: cd my-app
-      - run: ls
-      - run: npm install
-      - run: npm test
+      - run: npm install --save
+      - run: npm run test
+      - store_test_results:
+          path: test-results
 
 Workflows:
   test:
     jobs:
-      - buildcd ls
+      - build
