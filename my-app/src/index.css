@@ -11,3 +11,32 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+#ratingsReviewsContainer {
+  display: grid;
+  width: 100%;
+  height: 300px;
+  grid-template-areas:   "title title"
+                         "ratings reviews"
+                         "ratings buttons";
+  grid-template-rows: 20px 100px 50px;
+  grid-template-columns: 200px 1fr;
+}
+#ratingsReviewsContainer .title {
+  grid-area: title;
+  background-color: purple;
+}
+#ratingsReviewsContainer .ratings {
+  grid-area: ratings;
+  background-color: blue;
+}
+#ratingsReviewsContainer .reviews {
+  grid-area: reviews;
+  background-color: green;
+}
+#ratingsReviewsContainer .buttons {
+  grid-area: buttons;
+  background-color: red;
+}
+
+
