@@ -8,6 +8,7 @@ jobs:
 
     steps:
       - checkout
+      - run: cd my-app
       - run: npm install --save
       - run: npm run test
       - store_test_results:
