@@ -8,10 +8,11 @@ jobs:
 
     steps:
       - checkout
+      - run: ls
       - run: cd my-app
       - run: ls
-      - run: yarn install
-      - run: yarn test
+      - run: npm install
+      - run: npm test
 
 Workflows:
   test:
