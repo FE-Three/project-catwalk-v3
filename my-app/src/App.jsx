@@ -21,8 +21,16 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <div class="container">
         Hello World!
+        <div class="productdesignContainer">product design container </div>
+        <div class="qaContainer">Questions and Answer Container </div>
+        <div id="ratingsReviewsContainer">
+          <div class="title">Ratings and Reviews</div>
+          <div class="ratings">Ratings Section</div>
+          <div class="reviews">Reviews Section</div>
+          <div class="buttons">Buttons Sections</div>
+        </div>
       </div>
     )
   }
