@@ -14,11 +14,11 @@ app.listen(port, () => {
 });
 
 app.get('*', (req, res) => {
-  console.log(req.path);
+
   axios({method: 'get',
          headers: {'Authorization': '2729e05f13787e05f65ecafdeb506b6c980d2b7b'},
-         url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-bld/${req.path}`
+         url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-bld${req.url}`
         })
-  .then(res => res.status(200).send(res))
-  .catch(err => res.send(err));
+  .then(response => res.status(200).send(response.data))
+  .catch(err => res.send(err))
 })
