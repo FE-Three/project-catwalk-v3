@@ -39,4 +39,42 @@ code {
   background-color: red;
 }
 
+#productDetailContainer {
+  display: grid;
+  height: 400px;
+  grid-template-areas:   "images info"
+                         "images style"
+                         "images cart"
+                         "whiteSpace whiteSpace"
+                         "overview overview";
 
+  grid-template-rows: 1fr 1fr 1fr .25fr .75fr .5fr;
+  grid-template-columns: 2fr 1fr;
+}
+
+#productDetailContainer .images {
+  grid-area: images;
+  background-color: purple;
+}
+#productDetailContainer .info {
+  grid-area: info;
+  background-color: blue;
+}
+#productDetailContainer .style {
+  grid-area: style;
+  background-color: green;
+}
+#productDetailContainer .cart {
+  grid-area: cart;
+  background-color: red;
+}
+
+#productDetailContainer .overview {
+  grid-area: overview;
+  background-color: yellow;
+}
+
+#productDetailContainer .whiteSpace {
+  grid-area: whiteSpace;
+  background-color: white;
+}

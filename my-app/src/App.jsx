@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import ProductDetail from './ProductDetail/ProductDetail.jsx'
 
 class App extends React.Component {
   constructor(props) {
@@ -13,7 +14,7 @@ class App extends React.Component {
 
   helloAPI() {
     console.log('test1')
-    axios.get('http://localhost:3000/products')
+    axios.get('http://localhost:3000/qa/questions?product_id=18080')
     .then(res => console.log(res))
     .catch(res => console.log(res))
   }
@@ -23,7 +24,7 @@ class App extends React.Component {
     return (
       <div class="container">
         Hello World!
-        <div class="productdesignContainer">product design container </div>
+        <ProductDetail />
         <div class="qaContainer">Questions and Answer Container </div>
         <div id="ratingsReviewsContainer">
           <div class="title">Ratings and Reviews</div>
