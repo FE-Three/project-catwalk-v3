@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import ProductDetail from './ProductDetail/ProductDetail.jsx'
 import QuestionsAnswers from '../src/questionsAndAnswers/QuestionsAnswers.jsx'
 
 class App extends React.Component {
@@ -18,7 +19,7 @@ class App extends React.Component {
 
   helloAPI() {
     console.log('test1')
-    axios.get('http://localhost:3000/products')
+    axios.get('http://localhost:3000/qa/questions?product_id=18080')
     .then(res => console.log(res))
     .catch(err => console.log(err))
   }
@@ -49,6 +50,8 @@ class App extends React.Component {
           <div class='moreAnsweredQuestions'>More Answered Questions</div>
           <div class='addQuestions'>Add a Question</div>
         </div>
+        <ProductDetail />
+        <div class="qaContainer">Questions and Answer Container </div>
         <div id="ratingsReviewsContainer">
           <div class="title">Ratings and Reviews</div>
           <div class="ratings">Ratings Section</div>
