@@ -37,6 +37,25 @@ class App extends React.Component {
     return (
       <div>
         <QuestionsAnswers questionsAndAnswers={this.state.data}/>
+      <div className="container">
+        Hello World!
+        <div className="productdesignContainer">product design container </div>
+        <div id="qaContainerOne">
+          <div class='searchBar'>Search for Answers Section</div>
+          <div class='questionAnswer'>Questions and Answers</div>
+          <div class='extraLinks'>Additional Links</div>
+        </div>
+        <div id='qaContainerTwo'>
+          <div class='moreAnsweredQuestions'>More Answered Questions</div>
+          <div class='addQuestions'>Add a Question</div>
+        </div>
+        <div id="ratingsReviewsContainer">
+          <div class="title">Ratings and Reviews</div>
+          <div class="ratings">Ratings Section</div>
+          <div class="reviews">Reviews Section</div>
+          <div class="buttons">Buttons Sections</div>
+        </div>
+        </div>
       </div>
     )
   }
