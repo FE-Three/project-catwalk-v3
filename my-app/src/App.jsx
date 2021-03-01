@@ -12,10 +12,10 @@ class App extends React.Component {
     this.helloAPI = this.helloAPI.bind(this);
     this.helloQuestion = this.helloQuestion.bind(this);
   }
-  componentDidMount() {
-    this.helloAPI();
-    this.helloQuestion();
-  }
+  // componentDidMount() {
+  //   this.helloAPI();
+  //   this.helloQuestion();
+  // }
 
   helloAPI() {
     console.log('test1')
