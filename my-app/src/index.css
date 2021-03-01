@@ -39,6 +39,52 @@ code {
   background-color: red;
 }
 
+#qaContainerOne {
+  display: grid;
+  width: 100%;
+  grid-template-areas:   "searchBar searchBar"
+                         "questionAnswer extraLinks"
+                         "moreAnsweredQuestions addQuestions";
+
+  grid-template-rows: 5fr 40fr;
+  grid-template-columns: 1fr;
+}
+
+#qaContainerOne .searchBar {
+  grid-area: searchBar;
+  background-color: purple;
+}
+
+#qaContainerOne .questionAnswer {
+  grid-area: questionAnswer;
+  background-color: blue;
+}
+
+#qaContainerOne .extraLinks {
+  grid-area: extraLinks;
+  background-color: green;
+}
+
+#qaContainerTwo {
+  display: grid;
+  width: 100%;
+  height: 80px;
+  grid-template-areas:   "moreAnsweredQuestions addQuestions";
+
+  grid-template-rows: 4fr 3fr;
+  grid-template-columns: 2fr 2fr;
+}
+
+#qaContainerTwo .moreAnsweredQuestions {
+  grid-area: moreAnsweredQuestions;
+  background-color: red;
+}
+
+#qaContainerTwo .addQuestions {
+  grid-area: addQuestions;
+  background-color: yellow;
+}
+
 #productDetailContainer {
   display: grid;
   height: 400px;
