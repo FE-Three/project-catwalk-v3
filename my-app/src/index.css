@@ -14,15 +14,13 @@ code {
 
 #productDetailContainer {
   display: grid;
-  height: 400px;
-  grid-template-areas:   "images info"
-                         "images style"
-                         "images cart"
-                         "whiteSpace whiteSpace"
-                         "overview overview";
-
-  grid-template-rows: 1fr 1fr 1fr .25fr .75fr .5fr;
-  grid-template-columns: 2fr 1fr;
+  width: 100%;
+  height: 500px;
+  grid-template-areas:   "title title"
+                         "ratings reviews"
+                         "ratings buttons";
+  grid-template-rows: 20px 200px 50px;
+  grid-template-columns: 200px 1fr;
 }
 
 #productDetailContainer .images {
@@ -154,4 +152,19 @@ code {
 #ratingsReviewsContainer .buttons {
   grid-area: buttons;
   background-color: red;
+}
+
+#productDetailContainer .overview {
+  grid-area: overview;
+  background-color: yellow;
+}
+
+#productDetailContainer .whiteSpace {
+  grid-area: whiteSpace;
+  background-color: white;
+}
+
+.review {
+  font-size: 12px;
+  height: 90px;
 }

@@ -1,12 +1,16 @@
 import React from 'react';
 import axios from 'axios';
-import ProductDetail from './ProductDetail/ProductDetail';
-import QuestionsAnswers from './questionsAndAnswers/QuestionsAnswers';
+import ProductDetail from './ProductDetail/ProductDetail.jsx'
+import QuestionsAnswers from '../src/questionsAndAnswers/QuestionsAnswers.jsx'
+import RatingsReviews from './Ratings&Reviews/RatingsReviews.jsx'
 
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      product_id: 18201,
+      data: []
+    };
     this.helloAPI = this.helloAPI.bind(this);
   }
 
@@ -22,9 +26,10 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="container">
         <ProductDetail />
         <QuestionsAnswers />
+        <RatingsReviews productID={this.state.product_id}/>
       </div>
     );
   }
