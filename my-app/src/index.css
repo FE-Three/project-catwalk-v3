@@ -12,79 +12,6 @@ code {
     monospace;
 }
 
-#ratingsReviewsContainer {
-  display: grid;
-  width: 100%;
-  height: 300px;
-  grid-template-areas:   "title title"
-                         "ratings reviews"
-                         "ratings buttons";
-  grid-template-rows: 20px 100px 50px;
-  grid-template-columns: 200px 1fr;
-}
-#ratingsReviewsContainer .title {
-  grid-area: title;
-  background-color: purple;
-}
-#ratingsReviewsContainer .ratings {
-  grid-area: ratings;
-  background-color: blue;
-}
-#ratingsReviewsContainer .reviews {
-  grid-area: reviews;
-  background-color: green;
-}
-#ratingsReviewsContainer .buttons {
-  grid-area: buttons;
-  background-color: red;
-}
-
-#qaContainerOne {
-  display: grid;
-  width: 100%;
-  grid-template-areas:   "searchBar searchBar"
-                         "questionAnswer extraLinks"
-                         "moreAnsweredQuestions addQuestions";
-
-  grid-template-rows: 5fr 40fr;
-  grid-template-columns: 1fr;
-}
-
-#qaContainerOne .searchBar {
-  grid-area: searchBar;
-  background-color: purple;
-}
-
-#qaContainerOne .questionAnswer {
-  grid-area: questionAnswer;
-  background-color: blue;
-}
-
-#qaContainerOne .extraLinks {
-  grid-area: extraLinks;
-  background-color: green;
-}
-
-#qaContainerTwo {
-  display: grid;
-  width: 100%;
-  height: 80px;
-  grid-template-areas:   "moreAnsweredQuestions addQuestions";
-
-  grid-template-rows: 4fr 3fr;
-  grid-template-columns: 2fr 2fr;
-}
-
-#qaContainerTwo .moreAnsweredQuestions {
-  grid-area: moreAnsweredQuestions;
-  background-color: red;
-}
-
-#qaContainerTwo .addQuestions {
-  grid-area: addQuestions;
-  background-color: yellow;
-}
-
 #productDetailContainer {
   display: grid;
   height: 400px;
@@ -123,4 +50,108 @@ code {
 #productDetailContainer .whiteSpace {
   grid-area: whiteSpace;
   background-color: white;
+}
+
+
+#qaContainerOne {
+  display: grid;
+  width: 100%;
+  grid-template-areas:   "searchBar searchBar"
+                         "questionAnswer extraLinks"
+                         "moreAnsweredQuestions addQuestions";
+
+  grid-template-rows: 5fr 40fr;
+  grid-template-columns: 1fr;
+  border: solid;
+}
+
+#qaContainerOne .searchBar {
+  grid-area: searchBar;
+  background-color: purple;
+}
+
+#qaContainerOne .questionAnswer {
+  grid-area: questionAnswer;
+  background-color: orange;
+}
+
+#qaContainerOne .extraLinks {
+  grid-area: extraLinks;
+  background-color: green;
+}
+
+#qaContainerTwo {
+  display: grid;
+  width: 100%;
+  height: 80px;
+  grid-template-areas:   "moreAnsweredQuestions addQuestions";
+
+  grid-template-rows: 4fr 3fr;
+  grid-template-columns: 2fr 2fr;
+}
+
+#qaContainerTwo .moreAnsweredQuestions {
+  grid-area: moreAnsweredQuestions;
+  background-color: red;
+}
+
+#qaContainerTwo .addQuestions {
+  grid-area: addQuestions;
+  background-color: yellow;
+}
+
+.questions {
+  font-size: small;
+  margin-left: 100px;
+  padding: 5px;
+  border: solid 2px;
+}
+
+.answers {
+  font-size: x-small;
+}
+
+.inputBar {
+  font-weight: bold;
+  height: 50px;
+  margin-left: 60px;
+}
+
+.addedLinks {
+  float: right;
+  font-style: italic;
+  font-size: xx-small;
+  font-weight: normal;
+}
+
+.userInfo {
+  font-style: italic;
+  font-size: xx-small;
+}
+
+#ratingsReviewsContainer {
+  display: grid;
+  width: 100%;
+  height: 300px;
+  grid-template-areas:   "title title"
+                         "ratings reviews"
+                         "ratings buttons";
+  grid-template-rows: 20px 100px 50px;
+  grid-template-columns: 200px 1fr;
+}
+#ratingsReviewsContainer .title {
+  grid-area: title;
+  background-color: purple;
+}
+#ratingsReviewsContainer .ratings {
+  grid-area: ratings;
+  background-color: blue;
+}
+#ratingsReviewsContainer .reviews {
+  grid-area: reviews;
+  background-color: green;
+}
+#ratingsReviewsContainer .buttons {
+  grid-area: buttons;
+  background-color: red;
 }
