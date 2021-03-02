@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React from 'react';
 import axios from 'axios';
 
@@ -15,23 +16,22 @@ class ProductOverview extends React.Component {
   }
 
   getProducts() {
-    console.log('test1')
-    axios.get('http://localhost:3000/qa/questions?product_id=18080')
-    .then(res => console.log(res))
-    .catch(err => console.log(err))
+    axios.get('http://localhost:3000/products')
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err));
   }
 
   render() {
     return (
       <div id="productDetailContainer">
 
-        <div class="images">Image Gallery</div>
-        <div class="info">Product Information</div>
-        <div class="style">Style Selector</div>
-        <div class="cart">Add to Cart</div>
-        <div class="whiteSpace"></div>
-        <div class="overview">Product Overview</div>
-        <div class="whiteSpace"></div>
+        <div className="images">Image Gallery</div>
+        <div className="info">Product Information</div>
+        <div className="style">Style Selector</div>
+        <div className="cart">Add to Cart</div>
+        <div className="whiteSpace"></div>
+        <div className="overview">Product Overview</div>
+        <div className="whiteSpace"></div>
       </div>
     )
   }

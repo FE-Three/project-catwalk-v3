@@ -1,7 +1,14 @@
+/* eslint-disable */
 import React from 'react';
 import axios from 'axios';
 import ProductOverview from './ProductOverview/ProductOverview.jsx'
 import QuestionsAnswers from '../src/questionsAndAnswers/QuestionsAnswers.jsx'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
 class App extends React.Component {
   constructor(props) {
@@ -43,20 +50,20 @@ class App extends React.Component {
         Hello World!
         <div className="productdesignContainer">product design container </div>
         <div id="qaContainerOne">
-          <div class='searchBar'>Search for Answers Section</div>
-          <div class='questionAnswer'>Questions and Answers</div>
-          <div class='extraLinks'>Additional Links</div>
+          <div className='searchBar'>Search for Answers Section</div>
+          <div className='questionAnswer'>Questions and Answers</div>
+          <div className='extraLinks'>Additional Links</div>
         </div>
         <div id='qaContainerTwo'>
-          <div class='moreAnsweredQuestions'>More Answered Questions</div>
-          <div class='addQuestions'>Add a Question</div>
+          <div className='moreAnsweredQuestions'>More Answered Questions</div>
+          <div className='addQuestions'>Add a Question</div>
         </div>
-        <div class="qaContainer">Questions and Answer Container </div>
+        <div className="qaContainer">Questions and Answer Container </div>
         <div id="ratingsReviewsContainer">
-          <div class="title">Ratings and Reviews</div>
-          <div class="ratings">Ratings Section</div>
-          <div class="reviews">Reviews Section</div>
-          <div class="buttons">Buttons Sections</div>
+          <div className="title">Ratings and Reviews</div>
+          <div className="ratings">Ratings Section</div>
+          <div className="reviews">Reviews Section</div>
+          <div className="buttons">Buttons Sections</div>
         </div>
         </div>
       </div>
