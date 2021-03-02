@@ -23,7 +23,7 @@ class ProductOverview extends React.Component {
 
   render() {
     return (
-      <div id="productDetailContainer">
+      <div id="productOverviewContainer">
 
         <div className="images">Image Gallery</div>
         <div className="info">Product Information</div>
