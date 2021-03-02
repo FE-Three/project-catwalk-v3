@@ -12,42 +12,42 @@ code {
     monospace;
 }
 
-#productDetailContainer {
+#productOverviewContainer {
   display: grid;
-  height: 400px;
+  height: 600px;
   grid-template-areas:   "images info"
                          "images style"
                          "images cart"
                          "whiteSpace whiteSpace"
-                         "overview overview";
+                         "description description";
 
-  grid-template-rows: 1fr 1fr 1fr .25fr .75fr .5fr;
+  grid-template-rows: .5fr 1fr .3fr .2fr .5fr .2fr;
   grid-template-columns: 2fr 1fr;
 }
 
-#productDetailContainer .images {
+#productOverviewContainer .images {
   grid-area: images;
   background-color: purple;
 }
-#productDetailContainer .info {
+#productOverviewContainer .info {
   grid-area: info;
   background-color: blue;
 }
-#productDetailContainer .style {
+#productOverviewContainer .style {
   grid-area: style;
   background-color: green;
 }
-#productDetailContainer .cart {
+#productOverviewContainer .cart {
   grid-area: cart;
   background-color: red;
 }
 
-#productDetailContainer .overview {
-  grid-area: overview;
+#productOverviewContainer .description {
+  grid-area: description;
   background-color: yellow;
 }
 
-#productDetailContainer .whiteSpace {
+#productOverviewContainer .whiteSpace {
   grid-area: whiteSpace;
   background-color: white;
 }
