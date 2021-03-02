@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import ProductDetail from './ProductDetail/ProductDetail.jsx'
+import ProductOverview from './ProductOverview/ProductOverview.jsx'
 import QuestionsAnswers from '../src/questionsAndAnswers/QuestionsAnswers.jsx'
 
 class App extends React.Component {
@@ -37,6 +37,7 @@ class App extends React.Component {
 
     return (
       <div>
+        <ProductOverview appState={this.state} />
         <QuestionsAnswers questionsAndAnswers={this.state.data}/>
       <div className="container">
         Hello World!
@@ -50,7 +51,6 @@ class App extends React.Component {
           <div class='moreAnsweredQuestions'>More Answered Questions</div>
           <div class='addQuestions'>Add a Question</div>
         </div>
-        <ProductDetail />
         <div class="qaContainer">Questions and Answer Container </div>
         <div id="ratingsReviewsContainer">
           <div class="title">Ratings and Reviews</div>
