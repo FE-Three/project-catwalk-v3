@@ -14,14 +14,14 @@ code {
 
 #productOverviewContainer {
   display: grid;
-  height: 400px;
+  height: 600px;
   grid-template-areas:   "images info"
                          "images style"
                          "images cart"
                          "whiteSpace whiteSpace"
-                         "overview overview";
+                         "description description";
 
-  grid-template-rows: 1fr 1fr 1fr .25fr .75fr .5fr;
+  grid-template-rows: .5fr 1fr .3fr .2fr .5fr .2fr;
   grid-template-columns: 2fr 1fr;
 }
 
@@ -42,8 +42,8 @@ code {
   background-color: red;
 }
 
-#productOverviewContainer .overview {
-  grid-area: overview;
+#productOverviewContainer .description {
+  grid-area: description;
   background-color: yellow;
 }
 

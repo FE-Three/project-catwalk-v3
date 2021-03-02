@@ -1,6 +1,11 @@
 /* eslint-disable */
 import React from 'react';
 import axios from 'axios';
+import ProductDescription from './ProductDescription.jsx'
+import ProductInformation from './ProductInformation.jsx'
+import ProductImages from './ProductImages.jsx'
+import ProductStyle from './ProductStyle.jsx'
+import ProductCart from './ProductCart.jsx'
 
 class ProductOverview extends React.Component {
   constructor(props) {
@@ -8,30 +13,23 @@ class ProductOverview extends React.Component {
     this.state = {
 
     }
-    this.getProducts = this.getProducts.bind(this);
+
   }
 
   componentDidMount() {
-    this.getProducts();
-  }
 
-  getProducts() {
-    axios.get('http://localhost:3000/products')
-      .then((res) => console.log(res))
-      .catch((err) => console.log(err));
   }
 
   render() {
     return (
       <div id="productOverviewContainer">
 
-        <div className="images">Image Gallery</div>
-        <div className="info">Product Information</div>
-        <div className="style">Style Selector</div>
-        <div className="cart">Add to Cart</div>
+        <ProductImages AppState={this.props.AppState} />
+        <ProductInformation AppState={this.props.AppState} />
+        <ProductStyle AppState={this.props.AppState} />
+        <ProductCart AppState={this.props.AppState} />
         <div className="whiteSpace"></div>
-        <div className="overview">Product Overview</div>
-        <div className="whiteSpace"></div>
+        <ProductDescription AppState={this.props.AppState} />
       </div>
     )
   }
