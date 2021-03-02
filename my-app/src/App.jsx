@@ -2,11 +2,13 @@ import React from 'react';
 import axios from 'axios';
 import ProductDetail from './ProductDetail/ProductDetail.jsx'
 import QuestionsAnswers from '../src/questionsAndAnswers/QuestionsAnswers.jsx'
+import RatingsReviews from './Ratings&Reviews/RatingsReviews.jsx'
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      product_id: 18201,
       data: []
     };
     this.helloAPI = this.helloAPI.bind(this);
@@ -36,29 +38,22 @@ class App extends React.Component {
   render() {
 
     return (
-      <div>
-        <QuestionsAnswers questionsAndAnswers={this.state.data}/>
       <div className="container">
         Hello World!
+        <ProductDetail />
+        <QuestionsAnswers questionsAndAnswers={this.state.data}/>
         <div className="productdesignContainer">product design container </div>
         <div id="qaContainerOne">
-          <div class='searchBar'>Search for Answers Section</div>
-          <div class='questionAnswer'>Questions and Answers</div>
-          <div class='extraLinks'>Additional Links</div>
+          <div className='searchBar'>Search for Answers Section</div>
+          <div className='questionAnswer'>Questions and Answers</div>
+          <div className='extraLinks'>Additional Links</div>
         </div>
         <div id='qaContainerTwo'>
-          <div class='moreAnsweredQuestions'>More Answered Questions</div>
-          <div class='addQuestions'>Add a Question</div>
+          <div className='moreAnsweredQuestions'>More Answered Questions</div>
+          <div className='addQuestions'>Add a Question</div>
         </div>
-        <ProductDetail />
-        <div class="qaContainer">Questions and Answer Container </div>
-        <div id="ratingsReviewsContainer">
-          <div class="title">Ratings and Reviews</div>
-          <div class="ratings">Ratings Section</div>
-          <div class="reviews">Reviews Section</div>
-          <div class="buttons">Buttons Sections</div>
-        </div>
-        </div>
+        <div className="qaContainer">Questions and Answer Container </div>
+        <RatingsReviews productID={this.state.product_id}/>
       </div>
     )
   }

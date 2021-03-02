@@ -15,11 +15,11 @@ code {
 #ratingsReviewsContainer {
   display: grid;
   width: 100%;
-  height: 300px;
+  height: 500px;
   grid-template-areas:   "title title"
                          "ratings reviews"
                          "ratings buttons";
-  grid-template-rows: 20px 100px 50px;
+  grid-template-rows: 20px 200px 50px;
   grid-template-columns: 200px 1fr;
 }
 #ratingsReviewsContainer .title {
@@ -123,4 +123,9 @@ code {
 #productDetailContainer .whiteSpace {
   grid-area: whiteSpace;
   background-color: white;
+}
+
+.review {
+  font-size: 12px;
+  height: 90px;
 }
