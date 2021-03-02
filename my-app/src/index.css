@@ -55,7 +55,8 @@ code {
 
 #qaContainerOne {
   display: grid;
-  width: 100%;
+  margin-left: 50px;
+  margin-right: 50px;
   grid-template-areas:   "searchBar searchBar"
                          "questionAnswer extraLinks"
                          "moreAnsweredQuestions addQuestions";
@@ -82,7 +83,8 @@ code {
 
 #qaContainerTwo {
   display: grid;
-  width: 100%;
+  margin-left: 50px;
+  margin-right: 50px;
   height: 80px;
   grid-template-areas:   "moreAnsweredQuestions addQuestions";
 
@@ -102,26 +104,66 @@ code {
 
 .questions {
   font-size: small;
-  margin-left: 100px;
+  margin-left: 50px;
+  margin-right: 50px;
   padding: 5px;
   border: solid 2px;
 }
 
 .answers {
   font-size: x-small;
+  padding-top: 15px;
 }
 
 .inputBar {
   font-weight: bold;
   height: 50px;
-  margin-left: 60px;
+  width: 400px;
+  margin-left: 50px;
+  margin-right: 50px;
 }
 
-.addedLinks {
+
+.yes {
+  text-decoration: underline;
+}
+
+.qContainer {
+  display: grid;
+  height: 25px;
+  grid-template-areas:   "questions addAnswerLink helpfulLink";
+  grid-template-rows: auto;
+  grid-template-columns: auto;
+}
+
+.addAnswerLink {
+  position: relative;
+  float: right;
+  text-decoration: underline;
+  font-style: italic;
+  font-size: xx-small;
+  font-weight: normal;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.helpfulLink {
+  position: relative;
   float: right;
   font-style: italic;
   font-size: xx-small;
   font-weight: normal;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+
+.moreAnsweredQuestionsButton {
+  width: 350px;
+  height: 50px;
+  background-color: rgb(123, 199, 224);
+  color: white;
+  font-weight: bolder;
 }
 
 .userInfo {

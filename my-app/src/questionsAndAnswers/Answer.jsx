@@ -3,8 +3,6 @@ import React from 'react';
 
 const Answer = (props) => {
 
-  console.log('ANSWER COMPONENT: ', props)
-
   return (
     <div>
       <p className='answers'>
