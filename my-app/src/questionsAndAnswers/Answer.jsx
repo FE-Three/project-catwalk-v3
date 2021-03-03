@@ -1,4 +1,5 @@
 import React from 'react';
+import Moment from 'react-moment';
 /* eslint-disable */
 
 const Answer = (props) => {
@@ -17,9 +18,7 @@ const Answer = (props) => {
         <span>&nbsp;</span>
         {props.username + ','}
         <span>&nbsp;</span>
-        {props.date.slice(5, 8)}
-        {props.date.slice(8, 10) + '-'}
-        {props.date.slice(0, 4)}
+        <Moment format='MMMM D, YYYY' date={props.date} />
         <span> &nbsp; &nbsp; &nbsp; &nbsp; |</span>
         <span> &nbsp; &nbsp; &nbsp; &nbsp; Helpful? Yes(#)</span>
         <span> &nbsp; &nbsp; &nbsp; &nbsp; |</span>
