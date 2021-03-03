@@ -6,7 +6,7 @@ const axios = require('axios');
 const cors = require('cors');
 
 app.use(cors());
-app.use(express.static(path.join(__dirname, '/public')))
+app.use(express.static(path.join(__dirname, '../public')))
 app.use(express.json());
 
 app.listen(port, () => {
@@ -14,7 +14,7 @@ app.listen(port, () => {
 });
 
 app.get('*', (req, res) => {
-  console.log(req.url);
+  console.log('where is req url??', req.url);
   axios({method: 'get',
          headers: {'Authorization': '2729e05f13787e05f65ecafdeb506b6c980d2b7b'},
          url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-bld${req.url}`

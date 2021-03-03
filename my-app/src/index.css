@@ -12,14 +12,171 @@ code {
     monospace;
 }
 
+#productOverviewContainer {
+  display: grid;
+  height: 600px;
+  grid-template-areas:   "images info"
+                         "images style"
+                         "images cart"
+                         "whiteSpace whiteSpace"
+                         "description description";
+
+  grid-template-rows: .5fr 1fr .3fr .2fr .5fr .2fr;
+  grid-template-columns: 2fr 1fr;
+}
+
+#productOverviewContainer .images {
+  grid-area: images;
+  background-color: purple;
+}
+#productOverviewContainer .info {
+  grid-area: info;
+  background-color: blue;
+}
+#productOverviewContainer .style {
+  grid-area: style;
+  background-color: green;
+}
+#productOverviewContainer .cart {
+  grid-area: cart;
+  background-color: red;
+}
+
+#productOverviewContainer .description {
+  grid-area: description;
+  background-color: yellow;
+}
+
+#productOverviewContainer .whiteSpace {
+  grid-area: whiteSpace;
+  background-color: white;
+}
+
+
+#qaContainerOne {
+  display: grid;
+  margin-left: 50px;
+  margin-right: 50px;
+  grid-template-areas:   "searchBar searchBar"
+                         "questionAnswer extraLinks"
+                         "moreAnsweredQuestions addQuestions";
+
+  grid-template-rows: 5fr 40fr;
+  grid-template-columns: 1fr;
+  border: solid;
+}
+
+#qaContainerOne .searchBar {
+  grid-area: searchBar;
+  background-color: purple;
+}
+
+#qaContainerOne .questionAnswer {
+  grid-area: questionAnswer;
+  background-color: orange;
+}
+
+#qaContainerOne .extraLinks {
+  grid-area: extraLinks;
+  background-color: green;
+}
+
+#qaContainerTwo {
+  display: grid;
+  margin-left: 50px;
+  margin-right: 50px;
+  height: 80px;
+  grid-template-areas:   "moreAnsweredQuestions addQuestions";
+
+  grid-template-rows: 4fr 3fr;
+  grid-template-columns: 2fr 2fr;
+}
+
+#qaContainerTwo .moreAnsweredQuestions {
+  grid-area: moreAnsweredQuestions;
+  background-color: red;
+}
+
+#qaContainerTwo .addQuestions {
+  grid-area: addQuestions;
+  background-color: yellow;
+}
+
+.questions {
+  font-size: small;
+  margin-left: 50px;
+  margin-right: 50px;
+  padding: 5px;
+  border: solid 2px;
+}
+
+.answers {
+  font-size: x-small;
+  padding-top: 15px;
+}
+
+.inputBar {
+  font-weight: bold;
+  height: 50px;
+  width: 400px;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+
+.yes {
+  text-decoration: underline;
+}
+
+.qContainer {
+  display: grid;
+  height: 25px;
+  grid-template-areas:   "questions addAnswerLink helpfulLink";
+  grid-template-rows: auto;
+  grid-template-columns: auto;
+}
+
+.addAnswerLink {
+  align-content: flex-end;
+  text-decoration: underline;
+  font-style: italic;
+  font-size: xx-small;
+  font-weight: normal;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.helpfulLink {
+  align-content: flex-end;
+  font-style: italic;
+  font-size: xx-small;
+  font-weight: normal;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+
+.moreAnsweredQuestionsButton {
+  width: 350px;
+  height: 50px;
+  background-color: rgb(123, 199, 224);
+  color: white;
+  font-weight: bolder;
+}
+
+.userInfo {
+  font-style: italic;
+  font-size: xx-small;
+}
+
 #ratingsReviewsContainer {
   display: grid;
   width: 100%;
-  height: 300px;
+  height: 400px;
   grid-template-areas:   "title title"
                          "ratings reviews"
                          "ratings buttons";
-  grid-template-rows: 20px 100px 50px;
+  grid-template-rows: 20px 250px 50px;
   grid-template-columns: 200px 1fr;
 }
 #ratingsReviewsContainer .title {
@@ -39,82 +196,6 @@ code {
   background-color: red;
 }
 
-#qaContainerOne {
-  display: grid;
-  width: 100%;
-  grid-template-areas:   "searchBar searchBar"
-                         "questionAnswer extraLinks"
-                         "moreAnsweredQuestions addQuestions";
-
-  grid-template-rows: 5fr 40fr;
-  grid-template-columns: 1fr;
-}
-
-#qaContainerOne .searchBar {
-  grid-area: searchBar;
-  background-color: purple;
-}
-
-#qaContainerOne .questionAnswer {
-  grid-area: questionAnswer;
-  background-color: blue;
-}
-
-#qaContainerOne .extraLinks {
-  grid-area: extraLinks;
-  background-color: green;
-}
-
-#qaContainerTwo {
-  display: grid;
-  width: 100%;
-  height: 80px;
-  grid-template-areas:   "moreAnsweredQuestions addQuestions";
-
-  grid-template-rows: 4fr 3fr;
-  grid-template-columns: 2fr 2fr;
-}
-
-#qaContainerTwo .moreAnsweredQuestions {
-  grid-area: moreAnsweredQuestions;
-  background-color: red;
-}
-
-#qaContainerTwo .addQuestions {
-  grid-area: addQuestions;
-  background-color: yellow;
-}
-
-#productDetailContainer {
-  display: grid;
-  height: 400px;
-  grid-template-areas:   "images info"
-                         "images style"
-                         "images cart"
-                         "whiteSpace whiteSpace"
-                         "overview overview";
-
-  grid-template-rows: 1fr 1fr 1fr .25fr .75fr .5fr;
-  grid-template-columns: 2fr 1fr;
-}
-
-#productDetailContainer .images {
-  grid-area: images;
-  background-color: purple;
-}
-#productDetailContainer .info {
-  grid-area: info;
-  background-color: blue;
-}
-#productDetailContainer .style {
-  grid-area: style;
-  background-color: green;
-}
-#productDetailContainer .cart {
-  grid-area: cart;
-  background-color: red;
-}
-
 #productDetailContainer .overview {
   grid-area: overview;
   background-color: yellow;
@@ -123,4 +204,10 @@ code {
 #productDetailContainer .whiteSpace {
   grid-area: whiteSpace;
   background-color: white;
+}
+
+.review {
+  font-size: 12px;
+  height: 125px;
+  border: 1px solid black;
 }
