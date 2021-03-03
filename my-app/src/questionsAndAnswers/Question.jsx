@@ -5,7 +5,7 @@ import Answer from './Answer';
 const Question = (props) => {
   const answerKeys = Object.values(props.answer);
 
-  console.log('QUESTION COMPONENT: ', answerKeys)
+  //console.log('QUESTION COMPONENT: ', answerKeys)
 
   return (
     <div className="questions">

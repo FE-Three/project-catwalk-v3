@@ -29,7 +29,7 @@ class QuestionsAnswers extends React.Component {
   }
 
   searchAnswers(questions) {
-    console.log('this is working!')
+    //console.log('this is working!')
   }
 
   render() {
