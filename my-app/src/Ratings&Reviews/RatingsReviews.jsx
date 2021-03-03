@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-/* eslint-disable */
-=======
 /* eslint-disable react/destructuring-assignment */
->>>>>>> testing
 import React from 'react';
 import axios from 'axios';
 import ReviewList from './ReviewList.jsx';
