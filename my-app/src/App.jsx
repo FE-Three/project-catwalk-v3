@@ -12,11 +12,11 @@ import {
 } from "react-router-dom";
 
 
-export default class App extends React.Component {
+class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      product_id: 18201,
+      product_id: this.props.paramID,
       product: [],
       productStyles: []
     };
@@ -44,27 +44,15 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <Router>
-        <div className="container">
-          <ProductOverview AppState={this.state} />
-
-
-            <Switch>
-              <Route path="/#">
-                <QuestionsAnswers />
-                <RatingsReviews productID={this.state.product_id} />
-              </Route>
-            </Switch>
-
-
-
-        </div>
-
-      </Router>
+      <div className="container">
+        <ProductOverview AppState={this.state} />
+        <QuestionsAnswers />
+        <RatingsReviews productID={this.state.product_id} />
+      </div>
     );
   }
 }
 
 
 
-// export default App;
+export default App;

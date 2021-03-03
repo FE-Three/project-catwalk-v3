@@ -5,13 +5,21 @@ const app = express();
 const axios = require('axios');
 const cors = require('cors');
 
+
+app.use(express.static(path.join(__dirname, '../public')));
+
+app.get('/item/*', (req, res) =>{
+  res.sendFile(path.join(path.join(__dirname, '../public/index.html')));
+});
+
 app.use(cors());
-app.use(express.static(path.join(__dirname, '../public')))
 app.use(express.json());
 
 app.listen(port, () => {
   console.log(`Server listening at localhost:${port}!`);
 });
+
+
 
 app.get('*', (req, res) => {
   console.log('where is req url??', req.url);
