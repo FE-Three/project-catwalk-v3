@@ -1,20 +1,19 @@
 import React from 'react';
 import Reviews from './Reviews.jsx';
 
-const ReviewList = ({reviews}) => {
-
-  var firstIndex = 0;
-  var secondIndex = 1;
+const ReviewList = ({ reviews }) => {
+  let firstIndex = 0;
+  let secondIndex = 1;
   return (
-  <div>
     <div>
-      <Reviews review={reviews[firstIndex]}/>
+      <div>
+        <Reviews review={reviews[firstIndex]} />
+      </div>
+      <div>
+        <Reviews review={reviews[secondIndex]} />
+      </div>
     </div>
-    <div>
-      <Reviews review={reviews[secondIndex]}/>
-    </div>
-  </div>
-  )
-}
+  );
+};
 
 export default ReviewList;
