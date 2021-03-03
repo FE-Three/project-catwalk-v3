@@ -2,6 +2,8 @@ import React from 'react';
 import axios from 'axios';
 import SearchForAnswers from './SearchForAnswers';
 import Display from './Display';
+import MoreAnsweredQuestions from './MoreAnsweredQuestions';
+import AddQuestion from './AddQuestion';
 /* eslint-disable */
 
 class QuestionsAnswers extends React.Component {
@@ -14,6 +16,7 @@ class QuestionsAnswers extends React.Component {
     // bindings
     this.renderQASection = this.renderQASection.bind(this);
     this.searchAnswers = this.searchAnswers.bind(this);
+    this.handleLoadMoreAnswers = this.handleLoadMoreAnswers.bind(this);
   }
   // methods
   componentDidMount() {
@@ -29,21 +32,26 @@ class QuestionsAnswers extends React.Component {
   }
 
   searchAnswers(questions) {
-    console.log('this is working!')
+    //console.log('this is working!')
   }
 
+  handleLoadMoreAnswers() {
+    console.log('Load More Answers Button is working!')
+  }
+
+
   render() {
+    console.log('DATA!!: ', this.state.data)
     return (
       <div>
         <div id="qaContainerOne">
             <div className="searchBar"><SearchForAnswers searchAnswers={this.searchAnswers}/></div>
             <div className="questionAnswer">
-            <Display display={this.state.data}/></div>
-            <div className="extraLinks">Additional Links</div>
-          </div>
+              <Display display={this.state.data} updateNum={this.updateHelpfulNum}/></div>
+            </div>
           <div id="qaContainerTwo">
-            <div className="moreAnsweredQuestions">More Answered Questions</div>
-            <div className="addQuestions">Add a Question</div>
+            <div className="moreAnsweredQuestions"><MoreAnsweredQuestions loadAnswers={this.handleLoadMoreAnswers}/></div>
+            <div className="addQuestions"><AddQuestion /></div>
           </div>
       </div>
     )

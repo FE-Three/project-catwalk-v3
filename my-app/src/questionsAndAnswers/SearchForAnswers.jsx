@@ -31,7 +31,7 @@ class SearchForAnswers extends React.Component {
               name="name"
               onChange={this.handleSearchChange}
               value={this.state.name}
-              style={{ width: "750px" }}
+              style={{ width: "500px" }}
               placeholder="HAVE A QUESTION? SEARCH FOR ANSWERS..."
             ></input>
           </label>
