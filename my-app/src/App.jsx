@@ -12,7 +12,7 @@ import {
 } from "react-router-dom";
 
 
-class App extends React.Component {
+export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -22,6 +22,7 @@ class App extends React.Component {
     };
     this.getProduct = this.getProduct.bind(this);
     this.getStyles = this.getStyles.bind(this);
+
   }
 
   componentDidMount() {
@@ -43,13 +44,27 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="container">
-        <ProductOverview AppState={this.state} />
-        <QuestionsAnswers />
-        <RatingsReviews productID={this.state.product_id}/>
-      </div>
+      <Router>
+        <div className="container">
+          <ProductOverview AppState={this.state} />
+
+
+            <Switch>
+              <Route path="/#">
+                <QuestionsAnswers />
+                <RatingsReviews productID={this.state.product_id} />
+              </Route>
+            </Switch>
+
+
+
+        </div>
+
+      </Router>
     );
   }
 }
 
-export default App;
+
+
+// export default App;
