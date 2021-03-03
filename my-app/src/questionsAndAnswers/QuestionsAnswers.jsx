@@ -39,14 +39,15 @@ class QuestionsAnswers extends React.Component {
     console.log('Load More Answers Button is working!')
   }
 
+
   render() {
+    console.log('DATA!!: ', this.state.data)
     return (
       <div>
         <div id="qaContainerOne">
             <div className="searchBar"><SearchForAnswers searchAnswers={this.searchAnswers}/></div>
             <div className="questionAnswer">
-              <Display display={this.state.data}/></div>
-              {/* <div className="extraLinks">Additional Links</div> */}
+              <Display display={this.state.data} updateNum={this.updateHelpfulNum}/></div>
             </div>
           <div id="qaContainerTwo">
             <div className="moreAnsweredQuestions"><MoreAnsweredQuestions loadAnswers={this.handleLoadMoreAnswers}/></div>

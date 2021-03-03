@@ -137,8 +137,7 @@ code {
 }
 
 .addAnswerLink {
-  position: relative;
-  float: right;
+  align-content: flex-end;
   text-decoration: underline;
   font-style: italic;
   font-size: xx-small;
@@ -148,8 +147,7 @@ code {
 }
 
 .helpfulLink {
-  position: relative;
-  float: right;
+  align-content: flex-end;
   font-style: italic;
   font-size: xx-small;
   font-weight: normal;
