@@ -28,6 +28,8 @@ class Question extends React.Component {
       })
     }
 
+  //console.log('QUESTION COMPONENT: ', answerKeys)
+
     // axios.post('http://localhost:3000/qa/questions?product_id=18080', num)
     //   .then(res => {
     //     this.setState({count : [...this.state.count + 1, num]})

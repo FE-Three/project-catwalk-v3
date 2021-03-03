@@ -32,7 +32,7 @@ class QuestionsAnswers extends React.Component {
   }
 
   searchAnswers(questions) {
-    console.log('Search Bar Click is working!')
+    //console.log('this is working!')
   }
 
   handleLoadMoreAnswers() {

@@ -4,7 +4,8 @@ import Question from './Question';
 
 const Display = (props) => {
 
-  // console.log('DISPLAY: ', props.display.results)
+  //console.log('DISPLAY COMPONENT: ', props.display)
+
   return (
   <div>
     {props.display.results

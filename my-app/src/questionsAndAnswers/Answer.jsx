@@ -4,6 +4,8 @@ import Moment from 'react-moment';
 
 const Answer = (props) => {
 
+  //console.log('ANSWER COMPONENT: ', props)
+
   return (
     <div>
       <p className='answers'>
