@@ -53,13 +53,13 @@ code {
 }
 
 
+
 #qaContainerOne {
   display: grid;
   margin-left: 50px;
   margin-right: 50px;
   grid-template-areas:   "searchBar searchBar"
-                         "questionAnswer extraLinks"
-                         "moreAnsweredQuestions addQuestions";
+                         "questionAnswer extraLinks";
 
   grid-template-rows: 5fr 40fr;
   grid-template-columns: 1fr;
@@ -102,72 +102,134 @@ code {
   background-color: yellow;
 }
 
-.questions {
+#qContainer {
+  display: grid;
+  height: 25px;
+  grid-template-areas:   "questions helpfulLink divider addAnswerLink";
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr;
+}
+
+#qContainer .questions {
+  grid-area: questions;
+  border: solid 2px;
   font-size: small;
   margin-left: 50px;
   margin-right: 50px;
-  padding: 5px;
-  border: solid 2px;
+  padding-left: 5px;
 }
 
+#qContainer .helpfulLink {
+  grid-area: helpfulLink;
+  font-size: xx-small;
+  font-style: italic;
+  font-weight: normal;
+  justify-content: right;
+  margin-top: 20px;
+}
+
+#qContainer .divider {
+  grid-area: divider;
+  font-size: xx-small;
+  font-style: italic;
+  font-weight: normal;
+  justify-content: right;
+  margin-top: 20px;
+}
+
+#qContainer .addAnswerLink {
+  grid-area: addAnswerLink;
+  cursor: pointer;
+  font-size: xx-small;
+  font-style: italic;
+  font-weight: normal;
+  justify-content: right;
+  margin-top: 20px;
+  padding-right: 10px;
+  text-decoration: underline;
+}
+
+#aContainer {
+  display: grid;
+  height: 25px;
+  grid-template-areas:   "userInfo date dividerOne answerHelpful dividerTwo report";
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr;
+}
+
+#aContainer .userInfo {
+  font-size: xx-small;
+  font-style: italic;
+  padding-left: 26px;
+}
+
+#aContainer .date {
+  font-size: xx-small;
+  font-style: italic;
+}
+
+#aContainer .dividerOne {
+  font-size: xx-small;
+  font-style: italic;
+}
+
+#aContainer .answerHelpful {
+  font-size: xx-small;
+  font-style: italic;
+}
+
+#aContainer .dividerTwo {
+  font-size: xx-small;
+  font-style: italic;
+}
+
+#aContainer .report {
+  font-size: xx-small;
+  font-style: italic;
+}
+
+
 .answers {
-  font-size: x-small;
+  font-size: small;
   padding-top: 15px;
+  padding-left: 2px;
 }
 
 .inputBar {
   font-weight: bold;
   height: 50px;
-  width: 400px;
   margin-left: 50px;
   margin-right: 50px;
+  width: auto;
 }
-
 
 .yes {
+  cursor: pointer;
   text-decoration: underline;
 }
 
-.qContainer {
-  display: grid;
-  height: 25px;
-  grid-template-areas:   "questions addAnswerLink helpfulLink";
-  grid-template-rows: auto;
-  grid-template-columns: auto;
-}
-
-.addAnswerLink {
-  align-content: flex-end;
+.reportText {
+  cursor: pointer;
   text-decoration: underline;
-  font-style: italic;
-  font-size: xx-small;
-  font-weight: normal;
-  cursor: pointer;
-  margin-top: 20px;
 }
-
-.helpfulLink {
-  align-content: flex-end;
-  font-style: italic;
-  font-size: xx-small;
-  font-weight: normal;
-  cursor: pointer;
-  margin-top: 20px;
-}
-
 
 .moreAnsweredQuestionsButton {
-  width: 350px;
-  height: 50px;
   background-color: rgb(123, 199, 224);
   color: white;
   font-weight: bolder;
+  height: 50px;
+  width: 350px;
 }
 
-.userInfo {
-  font-style: italic;
-  font-size: xx-small;
+.addQuestionButton {
+  background-color: rgb(123, 199, 224);
+  color: white;
+  font-weight: bolder;
+  height: 50px;
+  width: 350px;
 }
+
+
 
 #ratingsReviewsContainer {
   display: grid;
