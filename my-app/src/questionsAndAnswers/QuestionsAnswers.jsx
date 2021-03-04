@@ -41,7 +41,7 @@ class QuestionsAnswers extends React.Component {
 
 
   render() {
-    console.log('DATA!!: ', this.state.data)
+    //console.log('DATA!!: ', this.state.data)
     return (
       <div>
         <div id="qaContainerOne">
