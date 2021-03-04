@@ -11,6 +11,10 @@ app.use(express.static(path.join(__dirname, '../public')));
 
 app.get('/item/*', (req, res) =>{
   res.sendFile(path.join(path.join(__dirname, '../public/index.html')));
+  res.sendFile(path.join(path.join(__dirname, '../public/app.js')));
+});
+app.get('/:id(\\d+)/', (req, res) =>{
+  res.sendFile(path.join(path.join(__dirname, '../public/index.html')));
 });
 
 app.use(cors());
