@@ -1,6 +1,6 @@
 /* eslint-disable no-plusplus */
 import React from 'react';
-import Stars from './Stars.jsx';
+import StarRatingComponent from 'react-star-rating-component';
 
 const Ratings = ({ ratings }) => {
   if (ratings !== undefined) {
@@ -26,8 +26,7 @@ function ShowRatings({ ratings }) {
   }
   return (
     <div>
-      <Stars ratings={sum / array.length} />
-      <h1>{sum / array.length}</h1>
+      <span className="ratingVal">{sum / array.length}</span><StarRatingComponent name="star" starCount={5} value={sum / array.length} />
     </div>
   );
 }

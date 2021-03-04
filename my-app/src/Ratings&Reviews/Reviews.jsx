@@ -1,5 +1,8 @@
 /* eslint-disable */
 import React from 'react';
+import StarRatingComponent from 'react-star-rating-component';
+import Recommend from './Recommend.jsx';
+import Moment from 'react-moment';
 
 class Reviews extends React.Component {
   constructor(props) {
@@ -11,12 +14,30 @@ class Reviews extends React.Component {
     const resultsLoaded = this.props.review;
     let display;
     if (resultsLoaded) {
-      display = <div className="review">{this.props.review.body}</div>;
+      display = (
+        <div>
+          <StarRatingComponent name="star1" starCount={5} value={this.props.review.rating}/>
+          <div className="reviewer">{this.props.review.reviewer_name}</div>
+          <Moment format='MMMM D, YYYY' date={this.props.review.date} />
+          <div className="review-summ">{this.props.review.summary}</div>
+          <div className="review-body">{this.props.review.body}</div>
+          <Recommend recommend={this.props.review.recommend} />
+          <div className="response">Response: {this.props.review.response}</div>
+          <div className="helpful">
+            Helpful?
+            <button>Yes</button>
+            ({this.props.review.helpfulness})  |
+            <button>Report</button>
+            </div>
+        </div>
+      );
     } else {
       display = <div>loading...</div>;
     }
     return (
-      <div>{display}</div>
+      <div>
+        {display}
+      </div>
     );
   }
 }
