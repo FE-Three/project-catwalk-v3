@@ -49,6 +49,7 @@ class Question extends React.Component {
   }
 
   loadTwo() {
+
     const answerKeys = Object.values(this.props.answer);
     const sorted = answerKeys.sort((a, b) => {
       return b.helpfulness - a.helpfulness
