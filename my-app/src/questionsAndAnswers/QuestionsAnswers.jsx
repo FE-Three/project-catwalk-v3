@@ -32,7 +32,7 @@ class QuestionsAnswers extends React.Component {
   }
 
   searchAnswers(questions) {
-    //console.log('this is working!')
+    console.log('this is working!')
   }
 
   handleLoadMoreAnswers() {
@@ -41,13 +41,13 @@ class QuestionsAnswers extends React.Component {
 
 
   render() {
-    console.log('DATA!!: ', this.state.data)
+
     return (
       <div>
         <div id="qaContainerOne">
             <div className="searchBar"><SearchForAnswers searchAnswers={this.searchAnswers}/></div>
             <div className="questionAnswer">
-              <Display display={this.state.data} updateNum={this.updateHelpfulNum}/></div>
+              <Display display={this.state.data}/></div>
             </div>
           <div id="qaContainerTwo">
             <div className="moreAnsweredQuestions"><MoreAnsweredQuestions loadAnswers={this.handleLoadMoreAnswers}/></div>

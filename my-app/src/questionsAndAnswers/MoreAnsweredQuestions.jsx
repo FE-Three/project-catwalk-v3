@@ -3,7 +3,6 @@ import React from 'react';
 
 const MoreAnsweredQuestions = (props) => {
 
-
   return (
     <div>
       <button className='moreAnsweredQuestionsButton' onClick={props.loadAnswers}>MORE ANSWERED QUESTIONS</button>

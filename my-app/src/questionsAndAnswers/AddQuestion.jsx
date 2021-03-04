@@ -14,7 +14,7 @@ class AddQuestion extends React.Component {
   render() {
     return (
       <div>
-        <button onClick={this.addQuestions}>ADD A QUESTION +</button>
+        <button className='addQuestionButton' onClick={this.addQuestions}>ADD A QUESTION +</button>
       </div>
     );
   }
