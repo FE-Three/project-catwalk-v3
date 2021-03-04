@@ -4,13 +4,6 @@ import axios from 'axios';
 import ProductOverview from './ProductOverview/ProductOverview.jsx'
 import QuestionsAnswers from '../src/questionsAndAnswers/QuestionsAnswers.jsx'
 import RatingsReviews from './Ratings&Reviews/RatingsReviews.jsx'
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
-
 
 class App extends React.Component {
   constructor(props) {
