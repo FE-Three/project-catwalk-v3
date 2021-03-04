@@ -41,7 +41,6 @@ class QuestionsAnswers extends React.Component {
 
 
   render() {
-
     return (
       <div>
         <div id="qaContainerOne">
