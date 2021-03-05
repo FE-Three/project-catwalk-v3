@@ -1,12 +1,12 @@
 /* eslint-disable no-plusplus */
 import React from 'react';
 import StarRatingComponent from 'react-star-rating-component';
+import BarGraph from './BarGraph.jsx';
 
 const Ratings = ({ ratings }) => {
   if (ratings !== undefined) {
     return (
       <div>
-
         <ShowRatings ratings={ratings} />
       </div>
     );
@@ -14,19 +14,22 @@ const Ratings = ({ ratings }) => {
   return <Loading />;
 };
 
-function Loading (props) {
+function Loading() {
   return <h3>loading...</h3>;
 }
 
 function ShowRatings({ ratings }) {
-  const array = Object.values(ratings);
   let sum = 0;
-  for (let i = 0; i < array.length; i++) {
-    sum += parseInt(array[i], 10);
+  let num = 0;
+  for (let key in ratings) {
+    sum += (key * ratings[key]);
+    num += parseInt(ratings[key]);
   }
   return (
     <div>
-      <span className="ratingVal">{sum / array.length}</span><StarRatingComponent name="star" starCount={5} value={sum / array.length} />
+      <span className="ratingVal">{sum / num}</span>
+      <StarRatingComponent name="star" starCount={5} value={sum / num} />
+      <BarGraph ratings={ratings} />
     </div>
   );
 }
