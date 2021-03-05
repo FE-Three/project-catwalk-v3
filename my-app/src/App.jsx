@@ -61,7 +61,7 @@ class App extends React.Component {
     return (
       <div className="container">
         <ProductOverview AppState={this.state} />
-        <QuestionsAnswers />
+        <QuestionsAnswers Questions={this.state.product_id}/>
         <RatingsReviews className="ratingsReviewsContainer" productID={this.state.product_id} />
       </div>
     );

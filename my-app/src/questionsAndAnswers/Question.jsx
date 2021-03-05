@@ -1,4 +1,5 @@
 import React from 'react';
+import Modal from 'react-modal';
 // import axios from 'axios';
 import Answer from './Answer';
 /* eslint-disable */
@@ -10,13 +11,15 @@ class Question extends React.Component {
       count: this.props.helpful,
       helpfulClicked: false,
       clickedTestTwo: false,
-      loadAllClick: false
+      loadAllClick: false,
+      showModal: false
     }
     // console.log('answerOne: ', answerOne);
     this.helpfulToggle = this.helpfulToggle.bind(this);
-    this.addAnswer = this.addAnswer.bind(this);
     this.loadTwo = this.loadTwo.bind(this);
-    // this.loadAll = this.loadAll.bind(this);
+    this.loadAll = this.loadAll.bind(this);
+    this.handleOpenModal = this.handleOpenModal.bind(this);
+    this.handleCloseModal = this.handleCloseModal.bind(this);
   }
 
   helpfulToggle() {
@@ -41,53 +44,69 @@ class Question extends React.Component {
     //   .catch(err => console.log('COULD NOT ADD NUM: ', err))
   }
 
-  addAnswer() {
-    console.log('addAnswer is Clicked');
-    this.setState({
-      clickedTestTwo: !this.state.clickedTestTwo
-    })
-  }
-
   loadTwo() {
-
     const answerKeys = Object.values(this.props.answer);
     const sorted = answerKeys.sort((a, b) => {
       return b.helpfulness - a.helpfulness
     })
-    return sorted.slice(0, 2).map((answer, i) => (
-      <Answer answer={answer.body} username={answer.answerer_name} date={answer.date} helpfulness={answer.helpfulness} key={i} />
-      ))
+    if (this.state.loadAllClick === false) {
+      return (
+      <div>
+        {sorted.slice(0, 2).map((answer, i) => {
+        return <Answer answer={answer.body} username={answer.answerer_name} date={answer.date} helpfulness={answer.helpfulness} key={i}/>
+        })}
+        <button className='collapseButton' onClick={() => this.loadAll()}>See more answers</button>
+      </div>
+      )
+    } else {
+      return (
+      <div>
+        {sorted.map((answer, i) => {
+        return <Answer answer={answer.body} username={answer.answerer_name} date={answer.date} helpfulness={answer.helpfulness} key={i}/>
+        })}
+        <button className='collapseButton' onClick={() => this.loadAll()}>Collapse answers</button>
+      </div>
+      )
+    }
+  }
+
+    loadAll() {
+      this.setState({
+        loadAllClick: !this.state.loadAllClick,
+      });
     }
 
-    // loadAll() {
-    //   if (this.state.helpfulClicked === false) {
-    //     this.setState({
-    //       loadAllClick: !this.state.loadAllClick,
-    //     });
-    //   const answerKeys = Object.values(this.props.answer);
-    //   const sorted = answerKeys.sort((a, b) => {
-    //     return b.helpfulness - a.helpfulness
-    //   })
-    //   return sorted.map((answer, i) => (
-    //     <Answer answer={answer.body} username={answer.answerer_name} date={answer.date} helpfulness={answer.helpfulness} key={i} />
-    //     ))
-    // }
+    handleOpenModal () {
+      this.setState({ showModal: true });
+    }
+
+    handleCloseModal () {
+      this.setState({ showModal: false });
+    }
 
 
-    render() {
-      const answerKeys = Object.values(this.props.answer);
-      const nextTest = this.state.clickedTestTwo ? 'yellow' : null;
-      // const loadingAll = this.state.loadAllClick ?
-      const sorted = answerKeys.sort((a, b) => {
-        return b.helpfulness - a.helpfulness
-    })
-    return (
-      <div className="questions">
+
+      render() {
+        const answerKeys = Object.values(this.props.answer);
+        const sorted = answerKeys.sort((a, b) => {
+          return b.helpfulness - a.helpfulness
+        })
+        return (
+          <div className="questions">
         <div id='qContainer'>
           <h4> Q: {this.props.question}</h4>
-          <div className='helpfulLink' onClick={this.helpfulToggle}>Helpful&nbsp;<span className='yes'>Yes</span>({this.state.count})&nbsp;&nbsp;</div>
+          <div className='helpfulLink'>Helpful&nbsp;<span className='yes' onClick={this.helpfulToggle}>Yes</span>({this.state.count})&nbsp;&nbsp;</div>
           <span className='divider'> | &nbsp;&nbsp; </span>
-          <div className='addAnswerLink' onClick={this.addAnswer}>Add Answer{nextTest}</div>
+          {!this.state.showModal ?
+          <div className='addAnswerLink' onClick={this.handleOpenModal}>Add Answer</div>
+          : <Modal
+              isOpen={true}
+              contentLabel="onRequestClose Example"
+              onRequestClose={this.handleCloseModal}>
+              <h1>Modal Pop-Up</h1>
+              <button onClick={this.handleCloseModal}>Close Modal</button>
+           </Modal>
+          }
         </div>
         {answerKeys.length <= 2
         ?

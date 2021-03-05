@@ -196,6 +196,7 @@ code {
 }
 
 .inputBar {
+  clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 75% 75%, 75% 100%, 50% 75%, 0% 75%);
   font-weight: bold;
   height: 50px;
   margin-left: 50px;
@@ -229,7 +230,16 @@ code {
   width: 350px;
 }
 
+.collapseButton {
+  background-color: rgb(20, 113, 201);
+  border-radius: 5px;
+  outline: none;
+  cursor: pointer;
+}
 
+.collapseButton:hover {
+  background-color: rgb(17, 128, 231);
+}
 
 #ratingsReviewsContainer {
   display: grid;
