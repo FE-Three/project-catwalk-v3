@@ -14,6 +14,8 @@ class ProductStyle extends React.Component {
   }
 
   render() {
+    //console.log(this.props.AppState.productStyles.results[0].photos[0].thumbnail_url)
+   console.log(this.props.AppState.productStyles.results)
     return (
       <div className="style">
         <div id="styleContainer">
@@ -21,19 +23,36 @@ class ProductStyle extends React.Component {
         {this.props.AppState.productStyles.results
           ?
           `$${this.props.AppState.productStyles.results[0].original_price}`
+
           :
           ''
         }
           </div>
           <div className="styleH">STYLE > SELECTED STYLE</div>
-          <div className="TH1"></div>
-          <div className="TH2"></div>
-          <div className="TH3"></div>
-          <div className="TH4"></div>
-          <div className="TH5"></div>
-          <div className="TH6"></div>
-          <div className="TH7"></div>
-          <div className="TH8"></div>
+          <div className="TN1">
+            <div className="TN"></div>
+          </div>
+          <div className="TN2">
+            <div className="TN"></div>
+          </div>
+          <div className="TN3">
+            <div className="TN"></div>
+          </div>
+          <div className="TN4">
+            <div className="TN"></div>
+          </div>
+          <div className="TN5">
+            <div className="TN"></div>
+          </div>
+          <div className="TN6">
+            <div className="TN"></div>
+          </div>
+          <div className="TN7">
+            <div className="TN"></div>
+          </div>
+          <div className="TN8">
+            <div className="TN"></div>
+          </div>
           <div className="WS"></div>
 
         </div>

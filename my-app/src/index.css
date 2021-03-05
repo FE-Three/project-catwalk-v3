@@ -35,7 +35,6 @@ code {
 }
 #productOverviewContainer .style {
   grid-area: style;
-  background-color: green;
 }
 #productOverviewContainer .cart {
   grid-area: cart;
@@ -57,8 +56,8 @@ code {
   height: 100%;
   grid-template-areas:  "price price price price price"
                         "styleH styleH styleH styleH styleH"
-                        "TN1 TH2 TH3 TH4 WS"
-                        "TH5 TH6 TH7 TH8 WS";
+                        "TN1 TN2 TN3 TN4 WS"
+                        "TN5 TN6 TN7 TN8 WS";
   grid-template-rows: 1fr 1fr 3fr 3fr;
   grid-template-columns: 2.25fr 2.25fr 2.25fr 2.25fr 3fr;
 }
@@ -76,61 +75,70 @@ code {
   background-color: white;
 }
 
+.TN {
+  background-color: #FF0000;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+
+
+}
+
 #styleContainer .TN1 {
   grid-area: TN1;
-  background-color:rgb(123, 199, 224);
-  border-radius: 50%;
-  width: 90%;
-  height: 90%;
+  padding: 10%;
+  display: grid;
+  justify-content: center;
+  align-content: center;
 }
 #styleContainer .TN2 {
   grid-area: TN2;
-  background-color:rgb(123, 199, 224);
-  border-radius: 50%;
-  width: 90%;
-  height: 90%;
+  padding: 10%;
+  display: grid;
+  justify-content: center;
+  align-content: center;
 }
 #styleContainer .TN3 {
   grid-area: TN3;
-  background-color:rgb(123, 199, 224);
-  border-radius: 50%;
-  width: 90%;
-  height: 90%;
+  padding: 10%;
+  display: grid;
+  justify-content: center;
+  align-content: center;
 }
 #styleContainer .TN4 {
   grid-area: TN4;
-  background-color:rgb(123, 199, 224);
-  border-radius: 50%;
-  width: 90%;
-  height: 90%;
+  padding: 10%;
+  display: grid;
+  justify-content: center;
+  align-content: center;
 }
 #styleContainer .TN5 {
   grid-area: TN5;
-  background-color:rgb(123, 199, 224);
-  border-radius: 50%;
-  width: 90%;
-  height: 90%;
+  padding: 10%;
+  display: grid;
+  justify-content: center;
+  align-content: center;
 }
 #styleContainer .TN6 {
   grid-area: TN6;
-  background-color:rgb(123, 199, 224);
-  border-radius: 50%;
-  width: 90%;
-  height: 90%;
+  padding: 10%;
+  display: grid;
+  justify-content: center;
+  align-content: center;
 }
 #styleContainer .TN7 {
   grid-area: TN7;
-  background-color:rgb(123, 199, 224);
-  border-radius: 50%;
-  width: 90%;
-  height: 90%;
+  padding: 10%;
+  display: grid;
+  justify-content: center;
+  align-content: center;
 }
 #styleContainer .TN8 {
   grid-area: TN8;
-  background-color:rgb(123, 199, 224);
-  border-radius: 50%;
-  width: 90%;
-  height: 90%;
+  padding: 10%;
+  display: grid;
+  justify-content: center;
+  align-content: center;
 }
 
 
