@@ -8,7 +8,7 @@ class Answer extends React.Component {
     this.state = {
       count: this.props.helpfulness,
       helpfulClicked: false,
-      reportClick: false
+      reportClick: false,
     };
 
     this.helpfulnessToggle = this.helpfulnessToggle.bind(this);
@@ -37,18 +37,21 @@ class Answer extends React.Component {
   }
 
   render() {
-    console.log('answers: ', this.props.answer);
+    // console.log('ANSWER: ', this.props)
     return (
       <div>
-      <p className='answers'>
-        A: &nbsp; {this.props.answer}
-      </p>
+        <p className='answers'>
+          A: &nbsp; {this.props.answer}
+        </p>
         <div id='aContainer'>
           <p className='userInfo'>
-            by {this.props.username + ','} &nbsp;
+            {this.props.username === 'Seller' ?
+              <strong>{this.props.username + ', '}</strong>
+              : <>{this.props.username + ', '}</>
+            }
             <Moment className='date' format='MMMM D, YYYY' date={this.props.date} /> &nbsp;
             <span className='dividerOne'> &nbsp; | &nbsp; </span>
-            <span className='answerHelpful' onClick={this.helpfulnessToggle}>Helpful? <span className='yes'>Yes</span>({this.state.count}) &nbsp; </span>
+            <span className='answerHelpful'>Helpful? <span className='yes' onClick={this.helpfulnessToggle}>Yes</span>({this.state.count}) &nbsp; </span>
             <span className='dividerTwo'> &nbsp; | &nbsp; </span>
             {!this.state.reportClick ?
             <span className='report'> &nbsp; <span onClick={this.reportToggle} className='reportText'>Report</span> &nbsp; </span>

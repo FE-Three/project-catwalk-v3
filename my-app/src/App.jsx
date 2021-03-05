@@ -4,13 +4,6 @@ import axios from 'axios';
 import ProductOverview from './ProductOverview/ProductOverview.jsx'
 import QuestionsAnswers from '../src/questionsAndAnswers/QuestionsAnswers.jsx'
 import RatingsReviews from './Ratings&Reviews/RatingsReviews.jsx'
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
-
 
 class App extends React.Component {
   constructor(props) {
@@ -61,7 +54,7 @@ class App extends React.Component {
     return (
       <div className="container">
         <ProductOverview AppState={this.state} />
-        <QuestionsAnswers />
+        <QuestionsAnswers Questions={this.state.product_id}/>
         <RatingsReviews className="ratingsReviewsContainer" productID={this.state.product_id} />
       </div>
     );
