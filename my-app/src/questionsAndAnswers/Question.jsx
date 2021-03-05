@@ -85,7 +85,6 @@ class Question extends React.Component {
     }
 
 
-
       render() {
         const answerKeys = Object.values(this.props.answer);
         const sorted = answerKeys.sort((a, b) => {
