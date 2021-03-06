@@ -1,68 +1,52 @@
 /* eslint-disable */
 import React from 'react';
 import axios from 'axios';
+import StyleTN from './StyleTN';
 
 class ProductStyle extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      selectedStyle: 0
     }
     this.onStyleClick = this.onStyleClick.bind(this);
   }
 
   componentDidMount() {
-
-
   }
 
 
   onStyleClick (event) {
-    event.persist()
-    console.log(event);
+    //event.persist()
+    let styleClass = event.target.parentElement.className;
+    console.log(styleClass)
+    this.setState({selectedStyle: Number(styleClass.substr(2))});
   }
 
   render() {
     let styles = () => {
       if (this.props.AppState.productStyles.results) {
         let styleOptions = this.props.AppState.productStyles.results;
+        console.log(styleOptions)
         return (
-          <div id="styleContainer">
+          <React.Fragment>
             <div className="price">
-              {`$${styleOptions[0].original_price}`}
+              {`$${styleOptions[this.state.selectedStyle].original_price}`}
             </div>
-            <div className="styleH">STYLE > {styleOptions[0].name}</div>
-            <div className="TN1">
-              <img className="TN" onClick={this.onStyleClick} src={styleOptions[0].photos[0].thumbnail_url} />
+            <div className="styleH">
+              STYLE > {styleOptions[this.state.selectedStyle].name}
             </div>
-            <div className="TN2">
-              <img className="TN" onClick={this.onStyleClick} src={styleOptions[1].photos[0].thumbnail_url} />
-            </div>
-            <div className="TN3">
-              <div className="TN"></div>
-            </div>
-            <div className="TN4">
-              <div className="TN"></div>
-            </div>
-            <div className="TN5">
-              <div className="TN"></div>
-            </div>
-            <div className="TN6">
-              <div className="TN"></div>
-            </div>
-            <div className="TN7">
-              <div className="TN"></div>
-            </div>
-            <div className="TN8">
-              <div className="TN"></div>
-            </div>
-            <div className="WS"></div>
-          </div>
+            {styleOptions.map((item, index) => (<StyleTN key={index} styleNum={index}styleOption={item} onClick={this.onStyleClick} />))}
+          </React.Fragment>
         )
       }
     }
     return (
       <div className="style">
+        <div id="styleContainer">
         {styles()}
+        <div className="WS"></div>
+        </div>
       </div>
     )
   }

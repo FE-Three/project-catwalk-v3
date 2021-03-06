@@ -56,8 +56,8 @@ code {
   height: 100%;
   grid-template-areas:  "price price price price price"
                         "styleH styleH styleH styleH styleH"
-                        "TN1 TN2 TN3 TN4 WS"
-                        "TN5 TN6 TN7 TN8 WS";
+                        "TN0 TN1 TN2 TN3 WS"
+                        "TN4 TN5 TN6 TN7 WS";
   grid-template-rows: 1fr 1fr 3fr 3fr;
   grid-template-columns: 2.25fr 2.25fr 2.25fr 2.25fr 3fr;
 }
@@ -84,6 +84,13 @@ code {
 
 }
 
+#styleContainer .TN0 {
+  grid-area: TN0;
+  padding: 10%;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+}
 #styleContainer .TN1 {
   grid-area: TN1;
   padding: 10%;
@@ -133,13 +140,7 @@ code {
   justify-content: center;
   align-content: center;
 }
-#styleContainer .TN8 {
-  grid-area: TN8;
-  padding: 10%;
-  display: grid;
-  justify-content: center;
-  align-content: center;
-}
+
 
 
 #qaContainerOne {
