@@ -18,7 +18,7 @@ class ProductInformation extends React.Component {
     return (
       <div className="info">
         <div>Product Information</div>
-        <div><Ratings ratings={this.props.AppState.ratings}/></div>
+        {/* <div><Ratings ratings={this.props.AppState.ratings}/></div> */}
         <div>{this.props.AppState.product.category}</div>
         <div>{this.props.AppState.product.name}</div>
       </div>

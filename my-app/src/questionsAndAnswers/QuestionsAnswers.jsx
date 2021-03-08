@@ -42,7 +42,7 @@ class QuestionsAnswers extends React.Component {
   }
 
   handleLoadMoreAnswers() {
-    console.log('Load More Answers Button is working!')
+   // console.log('Load More Answers Button is working!')
   }
 
 

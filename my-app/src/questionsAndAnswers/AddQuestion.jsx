@@ -29,7 +29,7 @@ class AddQuestion extends React.Component {
         modalInfo={this.state.modalInfo}
         closeModal={this.selectModal}/>
   </div>
-    );
+    )
   }
 }
 
