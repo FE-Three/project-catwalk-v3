@@ -34,7 +34,12 @@ class ProductStyle extends React.Component {
               {`$${styleOptions[this.state.selectedStyle].original_price}`}
             </div>
             <div className="styleH">
-              STYLE > {styleOptions[this.state.selectedStyle].name}
+              <div style={{'font-weight': 'bold', 'padding-right': '10px'}}>
+                STYLE &nbsp; >
+              </div>
+              <div>
+              {styleOptions[this.state.selectedStyle].name}
+              </div>
             </div>
             {styleOptions.map((item, index) => (<StyleTN key={index} styleNum={index}styleOption={item} onClick={this.onStyleClick} />))}
           </React.Fragment>
