@@ -44,15 +44,16 @@ class App extends React.Component {
       }
     })
       .then(response => {
-        console.log(response.data.ratings);
+        console.log(response.data);
         let ratings = response.data.ratings;
-        this.setState({ ratings: ratings })
+        this.setState({ ratings: ratings,
+                        ratingsMeta: response.data})
       })
   }
 
   render() {
     return (
-      <div className="container">
+      <div >
         <ProductOverview AppState={this.state} />
         <QuestionsAnswers Questions={this.state.product_id}/>
         <RatingsReviews className="ratingsReviewsContainer" productID={this.state.product_id} />
@@ -60,7 +61,5 @@ class App extends React.Component {
     );
   }
 }
-
-
 
 export default App;

@@ -8,7 +8,7 @@ class AddQuestion extends React.Component {
   }
 
   addQuestions() {
-    console.log('Add Question Button Works!')
+    //console.log('Add Question Button Works!')
   }
 
   render() {

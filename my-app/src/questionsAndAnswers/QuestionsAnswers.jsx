@@ -35,11 +35,11 @@ class QuestionsAnswers extends React.Component {
   }
 
   searchAnswers(questions) {
-    console.log('this is working!')
+   // console.log('this is working!')
   }
 
   handleLoadMoreAnswers() {
-    console.log('Load More Answers Button is working!')
+   // console.log('Load More Answers Button is working!')
   }
 
 
