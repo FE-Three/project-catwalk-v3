@@ -19,7 +19,7 @@ class ProductStyle extends React.Component {
   onStyleClick (event) {
     //event.persist()
     let styleClass = event.target.parentElement.className;
-    console.log(styleClass)
+    //console.log(styleClass)
     this.setState({selectedStyle: Number(styleClass.substr(2))});
   }
 
@@ -27,7 +27,7 @@ class ProductStyle extends React.Component {
     let styles = () => {
       if (this.props.AppState.productStyles.results) {
         let styleOptions = this.props.AppState.productStyles.results;
-        console.log(styleOptions)
+        //console.log(styleOptions)
         return (
           <React.Fragment>
             <div className="price">

@@ -24,23 +24,27 @@ class QuestionsAnswers extends React.Component {
   }
 
   renderQASection() {
-    axios.get('http://localhost:3000/qa/questions?product_id=18080')
-    .then(res => {
-      this.setState({data: res.data})
+    axios.get('/qa/questions', {
+      params: {
+        product_id: this.props.Questions
+      }
     })
-    .catch(err => console.log(err))
+      .then(res => {
+        this.setState({data: res.data})
+      })
   }
 
   searchAnswers(questions) {
-    console.log('this is working!')
+   // console.log('this is working!')
   }
 
   handleLoadMoreAnswers() {
-    console.log('Load More Answers Button is working!')
+   // console.log('Load More Answers Button is working!')
   }
 
 
   render() {
+
     return (
       <div>
         <div id="qaContainerOne">

@@ -20,7 +20,7 @@ class StyleTN extends React.Component {
 
 
   render() {
-    console.log(this.props.styleNum)
+    //console.log(this.props.styleNum)
     return (
 
       <div className={`TN${this.props.styleNum}`}>
