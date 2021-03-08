@@ -3,14 +3,17 @@ import React from 'react';
 import axios from 'axios';
 import ReviewList from './ReviewList.jsx';
 import Ratings from './Ratings.jsx';
+import MoreReviewsButton from './MoreReviewsButton.jsx';
 
 class RatingsReviews extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       reviews: [],
+      reviewIndex: 2,
     };
     this.getReviews = this.getReviews.bind(this);
+    this.loadMoreReviews = this.loadMoreReviews.bind(this);
   }
 
   componentDidMount() {
@@ -37,6 +40,12 @@ class RatingsReviews extends React.Component {
       })
   }
 
+  loadMoreReviews() {
+    this.setState({
+      reviewIndex: this.state.reviewIndex + 2,
+    })
+  }
+
   render() {
     return (
       <div id="ratingsReviewsContainer">
@@ -45,9 +54,12 @@ class RatingsReviews extends React.Component {
           <Ratings ratings={this.props.ratings} />
         </div>
         <div className="reviews">
-          <ReviewList reviews={this.state.reviews}/>
+          <ReviewList reviews={this.state.reviews} index={this.state.reviewIndex} />
         </div>
-        <div className="buttons">Buttons</div>
+        <div className="buttons">
+          <MoreReviewsButton more={this.loadMoreReviews} number={this.state.reviews.length} />
+          <AddReview />
+        </div>
       </div>
     );
   }
