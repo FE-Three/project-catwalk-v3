@@ -6,6 +6,8 @@ import App from './App';
 import {
   BrowserRouter as Router,
   Route,
+  Switch,
+  Redirect,
   useParams
   } from "react-router-dom";
 
@@ -21,7 +23,13 @@ import {
 
   ReactDOM.render(
     <Router>
-      <Route path="/item/:id" children={<Child />} />
+      <Switch>
+        <Route exact path="/">
+          <Redirect to={"/18201"} />
+        </Route>
+        <Route path="/item/:id" children={<Child />} />
+        <Route path="/:id" children={<Child />} />
+      </Switch>
     </Router>,
   document.getElementById('root')
   );

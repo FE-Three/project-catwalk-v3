@@ -24,11 +24,14 @@ class QuestionsAnswers extends React.Component {
   }
 
   renderQASection() {
-    axios.get('http://localhost:3000/qa/questions?product_id=18080')
-    .then(res => {
-      this.setState({data: res.data})
+    axios.get('/qa/questions', {
+      params: {
+        product_id: this.props.Questions
+      }
     })
-    .catch(err => console.log(err))
+      .then(res => {
+        this.setState({data: res.data})
+      })
   }
 
   searchAnswers(questions) {
@@ -41,6 +44,7 @@ class QuestionsAnswers extends React.Component {
 
 
   render() {
+
     return (
       <div>
         <div id="qaContainerOne">
