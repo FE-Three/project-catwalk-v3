@@ -14,7 +14,7 @@ code {
 
 #productOverviewContainer {
   display: grid;
-  height: 600px;
+  height: 760px;
   grid-template-areas:   "images info"
   "images style"
   "images cart"
@@ -44,7 +44,6 @@ code {
 }
 #productOverviewContainer .style {
   grid-area: style;
-  background-color: green;
 }
 #productOverviewContainer .cart {
   grid-area: cart;
@@ -60,6 +59,98 @@ code {
   grid-area: whiteSpace;
   background-color: white;
 }
+
+#styleContainer {
+  display: grid;
+  height: 100%;
+  grid-template-areas:  "price price price price price"
+                        "styleH styleH styleH styleH styleH"
+                        "TN0 TN1 TN2 TN3 WS"
+                        "TN4 TN5 TN6 TN7 WS";
+  grid-template-rows: 1fr 1fr 3fr 3fr;
+  grid-template-columns: 2.25fr 2.25fr 2.25fr 2.25fr 3fr;
+}
+#styleContainer .price {
+  grid-area: price;
+  background-color: white;
+}
+
+#styleContainer .styleH {
+  grid-area: styleH;
+  background-color: white;
+}
+#styleContainer .WS{
+  grid-area: WS;
+  background-color: white;
+}
+
+.TN {
+  background-color: #FF0000;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+
+
+}
+
+#styleContainer .TN0 {
+  grid-area: TN0;
+  padding: 10%;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+}
+#styleContainer .TN1 {
+  grid-area: TN1;
+  padding: 10%;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+}
+#styleContainer .TN2 {
+  grid-area: TN2;
+  padding: 10%;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+}
+#styleContainer .TN3 {
+  grid-area: TN3;
+  padding: 10%;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+}
+#styleContainer .TN4 {
+  grid-area: TN4;
+  padding: 10%;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+}
+#styleContainer .TN5 {
+  grid-area: TN5;
+  padding: 10%;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+}
+#styleContainer .TN6 {
+  grid-area: TN6;
+  padding: 10%;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+}
+#styleContainer .TN7 {
+  grid-area: TN7;
+  padding: 10%;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+}
+
+
 
 #qaContainerOne {
   display: grid;

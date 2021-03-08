@@ -44,7 +44,7 @@ class App extends React.Component {
       }
     })
       .then(response => {
-        console.log(response.data);
+        //console.log(response.data);
         let ratings = response.data.ratings;
         this.setState({ ratings: ratings,
                         ratingsMeta: response.data})

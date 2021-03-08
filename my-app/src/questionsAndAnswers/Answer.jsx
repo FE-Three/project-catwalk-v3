@@ -37,11 +37,7 @@ class Answer extends React.Component {
   }
 
   render() {
-<<<<<<< HEAD
-    //console.log('answers: ', this.props.answer);
-=======
     // console.log('ANSWER: ', this.props)
->>>>>>> origin/testing
     return (
       <div>
         <p className='answers'>

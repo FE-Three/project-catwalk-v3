@@ -4,6 +4,7 @@ import axios from 'axios';
 import ReviewList from './ReviewList.jsx';
 import Ratings from './Ratings.jsx';
 import MoreReviewsButton from './MoreReviewsButton.jsx';
+// import AddReview from './AddReview.jsx';
 
 class RatingsReviews extends React.Component {
   constructor(props) {
@@ -58,7 +59,7 @@ class RatingsReviews extends React.Component {
         </div>
         <div className="buttons">
           <MoreReviewsButton more={this.loadMoreReviews} number={this.state.reviews.length} />
-          <AddReview />
+          {/* <AddReview /> */}
         </div>
       </div>
     );
