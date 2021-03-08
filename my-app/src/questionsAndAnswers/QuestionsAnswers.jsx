@@ -11,7 +11,8 @@ class QuestionsAnswers extends React.Component {
     super(props);
 
     this.state = {
-      data: []
+      data: [],
+      searched: []
     }
     // bindings
     this.renderQASection = this.renderQASection.bind(this);
@@ -34,8 +35,10 @@ class QuestionsAnswers extends React.Component {
       })
   }
 
-  searchAnswers(questions) {
-    console.log('this is working!')
+  searchAnswers(searchQueue) {
+    this.setState({
+    searched: searchQueue
+    })
   }
 
   handleLoadMoreAnswers() {
@@ -44,13 +47,16 @@ class QuestionsAnswers extends React.Component {
 
 
   render() {
-
     return (
       <div>
         <div id="qaContainerOne">
-            <div className="searchBar"><SearchForAnswers searchAnswers={this.searchAnswers}/></div>
+            <div className="searchBar"><SearchForAnswers searchAnswers={this.searchAnswers} data={this.state.data}/></div>
             <div className="questionAnswer">
-              <Display display={this.state.data}/></div>
+              {this.state.searched.length > 0 ?
+              <Display display={this.state.searched}/>
+              : <Display display={this.state.data.results} prodID={this.props.Questions}/>
+              }
+              </div>
             </div>
           <div id="qaContainerTwo">
             <div className="moreAnsweredQuestions"><MoreAnsweredQuestions loadAnswers={this.handleLoadMoreAnswers}/></div>

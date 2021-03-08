@@ -1,7 +1,7 @@
 import React from 'react';
 import Moment from 'react-moment';
+// import PropTypes from 'prop-types';
 /* eslint-disable */
-
 class Answer extends React.Component {
   constructor(props) {
     super(props);
@@ -60,7 +60,7 @@ class Answer extends React.Component {
         </div>
     </div>
     )
-  };
+  }
 }
 
 export default Answer;
