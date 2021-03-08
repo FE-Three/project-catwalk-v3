@@ -2,7 +2,7 @@
 import React from 'react';
 import StarRatingComponent from 'react-star-rating-component';
 import RatingBreakdown from './RatingBreakdown.jsx';
-import RatingFactors from './RatingFactors.jsx';
+//import RatingFactors from './RatingFactors.jsx';
 
 const Ratings = ({ ratings }) => {
   if (ratings !== undefined) {
@@ -20,8 +20,8 @@ function Loading() {
 }
 
 function ShowRatings({ ratings }) {
-  let trueRec = parseInt(ratings.recommended.true);
-  let falseRec = parseInt(ratings.recommended.false);
+  let trueRec = parseInt(ratings.recommended.true) || 0;
+  let falseRec = parseInt(ratings.recommended.false)  || 0;
   let sum = 0;
   let num = 0;
   let ratingsObj = ratings.ratings;
