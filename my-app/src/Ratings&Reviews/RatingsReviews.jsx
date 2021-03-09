@@ -3,16 +3,22 @@ import React from 'react';
 import axios from 'axios';
 import ReviewList from './ReviewList.jsx';
 import Ratings from './Ratings.jsx';
+import MoreReviewsButton from './MoreReviewsButton.jsx';
+import AddReview from './AddReview.jsx';
 
 class RatingsReviews extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      ratings: {},
       reviews: [],
+      reviewIndex: 2,
+      isOpen: true,
     };
     this.getReviews = this.getReviews.bind(this);
-    this.getRatings = this.getRatings.bind(this);
+    this.loadMoreReviews = this.loadMoreReviews.bind(this);
+    this.openModal = this.openModal.bind(this);
+    this.closeModal = this.closeModal.bind(this);
+    //this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentDidMount() {
@@ -20,50 +26,62 @@ class RatingsReviews extends React.Component {
       product_id: this.props.productID,
     }, () => {
       this.getReviews();
-      this.getRatings();
     });
   }
 
   getReviews() {
     axios.get('/reviews', {
       params: {
-        product_id: this.state.product_id
+        product_id: this.state.product_id,
       },
     })
       .then(response => {
         let results = response.data.results;
         console.log(results);
-        this.setState({ reviews: results })
+        this.setState({ reviews: results });
       })
       .catch(response => {
         console.log(response);
       })
   }
 
-  getRatings() {
-    axios.get('/reviews/meta', {
-      params: {
-        product_id: this.state.product_id
-      }
+  loadMoreReviews() {
+    this.setState({
+      reviewIndex: this.state.reviewIndex + 2,
     })
-      .then(response => {
-        console.log(response.data.ratings);
-        let ratings = response.data.ratings;
-        this.setState({ ratings: ratings })
-      })
   }
+
+  openModal() {
+    this.setState({ isOpen: true });
+  }
+
+  closeModal() {
+    this.setState({ isOpen: false });
+  }
+  //handleSubmit(name) => //some code
 
   render() {
     return (
       <div id="ratingsReviewsContainer">
         <div className="title">Ratings and Reviews</div>
         <div className="ratings">
-          <Ratings ratings={this.state.ratings} />
+          <Ratings ratings={this.props.ratings} />
         </div>
         <div className="reviews">
-          <ReviewList reviews={this.state.reviews}/>
+          <ReviewList reviews={this.state.reviews} index={this.state.reviewIndex} />
         </div>
-        <div className="buttons">Buttons</div>
+        <div className="buttons">
+          <MoreReviewsButton more={this.loadMoreReviews} number={this.state.reviews.length} />
+          <button type="button" onClick={this.openModal}>ADD A REVIEW +</button>
+          { this.state.isOpen ? (
+            <AddReview
+              closeModal={this.closeModal}
+              isOpen={this.state.isOpen}
+              handleSubmit={this.handleSubmit}
+            />
+          )
+            : null}
+        </div>
       </div>
     );
   }

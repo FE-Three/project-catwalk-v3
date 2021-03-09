@@ -16,9 +16,9 @@ class Reviews extends React.Component {
     if (resultsLoaded) {
       display = (
         <div>
-          <StarRatingComponent name="star1" starCount={5} value={this.props.review.rating}/>
-          <div className="reviewer">{this.props.review.reviewer_name}</div>
-          <Moment format='MMMM D, YYYY' date={this.props.review.date} />
+          <StarRatingComponent name="star1" starCount={5} value={this.props.review.rating} className="review-rating"/>
+          <span className="review-user">{this.props.review.reviewer_name}, </span>
+          <Moment format='MMMM D, YYYY' className="review-date" date={this.props.review.date} />
           <div className="review-summ">{this.props.review.summary}</div>
           <div className="review-body">{this.props.review.body}</div>
           <Recommend recommend={this.props.review.recommend} />
