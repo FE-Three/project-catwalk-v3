@@ -1,7 +1,6 @@
 /* eslint-disable */
 import React from 'react';
 import axios from 'axios';
-import Ratings from '../Ratings&Reviews/Ratings.jsx';
 
 class ProductInformation extends React.Component {
   constructor(props) {
@@ -11,8 +10,11 @@ class ProductInformation extends React.Component {
     }
   }
 
+
   componentDidMount() {
+
   }
+
 
   render() {
     let info = () => {

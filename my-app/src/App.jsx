@@ -54,7 +54,7 @@ class App extends React.Component {
   render() {
     // setEndPoint(222)
     return (
-      <div >
+      <div id="container">
         <ProductOverview AppState={this.state} />
         <QuestionsAnswers Questions={this.state.product_id} product={this.state.product.name}/>
         <RatingsReviews className="ratingsReviewsContainer" ratings={this.state.ratingsMeta} productID={this.state.product_id} />

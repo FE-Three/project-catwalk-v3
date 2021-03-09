@@ -7,7 +7,7 @@ const MoreReviewsButton = ({ more, number }) => {
   }
   return (
     <button type="button" className="MoreReviews" onClick={more}>
-      More Reviews
+      MORE REVIEWS
     </button>
   );
 };

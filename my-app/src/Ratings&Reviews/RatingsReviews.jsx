@@ -4,7 +4,7 @@ import axios from 'axios';
 import ReviewList from './ReviewList.jsx';
 import Ratings from './Ratings.jsx';
 import MoreReviewsButton from './MoreReviewsButton.jsx';
-// import AddReview from './AddReview.jsx';
+import AddReview from './AddReview.jsx';
 
 class RatingsReviews extends React.Component {
   constructor(props) {
@@ -12,9 +12,13 @@ class RatingsReviews extends React.Component {
     this.state = {
       reviews: [],
       reviewIndex: 2,
+      isOpen: true,
     };
     this.getReviews = this.getReviews.bind(this);
     this.loadMoreReviews = this.loadMoreReviews.bind(this);
+    this.openModal = this.openModal.bind(this);
+    this.closeModal = this.closeModal.bind(this);
+    //this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentDidMount() {
@@ -47,6 +51,15 @@ class RatingsReviews extends React.Component {
     })
   }
 
+  openModal() {
+    this.setState({ isOpen: true });
+  }
+
+  closeModal() {
+    this.setState({ isOpen: false });
+  }
+  //handleSubmit(name) => //some code
+
   render() {
     return (
       <div id="ratingsReviewsContainer">
@@ -59,7 +72,15 @@ class RatingsReviews extends React.Component {
         </div>
         <div className="buttons">
           <MoreReviewsButton more={this.loadMoreReviews} number={this.state.reviews.length} />
-          {/* <AddReview /> */}
+          <button type="button" onClick={this.openModal}>ADD A REVIEW +</button>
+          { this.state.isOpen ? (
+            <AddReview
+              closeModal={this.closeModal}
+              isOpen={this.state.isOpen}
+              handleSubmit={this.handleSubmit}
+            />
+          )
+            : null}
         </div>
       </div>
     );

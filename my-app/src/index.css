@@ -1,4 +1,5 @@
 body {
+  justify-content: center;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
   'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -6,6 +7,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
@@ -180,6 +182,7 @@ code {
   display: grid;
   margin-left: 300px;
   margin-right: 300px;
+  /* width: 80%; */
   height: 80px;
   grid-template-areas:   "moreAnsweredQuestions addQuestions";
 
@@ -330,6 +333,8 @@ code {
 }
 
 #ratingsReviewsContainer {
+  margin-left: 300px;
+  margin-right: 300px;
   display: grid;
   margin-left: 300px;
   margin-right: 300px;
@@ -338,26 +343,22 @@ code {
                          "ratings reviews"
                          "ratings buttons";
   grid-template-rows: 20px auto 100px;
-  grid-template-columns: 250px 1fr;
+  grid-template-columns: 300px 1fr;
 }
 
 #ratingsReviewsContainer .title {
   grid-area: title;
-  background-color: purple;
 }
 .ratings {
   grid-area: ratings;
-  background-color: blue;
 }
 .reviews {
   grid-area: reviews;
-  background-color: green;
   display: grid;
   grid-template-areas: "rating" "user" "date"
                        "review-summ" "review-summ" "review-summ"
                        "review-body""review-body""review-body";
   grid-template-rows: 175px 175px;
-  border: 1px solid black;
 }
 
 .review-rating {
@@ -371,7 +372,6 @@ code {
 }
 #ratingsReviewsContainer .buttons {
   grid-area: buttons;
-  background-color: red;
 }
 
 .review-summ {
@@ -391,5 +391,3 @@ code {
   font-size: 60px;
   font-weight: bold;
 }
-
-
