@@ -37,7 +37,6 @@ class Answer extends React.Component {
   }
 
   render() {
-    // console.log('ANSWER: ', this.props)
     return (
       <div>
         <p className='answers'>

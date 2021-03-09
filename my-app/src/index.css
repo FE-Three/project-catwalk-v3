@@ -158,35 +158,33 @@ code {
   display: grid;
   margin-left: 300px;
   margin-right: 300px;
-  /* width: 80%; */
   grid-template-areas:   "searchBar searchBar"
                          "questionAnswer extraLinks";
 
   grid-template-rows: 5fr 40fr;
   grid-template-columns: 1fr;
-  border: solid;
 }
 
 #qaContainerOne .searchBar {
   grid-area: searchBar;
-  background-color: purple;
 }
 
 #qaContainerOne .questionAnswer {
   grid-area: questionAnswer;
-  background-color: orange;
 }
 
 #qaContainerOne .extraLinks {
   grid-area: extraLinks;
-  background-color: green;
 }
 
 #qaContainerTwo {
   display: grid;
   margin-left: 300px;
   margin-right: 300px;
+<<<<<<< HEAD
   /* width: 80%; */
+=======
+>>>>>>> 473de9ec2639fddf081fead4cdb4d8ba0e7427c3
   height: 80px;
   grid-template-areas:   "moreAnsweredQuestions addQuestions";
 
@@ -196,12 +194,10 @@ code {
 
 #qaContainerTwo .moreAnsweredQuestions {
   grid-area: moreAnsweredQuestions;
-  background-color: red;
 }
 
 #qaContainerTwo .addQuestions {
   grid-area: addQuestions;
-  background-color: yellow;
 }
 
 #qContainer {
@@ -216,9 +212,9 @@ code {
   grid-area: questions;
   border: solid 2px;
   font-size: small;
+  padding-left: 5px;
   margin-left: 300px;
   margin-right: 300px;
-  padding-left: 5px;
 }
 
 #qContainer .helpfulLink {
@@ -299,8 +295,6 @@ code {
 .inputBar {
   font-weight: bold;
   height: 50px;
-  margin-left: 50px;
-  margin-right: 50px;
   width: auto;
 }
 
@@ -319,7 +313,6 @@ code {
   color: white;
   font-weight: bolder;
   height: 50px;
-  width: 350px;
 }
 
 .addQuestionButton {
@@ -327,25 +320,26 @@ code {
   color: white;
   font-weight: bolder;
   height: 50px;
-  /* width: 350px; */
 }
 
 .collapseButton {
-  background-color: rgb(20, 113, 201);
+  background-color: rgb(7, 7, 7);
   border-radius: 5px;
-  outline: none;
+  color: white;
   cursor: pointer;
+  outline: none;
 }
 
 .collapseButton:hover {
-  background-color: rgb(17, 128, 231);
+  background-color: rgb(81, 97, 112);
 }
 
 #ratingsReviewsContainer {
   margin-left: 300px;
   margin-right: 300px;
   display: grid;
-  /* width: 80%; */
+  margin-left: 300px;
+  margin-right: 300px;
   height: 500px;
   grid-template-areas:   "title title"
                          "ratings reviews"

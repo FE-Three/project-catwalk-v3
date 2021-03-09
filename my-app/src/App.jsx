@@ -1,9 +1,9 @@
+/* eslint-disable */
 import React from 'react';
 import axios from 'axios';
 import ProductOverview from './ProductOverview/ProductOverview.jsx'
 import QuestionsAnswers from '../src/questionsAndAnswers/QuestionsAnswers.jsx'
 import RatingsReviews from './Ratings&Reviews/RatingsReviews.jsx'
-/* eslint-disable */
 
 class App extends React.Component {
   constructor(props) {
@@ -55,7 +55,7 @@ class App extends React.Component {
     return (
       <div id="container">
         <ProductOverview AppState={this.state} />
-        <QuestionsAnswers Questions={this.state.product_id}/>
+        <QuestionsAnswers Questions={this.state.product_id} product={this.state.product.name}/>
         <RatingsReviews className="ratingsReviewsContainer" ratings={this.state.ratingsMeta} productID={this.state.product_id} />
       </div>
     );
