@@ -54,13 +54,13 @@ class QuestionsAnswers extends React.Component {
             <div className="questionAnswer">
               {this.state.searched.length > 0 ?
               <Display display={this.state.searched}/>
-              : <Display display={this.state.data.results} prodID={this.props.Questions}/>
+              : <Display display={this.state.data.results} prodID={this.props.Questions} product={this.props.product}/>
               }
               </div>
             </div>
           <div id="qaContainerTwo">
             <div className="moreAnsweredQuestions"><MoreAnsweredQuestions loadAnswers={this.handleLoadMoreAnswers}/></div>
-            <div className="addQuestions"><AddQuestion /></div>
+            <div className="addQuestions"><AddQuestion product={this.props.product}/></div>
           </div>
       </div>
     )
