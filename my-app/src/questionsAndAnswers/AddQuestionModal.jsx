@@ -66,7 +66,6 @@ class AddQuestionModal extends React.Component {
   displayInfo() {
     return (
       <form onSubmit={this.handleWordCountButton}>
-        <br></br>
         <div className="title">Ask Your Question</div>
         <br></br>
         <div className="product">About the {this.props.product}</div>
@@ -81,9 +80,11 @@ class AddQuestionModal extends React.Component {
           required
           onChange={this.handleWordCountQuestionBody}
         />
-        <p>Limit: {this.state.charsLeft}</p>
-        <label>
+        <p className='firstLimit'>Limit: {this.state.charsLeft}</p>
+        <div id='emailAndUsername'>
+        <label className='addEmail'>
           *Add Email &nbsp;
+          </label>
           <input
             className="modalEmail"
             placeholder="Example: jack@email.com"
@@ -91,14 +92,12 @@ class AddQuestionModal extends React.Component {
             maxLength="60"
             required
             onChange={this.handleWordCountEmail}
-          ></input>
-          <p>Limit: {this.state.charsLeftEmail}</p>
-        </label>
-        <label>**For authentication reasons, you will not be emailed**</label>
-        <br></br>
-        <br></br>
-        <label>
+            ></input>
+          <p className='nextLimit'>Limit: {this.state.charsLeftEmail}</p>
+        <label className='addEmailAuthentication'>**For authentication reasons, you will not be emailed**</label>
+        <label className='addNickname'>
           *Add Nickname &nbsp;
+          </label>
           <input
             className="modalNickname"
             placeholder="Example: jackson11!"
@@ -106,15 +105,15 @@ class AddQuestionModal extends React.Component {
             maxLength="60"
             required
             onChange={this.handleWordCountNickname}
-          ></input>
-          <p>Limit: {this.state.charsLeftNickname}</p>
-        </label>
-        <label>
+            ></input>
+          <p className='lastLimit'>Limit: {this.state.charsLeftNickname}</p>
+        <label className='addNicknameAuthentication'>
           **For privacy reasons, do not use your full name or email address**
         </label>
+            </div>
         <br></br>
         <br></br>
-        <button onClick={this.handleWordCountButton}>Submit</button>
+        <button className='submitButton' onClick={this.handleWordCountButton}>Submit</button>
       </form>
     );
   }
