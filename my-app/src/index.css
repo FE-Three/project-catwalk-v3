@@ -181,10 +181,7 @@ code {
   display: grid;
   margin-left: 300px;
   margin-right: 300px;
-<<<<<<< HEAD
   /* width: 80%; */
-=======
->>>>>>> 473de9ec2639fddf081fead4cdb4d8ba0e7427c3
   height: 80px;
   grid-template-areas:   "moreAnsweredQuestions addQuestions";
 
