@@ -32,9 +32,9 @@ import {
 
     let conditionalRender = ()=> {
       if (endPoint.redirect) {
-        return (<Redirect to={`/${endPoint.id}`} />)
+        return (<Redirect to={`/${endPoint.id}`} />);
       } else {
-        return (<App id={id} />)
+        return (<App id={id} />);
       }
     }
 

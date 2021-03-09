@@ -31,12 +31,12 @@ class ProductOverview extends React.Component {
     return (
       <div id="productOverviewContainer">
 
-        <ProductImages AppState={this.props.AppState} />
-        <ProductInformation AppState={this.props.AppState} />
+        <ProductImages AppState={this.props.AppState} ProductState={this.state} />
+        <ProductInformation AppState={this.props.AppState} ProductState={this.state} />
         <ProductStyle AppState={this.props.AppState} onStyleClick={this.onStyleClick} ProductState={this.state} />
-        <ProductCart AppState={this.props.AppState} />
+        <ProductCart AppState={this.props.AppState} ProductState={this.state} />
         <div className="whiteSpace"></div>
-        <ProductDescription AppState={this.props.AppState} />
+        <ProductDescription AppState={this.props.AppState} ProductState={this.state} />
       </div>
     )
   }
