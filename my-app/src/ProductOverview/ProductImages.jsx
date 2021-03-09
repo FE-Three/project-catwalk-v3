@@ -16,7 +16,6 @@ class ProductImages extends React.Component {
   render() {
     return (
       <div className="images">
-        <div>Images Gallery</div>
         <img
         style={{ 'width': '100%', 'height': '100%', 'objectFit': 'contain' }}
         src=

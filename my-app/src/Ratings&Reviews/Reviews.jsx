@@ -17,7 +17,7 @@ class Reviews extends React.Component {
       display = (
         <div>
           <StarRatingComponent name="star1" starCount={5} value={this.props.review.rating} className="review-rating"/>
-          <div className="review-user">{this.props.review.reviewer_name} </div>
+          <span className="review-user">{this.props.review.reviewer_name}, </span>
           <Moment format='MMMM D, YYYY' className="review-date" date={this.props.review.date} />
           <div className="review-summ">{this.props.review.summary}</div>
           <div className="review-body">{this.props.review.body}</div>

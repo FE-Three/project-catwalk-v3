@@ -9,14 +9,14 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      product_id: this.props.paramID,
+      product_id: this.props.id,
       product: [],
       productStyles: [],
       ratings: {},
     };
     this.getProduct = this.getProduct.bind(this);
     this.getStyles = this.getStyles.bind(this);
-    this.getRatings =this.getRatings.bind(this);
+    this.getRatings = this.getRatings.bind(this);
   }
 
   componentDidMount() {
@@ -52,11 +52,12 @@ class App extends React.Component {
   }
 
   render() {
+    // setEndPoint(222)
     return (
-      <div >
+      <div id="container">
         <ProductOverview AppState={this.state} />
         <QuestionsAnswers Questions={this.state.product_id} product={this.state.product.name}/>
-        <RatingsReviews className="ratingsReviewsContainer" productID={this.state.product_id} />
+        <RatingsReviews className="ratingsReviewsContainer" ratings={this.state.ratingsMeta} productID={this.state.product_id} />
       </div>
     );
   }

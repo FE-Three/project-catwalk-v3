@@ -1,5 +1,4 @@
 import React from 'react';
-import {Bullet} from '@nivo/bullet';
 
 const RatingFactors = ({props }) => {
   return (
