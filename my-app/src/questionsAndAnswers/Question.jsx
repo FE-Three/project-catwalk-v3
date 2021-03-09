@@ -1,5 +1,5 @@
 import React from 'react';
-import Modal from './Modal';
+import AddAnswerModal from './AddAnswerModal';
 // import axios from 'axios';
 import Answer from './Answer';
 import './App.css';
@@ -13,7 +13,6 @@ class Question extends React.Component {
       helpfulClicked: false,
       loadAllClick: false,
       showModal: false,
-      modalInfo: ''
     };
     this.helpfulToggle = this.helpfulToggle.bind(this);
     this.loadTwo = this.loadTwo.bind(this);
@@ -33,14 +32,6 @@ class Question extends React.Component {
         count: this.state.count - 1,
       });
     }
-
-    //console.log('QUESTION COMPONENT: ', answerKeys)
-
-    // axios.post('http://localhost:3000/qa/questions?product_id=18080', num)
-    //   .then(res => {
-    //     this.setState({count : [...this.state.count + 1, num]})
-    //   })
-    //   .catch(err => console.log('COULD NOT ADD NUM: ', err))
   }
 
   loadTwo() {
@@ -63,7 +54,7 @@ class Question extends React.Component {
             );
           })}
           <button className="collapseButton" onClick={() => this.loadAll()}>
-            See more answers
+            Load more answers
           </button>
         </div>
       );
@@ -95,10 +86,9 @@ class Question extends React.Component {
     });
   }
 
-  selectModal(info) {
+  selectModal() {
     this.setState({
       showModal: !this.state.showModal,
-      modalInfo: info
      });
   }
 
@@ -119,12 +109,13 @@ class Question extends React.Component {
             ({this.state.count})&nbsp;&nbsp;
           </div>
           <span className="divider"> | &nbsp;&nbsp; </span>
-          <div className="addAnswerLink" onClick={() => this.selectModal('Modal A')}>
+          <div className="addAnswerLink" onClick={() => this.selectModal()}>
             Add Answer
-            <Modal
+            <AddAnswerModal
+              question={this.props.question}
               prodID={this.props.prodID}
               displayModal={this.state.showModal}
-              modalInfo={this.state.modalInfo}
+              product={this.props.product}
               closeModal={this.selectModal}
             />
           </div>
