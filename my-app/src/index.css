@@ -38,23 +38,23 @@ code {
 }
 #productOverviewContainer .images {
   grid-area: images;
-  background-color: purple;
+  background-color: white;
 }
 #productOverviewContainer .info {
   grid-area: info;
-  background-color: blue;
+
 }
 #productOverviewContainer .style {
   grid-area: style;
 }
 #productOverviewContainer .cart {
   grid-area: cart;
-  background-color: red;
+  /* background-color: red; */
 }
 
 #productOverviewContainer .description {
   grid-area: description;
-  background-color: yellow;
+  /* background-color: yellow; */
 }
 
 #productOverviewContainer .whiteSpace {
@@ -78,6 +78,7 @@ code {
 }
 
 #styleContainer .styleH {
+  display: flex;
   grid-area: styleH;
   background-color: white;
 }
@@ -181,10 +182,7 @@ code {
   display: grid;
   margin-left: 300px;
   margin-right: 300px;
-<<<<<<< HEAD
   /* width: 80%; */
-=======
->>>>>>> 473de9ec2639fddf081fead4cdb4d8ba0e7427c3
   height: 80px;
   grid-template-areas:   "moreAnsweredQuestions addQuestions";
 

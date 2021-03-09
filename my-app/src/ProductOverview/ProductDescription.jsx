@@ -16,7 +16,6 @@ class ProductDescription extends React.Component {
   render() {
     return (
       <div className="description">
-        <div>Product Description</div>
         <div>{this.props.AppState.product.slogan}</div>
         <div>{this.props.AppState.product.description}</div>
       </div>
