@@ -53,7 +53,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div >
+      <div id="container">
         <ProductOverview AppState={this.state} />
         <QuestionsAnswers Questions={this.state.product_id}/>
         <RatingsReviews className="ratingsReviewsContainer" ratings={this.state.ratingsMeta} productID={this.state.product_id} />

@@ -24,7 +24,7 @@ function ShowRatings({ ratings }) {
   let falseRec = parseInt(ratings.recommended.false)  || 0;
   let sum = 0;
   let num = 0;
-  let ratingsObj = ratings.ratings;
+  const ratingsObj = ratings.ratings;
   for (let key in ratingsObj) {
     sum += (key * ratingsObj[key]);
     num += parseInt(ratingsObj[key]);
@@ -32,7 +32,7 @@ function ShowRatings({ ratings }) {
   const recommend = Math.round((trueRec / (falseRec + trueRec)) * 100);
   return (
     <div>
-      <span className="ratingVal">{sum / num}</span>
+      <span className="ratingVal">{(sum / num).toFixed(1)} </span>
       <StarRatingComponent name="star" starCount={5} value={sum / num} />
       <div>{recommend}% of reviews recommend this product</div>
       <RatingBreakdown ratings={ratingsObj} />

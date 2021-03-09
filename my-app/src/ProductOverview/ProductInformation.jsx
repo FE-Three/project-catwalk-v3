@@ -1,7 +1,6 @@
 /* eslint-disable */
 import React from 'react';
 import axios from 'axios';
-import Ratings from '../Ratings&Reviews/Ratings.jsx';
 
 class ProductInformation extends React.Component {
   constructor(props) {
@@ -11,14 +10,17 @@ class ProductInformation extends React.Component {
     }
   }
 
+
   componentDidMount() {
+
   }
+
 
   render() {
     return (
       <div className="info">
         <div>Product Information</div>
-        {/* <div><Ratings ratings={this.props.AppState.ratings}/></div> */}
+        {/* <StarRatingComponent name="star1" starCount={5} value={this.props.AppState.ratings} className="review-rating"/> */}
         <div>{this.props.AppState.product.category}</div>
         <div>{this.props.AppState.product.name}</div>
       </div>
