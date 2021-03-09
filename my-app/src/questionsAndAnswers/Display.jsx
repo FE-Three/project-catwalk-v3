@@ -9,6 +9,7 @@ const Display = (props) => {
         ? props.display.slice(0, 4).map((result, i) => (
             <Question
               prodID={props.prodID}
+              product={props.product}
               question={result.question_body}
               answer={result.answers}
               helpful={result.question_helpfulness}
