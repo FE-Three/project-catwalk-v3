@@ -16,7 +16,12 @@ class ProductCart extends React.Component {
   render() {
     return (
       <div className="cart">
-
+        <select>
+          <option>Select Size</option>
+        </select>
+        <select>
+          <option>1</option>
+        </select>
         <button>ADD TO BAG+</button>
         <button>STAR</button>
       </div>

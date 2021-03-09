@@ -15,12 +15,28 @@ class ProductInformation extends React.Component {
   }
 
   render() {
+    let info = () => {
+      if (this.props.AppState.product.category) {
+        console.log(this.props.AppState.product.category)
+
+
+
+        return (
+          <React.Fragment>
+            {/* <div><Ratings ratings={this.props.AppState.ratings}/></div> */}
+            <div>
+              {this.props.AppState.product.category.toUpperCase()}
+            </div>
+            <div style={{'fontWeight': 'bold', 'fontSize': '200%'}}>
+              {this.props.AppState.product.name}
+            </div>
+          </React.Fragment>
+        )
+      }
+    }
     return (
       <div className="info">
-        <div>Product Information</div>
-        {/* <div><Ratings ratings={this.props.AppState.ratings}/></div> */}
-        <div>{this.props.AppState.product.category}</div>
-        <div>{this.props.AppState.product.name}</div>
+        {info()}
       </div>
     )
   }

@@ -36,23 +36,23 @@ code {
 }
 #productOverviewContainer .images {
   grid-area: images;
-  background-color: purple;
+  background-color: white;
 }
 #productOverviewContainer .info {
   grid-area: info;
-  background-color: blue;
+
 }
 #productOverviewContainer .style {
   grid-area: style;
 }
 #productOverviewContainer .cart {
   grid-area: cart;
-  background-color: red;
+  /* background-color: red; */
 }
 
 #productOverviewContainer .description {
   grid-area: description;
-  background-color: yellow;
+  /* background-color: yellow; */
 }
 
 #productOverviewContainer .whiteSpace {

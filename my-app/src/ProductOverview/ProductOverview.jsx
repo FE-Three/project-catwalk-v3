@@ -11,13 +11,20 @@ class ProductOverview extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-
+      selectedStyle: 0
     }
-
+    this.onStyleClick = this.onStyleClick.bind(this);
   }
 
   componentDidMount() {
 
+  }
+
+  onStyleClick (event) {
+    //event.persist()
+    let styleClass = event.target.parentElement.className;
+    //console.log(styleClass)
+    this.setState({selectedStyle: Number(styleClass.substr(2))});
   }
 
   render() {
@@ -26,7 +33,7 @@ class ProductOverview extends React.Component {
 
         <ProductImages AppState={this.props.AppState} />
         <ProductInformation AppState={this.props.AppState} />
-        <ProductStyle AppState={this.props.AppState} />
+        <ProductStyle AppState={this.props.AppState} onStyleClick={this.onStyleClick} ProductState={this.state} />
         <ProductCart AppState={this.props.AppState} />
         <div className="whiteSpace"></div>
         <ProductDescription AppState={this.props.AppState} />
