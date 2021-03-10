@@ -12,7 +12,7 @@ class RatingsReviews extends React.Component {
     this.state = {
       reviews: [],
       reviewIndex: 2,
-      isOpen: true,
+      isOpen: false,
     };
     this.getReviews = this.getReviews.bind(this);
     this.loadMoreReviews = this.loadMoreReviews.bind(this);

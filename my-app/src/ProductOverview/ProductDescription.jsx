@@ -14,10 +14,15 @@ class ProductDescription extends React.Component {
   }
 
   render() {
+    let featureArray = this.props.AppState.product.features;
+    // feature
+    // value
+
     return (
       <div className="description">
         <div>{this.props.AppState.product.slogan}</div>
         <div>{this.props.AppState.product.description}</div>
+        {/* <div>{this.props.AppState.product.features}</div> */}
       </div>
     )
   }
