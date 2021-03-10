@@ -54,6 +54,8 @@ code {
 
 #productOverviewContainer .description {
   grid-area: description;
+  margin-left: 15%;
+  margin-right: 15%;
   /* background-color: yellow; */
 }
 
@@ -210,6 +212,7 @@ code {
 #qContainer .questions {
   grid-area: questions;
   border: solid 2px;
+
   font-size: small;
   padding-left: 5px;
   margin-left: 15%;
