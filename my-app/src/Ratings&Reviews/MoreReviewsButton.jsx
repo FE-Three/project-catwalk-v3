@@ -1,4 +1,6 @@
 import React from 'react';
+import Button from 'react-bootstrap/Button';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const MoreReviewsButton = ({ more, number }) => {
   const moreThanTwo = number > 2;
@@ -6,9 +8,9 @@ const MoreReviewsButton = ({ more, number }) => {
     return null;
   }
   return (
-    <button type="button" className="MoreReviews" onClick={more}>
+    <Button variant="outline-primary"type="button" className="MoreReviews" onClick={more}>
       MORE REVIEWS
-    </button>
+    </Button>
   );
 };
 
