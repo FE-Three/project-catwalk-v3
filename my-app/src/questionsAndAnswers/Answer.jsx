@@ -19,46 +19,76 @@ class Answer extends React.Component {
     if (this.state.helpfulClicked === false) {
       this.setState({
         helpfulClicked: !this.state.helpfulClicked,
-        count: this.state.count + 1
+        count: this.state.count + 1,
       });
     } else {
       this.setState({
         helpfulClicked: !this.state.helpfulClicked,
-        count: this.state.count - 1
-      })
+        count: this.state.count - 1,
+      });
     }
   }
 
   reportToggle() {
     this.setState({
-      reportClick: !this.state.reportClick
-    })
-    alert('Thank you. Your answer has been recorded 🗣')
+      reportClick: !this.state.reportClick,
+    });
+    alert("Thank you. Your answer has been recorded 🗣");
   }
 
   render() {
     return (
       <div>
-        <p className='answers'>
-          A: &nbsp; {this.props.answer}
-        </p>
-        <div id='aContainer'>
-          <p className='userInfo'>
-            {this.props.username === 'Seller' ?
-              <strong>{this.props.username + ', '}</strong>
-              : <>{this.props.username + ', '}</>
-            }
-            <Moment className='date' format='MMMM D, YYYY' date={this.props.date} /> &nbsp;
-            <span className='dividerOne'> &nbsp; | &nbsp; </span>
-            <span className='answerHelpful'>Helpful? <span className='yes' onClick={this.helpfulnessToggle}>Yes</span>({this.state.count}) &nbsp; </span>
-            <span className='dividerTwo'> &nbsp; | &nbsp; </span>
-            {!this.state.reportClick ?
-            <span className='report'> &nbsp; <span onClick={this.reportToggle} className='reportText'>Report</span> &nbsp; </span>
-            : 'Reported'}
+        <p className="answers">A: &nbsp; {this.props.answer}</p>
+        {this.props.photos
+          ? this.props.photos.map((photo, i) => (
+              <img
+                src={photo}
+                width={78}
+                height={78}
+                key={i}
+                thumbnail="true"
+              ></img>
+            ))
+          : null}
+        <div id="aContainer">
+          <p className="userInfo">
+            {this.props.username === "Seller" ? (
+              <strong>{this.props.username + ", "}</strong>
+            ) : (
+              <>{this.props.username + ", "}</>
+            )}
+            <Moment
+              className="date"
+              format="MMMM D, YYYY"
+              date={this.props.date}
+            />{" "}
+            &nbsp;
+            <span className="dividerOne"> &nbsp; | &nbsp; </span>
+            <span className="answerHelpful">
+              Helpful?{" "}
+              <span className="yes" onClick={this.helpfulnessToggle}>
+                Yes
+              </span>
+              ({this.state.count}) &nbsp;{" "}
+            </span>
+            <span className="dividerTwo"> &nbsp; | &nbsp; </span>
+            {!this.state.reportClick ? (
+              <span className="report">
+                {" "}
+                &nbsp;{" "}
+                <span onClick={this.reportToggle} className="reportText">
+                  Report
+                </span>{" "}
+                &nbsp;{" "}
+              </span>
+            ) : (
+              "Reported"
+            )}
           </p>
         </div>
-    </div>
-    )
+      </div>
+    );
   }
 }
 

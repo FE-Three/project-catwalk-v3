@@ -128,6 +128,7 @@ class Question extends React.Component {
                 date={answer.date}
                 helpfulness={answer.helpfulness}
                 key={i}
+                photos={answer.photos}
               />
             ))
           : this.loadTwo()}
