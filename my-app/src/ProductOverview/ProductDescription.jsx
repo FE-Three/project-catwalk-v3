@@ -1,6 +1,6 @@
 /* eslint-disable */
 import React from 'react';
-import axios from 'axios';
+import ProductFeature from './ProductFeature.jsx';
 
 class ProductDescription extends React.Component {
   constructor(props) {
@@ -14,15 +14,46 @@ class ProductDescription extends React.Component {
   }
 
   render() {
-    let featureArray = this.props.AppState.product.features;
+    let features = () => {
+      let featureArray = this.props.AppState.product.features;
+      if (featureArray) {
+
+        console.log(featureArray)
+
+        return (
+          <React.Fragment>
+            {featureArray.map((item, index) => {
+              return (
+                  <ProductFeature key={index} id={index} item={item}/>
+              )})
+            }
+          </React.Fragment>
+        )
+
+      } else {
+        return (<React.Fragment></React.Fragment>)
+      }
+
+
+    }
+
+
     // feature
     // value
 
     return (
-      <div className="description">
-        <div>{this.props.AppState.product.slogan}</div>
-        <div>{this.props.AppState.product.description}</div>
-        {/* <div>{this.props.AppState.product.features}</div> */}
+      <div className="description" style={{'display': 'flex'}}>
+        <div style={{'width': '65%'}}>
+          <div style={{'fontWeight': 'bold', 'paddingBottom': '10px'}}>
+            {this.props.AppState.product.slogan}
+          </div>
+          <div style={{'fontSize': '75%'}}>
+            {this.props.AppState.product.description}
+          </div>
+        </div>
+        <div style={{'width': '30%', 'margin-left': 'auto'}}>
+          {features()}
+        </div>
       </div>
     )
   }

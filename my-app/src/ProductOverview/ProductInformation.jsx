@@ -1,6 +1,6 @@
 /* eslint-disable */
 import React from 'react';
-import axios from 'axios';
+
 
 class ProductInformation extends React.Component {
   constructor(props) {
