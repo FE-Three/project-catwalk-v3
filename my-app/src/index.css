@@ -162,13 +162,14 @@ code {
   margin-left: 15%;
   margin-right: 15%;
   grid-template-areas:   "searchBar searchBar"
-                         "questionAnswer extraLinks";
+                        "questionAnswer extraLinks";
 
   grid-template-rows: 50px 40fr;
   grid-template-columns: 1fr;
 }
 
 #qaContainerOne .searchBar {
+  background-color: red;
   grid-area: searchBar;
 }
 
@@ -214,8 +215,8 @@ code {
 
   font-size: small;
   padding-left: 5px;
-  margin-left: 300px;
-  margin-right: 300px;
+  margin-left: 15%;
+  margin-right: 15%;
 }
 
 #qContainer .helpfulLink {
@@ -336,19 +337,19 @@ code {
 }
 
 #ratingsReviewsContainer {
-  margin-left: 15%;
-  margin-right: 15%;
+  margin: 100px 15% 100px 15%;
   display: grid;
   height: 500px;
-  grid-template-areas:   "title title"
+  grid-template-areas:   "rrtitle rrtitle"
                          "ratings reviews"
                          "ratings buttons";
   grid-template-rows: 20px auto 100px;
-  grid-template-columns: 300px 1fr;
+  grid-template-columns: 350px 1fr;
 }
 
-#ratingsReviewsContainer .title {
-  grid-area: title;
+#ratingsReviewsContainer .rrtitle {
+  grid-area: rrtitle;
+  font-size: larger;
 }
 .ratings {
   grid-area: ratings;
@@ -359,36 +360,61 @@ code {
   grid-template-areas: "rating" "user" "date"
                        "review-summ" "review-summ" "review-summ"
                        "review-body""review-body""review-body";
-  grid-template-rows: 175px 175px;
+  grid-template-rows: auto;
+}
+
+.review-top {
+  display: flex;
+  justify-content: space-between;
 }
 
 .review-rating {
   grid-area: rating;
+
+
 }
 .review-user {
   grid-area: user;
+
 }
 .review-date {
   grid-area: date;
+
 }
 #ratingsReviewsContainer .buttons {
   grid-area: buttons;
+  padding-top: 30px;
 }
 
 .review-summ {
   grid-area: review-summ;
-  font-size: 13px;
+  font-size: 18px;
   font-weight: bold;
   height: 30px;
 }
 
 .review-body {
   grid-area: review-body;
-  font-size:11px;
-  height: 30px;
+  font-size:16px;
+  height: auto;
+  padding-bottom: 20px;
+}
+
+.review-recommend {
+  padding-bottom: 20px;
+}
+
+.addButton {
+  padding-left: 10px;
 }
 
 .ratingVal {
   font-size: 60px;
   font-weight: bold;
 }
+
+.modal-80w {
+  width: 90% !important;
+}
+
+

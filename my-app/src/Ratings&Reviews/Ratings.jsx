@@ -36,7 +36,6 @@ function ShowRatings({ ratings }) {
       <StarRatingComponent name="star" starCount={5} value={sum / num} />
       <div>{recommend}% of reviews recommend this product</div>
       <RatingBreakdown ratings={ratingsObj} />
-      {/* <RatingFactors factors={ratings.characteristics} /> */}
     </div>
   );
 }

@@ -1,13 +1,22 @@
 import React from 'react';
 /* eslint-disable */
 
-const MoreAnsweredQuestions = (props) => {
+class MoreAnsweredQuestions extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {}
 
-  return (
-    <div>
-      <button className='moreAnsweredQuestionsButton' onClick={props.loadAnswers}>MORE ANSWERED QUESTIONS</button>
-    </div>
-  )
+  }
+
+
+
+  render() {
+    return (
+      <div>
+        <button className='moreAnsweredQuestionsButton' onClick={this.props.loadAnswers}>MORE ANSWERED QUESTIONS</button>
+      </div>
+    )
+  }
 }
 
 export default MoreAnsweredQuestions;

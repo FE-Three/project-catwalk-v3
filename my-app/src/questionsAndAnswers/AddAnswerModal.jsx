@@ -61,10 +61,9 @@ class AddAnswerModal extends React.Component {
   displayInfo() {
     return (
       <form onSubmit={this.handleWordCountButton}>
-        <br></br>
         <div className="title">Submit your Answer</div>
         <br></br>
-        <div className="product">{this.props.product}:{this.props.question}</div>
+        <div className="product">{this.props.product}: {this.props.question}</div>
         <br></br>
         <br></br>
         <textarea
@@ -115,7 +114,7 @@ class AddAnswerModal extends React.Component {
         <button className ='uploadPhotoButton' onClick={this.handleWordCountUpload}>Upload Photos</button>
         <br></br>
         <br></br>
-        <button onClick={this.handleWordCountButton}>Submit</button>
+        <button className='submitButton' onClick={this.handleWordCountButton}>Submit</button>
       </form>
     );
   }
