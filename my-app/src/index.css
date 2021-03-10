@@ -157,16 +157,17 @@ code {
 
 #qaContainerOne {
   display: grid;
-  margin-left: 300px;
-  margin-right: 300px;
+  margin-left: 15%;
+  margin-right: 15%;
   grid-template-areas:   "searchBar searchBar"
-                         "questionAnswer extraLinks";
+                        "questionAnswer extraLinks";
 
-  grid-template-rows: 5fr 40fr;
+  grid-template-rows: 50px 40fr;
   grid-template-columns: 1fr;
 }
 
 #qaContainerOne .searchBar {
+  background-color: red;
   grid-area: searchBar;
 }
 
@@ -180,8 +181,8 @@ code {
 
 #qaContainerTwo {
   display: grid;
-  margin-left: 300px;
-  margin-right: 300px;
+  margin-left: 15%;
+  margin-right: 15%;
   /* width: 80%; */
   height: 80px;
   grid-template-areas:   "moreAnsweredQuestions addQuestions";
@@ -211,8 +212,8 @@ code {
   border: solid 2px;
   font-size: small;
   padding-left: 5px;
-  margin-left: 300px;
-  margin-right: 300px;
+  margin-left: 15%;
+  margin-right: 15%;
 }
 
 #qContainer .helpfulLink {
@@ -333,11 +334,9 @@ code {
 }
 
 #ratingsReviewsContainer {
-  margin-left: 300px;
-  margin-right: 300px;
+  margin-left: 15%;
+  margin-right: 15%;
   display: grid;
-  margin-left: 300px;
-  margin-right: 300px;
   height: 500px;
   grid-template-areas:   "title title"
                          "ratings reviews"
