@@ -84,7 +84,10 @@ class ProductCart extends React.Component {
             </div>
             <div style={{'height': '40%'}}>
               <button style={{'width': '80%', 'height': '100%', 'fontWeight': 'bold'}}>ADD TO BAG+</button>
-              <button style={{'width': '10%', 'height': '100%'}}>⭐</button>
+              <button style={{'width': '10%', 'height': '100%'}}>
+                <i class="far fa-star"></i>
+              </button>
+
             </div>
           </React.Fragment>
         )

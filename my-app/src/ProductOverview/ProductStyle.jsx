@@ -47,6 +47,7 @@ class ProductStyle extends React.Component {
         <div id="styleContainer">
         {styles()}
         <div className="WS"></div>
+        <i class="far fa-check-circle"></i>
         </div>
       </div>
     )
