@@ -51,7 +51,7 @@ class ProductDescription extends React.Component {
             {this.props.AppState.product.description}
           </div>
         </div>
-        <div style={{'width': '30%', 'margin-left': 'auto'}}>
+        <div style={{'width': '30%', 'marginLeft': 'auto'}}>
           {features()}
         </div>
       </div>
