@@ -74,7 +74,7 @@ class RatingsReviews extends React.Component {
         </div>
         <div className="buttons">
           <MoreReviewsButton more={this.loadMoreReviews} number={this.state.reviews.length} />
-          <Button variant="outline-primary" type="button" class="btn btn-outline-primary ml-1"onClick={this.openModal}>ADD A REVIEW +</Button>
+          <Button variant="outline-primary" type="button" className="btn btn-outline-primary mx-5"onClick={this.openModal}>ADD A REVIEW +</Button>
           { this.state.isOpen ? (
             <AddReview
               closeModal={this.closeModal}

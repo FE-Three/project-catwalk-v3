@@ -404,10 +404,6 @@ code {
   padding-bottom: 20px;
 }
 
-.addButton {
-  padding-left: 10px;
-}
-
 .ratingVal {
   font-size: 60px;
   font-weight: bold;
@@ -417,4 +413,55 @@ code {
   width: 90% !important;
 }
 
+.response {
+  background-color: lightgrey;
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 80%;
+  height: 7px;
+  border-radius: 5px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgb(51 102 204);
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgb(51 102 204);
+  cursor: pointer;
+}
+
+.factors-desc {
+  display: flex;
+  width: 80%;
+  justify-content: space-between;
+}
+
+.rfTitle {
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.rfDescriptors {
+  font-size: smaller;
+}
 
