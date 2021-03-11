@@ -12,13 +12,12 @@ class AddQuestionModal extends React.Component {
       maxCharEmail: 60,
       charsLeftNickname: 60,
       maxCharNickname: 60,
-      questionBody: "",
-      emailBody: "",
-      nicknameBody: "",
+      questionBody: this.props.questionBody,
+      emailBody: this.props.emailBody,
+      nicknameBody: this.props.nicknameBody,
+      productID: this.props.fullProduct
     };
-    this.handleWordCountQuestionBody = this.handleWordCountQuestionBody.bind(
-      this
-    );
+    this.handleWordCountQuestionBody = this.handleWordCountQuestionBody.bind(this);
     this.handleWordCountEmail = this.handleWordCountEmail.bind(this);
     this.handleWordCountNickname = this.handleWordCountNickname.bind(this);
     this.handleWordCountButton = this.handleWordCountButton.bind(this);
@@ -26,6 +25,15 @@ class AddQuestionModal extends React.Component {
     this.displayInfo = this.displayInfo.bind(this);
     this.closeModal = this.closeModal.bind(this);
   }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.fullProduct !== prevProps.fullProduct) {
+      this.setState({
+        productID: this.props.fullProduct
+      })
+    }
+  }
+
 
   handleWordCountQuestionBody(event) {
     const charCount = event.target.value.length;
@@ -55,7 +63,8 @@ class AddQuestionModal extends React.Component {
   }
 
   handleWordCountButton() {
-    console.log("button click is working");
+    event.preventDefault();
+    this.props.addQuestion(this.state)
   }
 
   handleWordCountUpload(event) {

@@ -5,6 +5,7 @@ import Recommend from './Recommend.jsx';
 import Moment from 'react-moment';
 import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Response from './Response.jsx';
 
 class Reviews extends React.Component {
   constructor(props) {
@@ -31,7 +32,7 @@ class Reviews extends React.Component {
           <div className="review-summ">{this.props.review.summary}</div>
           <div className="review-body">{this.props.review.body}</div>
           <Recommend recommend={this.props.review.recommend} className="review-recommend" />
-          <div className="response">Response: {this.props.review.response} </div>
+          <Response response={this.props.review.response}/>
           <div className="helpful">
             Helpful?
             <Button variant="link" onClick={this.addHelpful}>Yes</Button>
@@ -50,5 +51,7 @@ class Reviews extends React.Component {
     );
   }
 }
-
 export default Reviews;
+
+
+
