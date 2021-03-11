@@ -330,6 +330,7 @@ code {
   color: white;
   cursor: pointer;
   outline: none;
+  margin: 10px;
 }
 
 .collapseButton:hover {
