@@ -31,11 +31,11 @@ class Question extends React.Component {
         helpfulClicked: !this.state.helpfulClicked,
         count: this.state.count + 1,
       });
-    } else {
-      this.setState({
-        helpfulClicked: !this.state.helpfulClicked,
-        count: this.state.count - 1,
-      });
+      axios({
+        method: 'put',
+        headers: {'Authorization': config.config},
+        url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-bld/qa/questions/${this.props.questionID}/helpful`,
+      })
     }
   }
 
@@ -51,6 +51,7 @@ class Question extends React.Component {
             return (
               <Answer
                 answer={answer.body}
+                answerID={answer.id}
                 username={answer.answerer_name}
                 date={answer.date}
                 helpfulness={answer.helpfulness}
@@ -70,6 +71,7 @@ class Question extends React.Component {
             return (
               <Answer
                 answer={answer.body}
+                answerID={answer.id}
                 username={answer.answerer_name}
                 date={answer.date}
                 helpfulness={answer.helpfulness}
@@ -153,6 +155,7 @@ class Question extends React.Component {
           ? sorted.map((answer, i) => (
               <Answer
                 answer={answer.body}
+                answerID={answer.id}
                 username={answer.answerer_name}
                 date={answer.date}
                 helpfulness={answer.helpfulness}

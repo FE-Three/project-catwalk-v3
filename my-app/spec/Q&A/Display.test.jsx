@@ -16,6 +16,6 @@ describe('Component Test', function() {
   })
   it('renders a <Question /> component', () => {
     const wrapper = shallow(<Display />);
-    expect(wrapper.find(Question)).toHaveLength(1 || "Loading Questions...");
+    expect(wrapper.find(Question)).toHaveLength(1);
   })
 })
