@@ -9,7 +9,7 @@ function ProductQty (props) {
         <option>{props.item}</option>
       </React.Fragment>
     )
-  }
+}
 
 
 export default ProductQty;

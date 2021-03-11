@@ -9,6 +9,7 @@ function ProductFeature (props) {
       return (
         <React.Fragment>
           <div style={{'paddingBottom': '10px', 'fontSize': '75%'}}>
+            <i class="fas fa-check"></i> &nbsp;
             {`${props.item.feature} ${formattedValue}`}
           </div>
         </React.Fragment>
