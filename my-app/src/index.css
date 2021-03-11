@@ -404,10 +404,6 @@ code {
   padding-bottom: 20px;
 }
 
-.addButton {
-  padding-left: 10px;
-}
-
 .ratingVal {
   font-size: 60px;
   font-weight: bold;
@@ -420,5 +416,6 @@ code {
 .response {
   background-color: lightgrey;
 }
+
 
 
