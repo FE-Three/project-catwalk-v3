@@ -19,9 +19,6 @@ class ProductInformation extends React.Component {
   render() {
     let info = () => {
       if (this.props.AppState.product.category) {
-        console.log(this.props.AppState.product.category)
-
-
 
         return (
           <React.Fragment>

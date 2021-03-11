@@ -9,7 +9,7 @@ function ProductSize (props) {
         <option id={props.id}>{props.item[1].size}</option>
       </React.Fragment>
     )
-  }
+}
 
 
 export default ProductSize;
