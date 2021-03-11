@@ -16,7 +16,7 @@ class ProductCart extends React.Component {
   }
 
   componentDidMount() {
-    console.log('new cart');
+
 
   }
 

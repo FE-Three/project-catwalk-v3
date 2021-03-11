@@ -18,8 +18,6 @@ class ProductDescription extends React.Component {
       let featureArray = this.props.AppState.product.features;
       if (featureArray) {
 
-        console.log(featureArray)
-
         return (
           <React.Fragment>
             {featureArray.map((item, index) => {

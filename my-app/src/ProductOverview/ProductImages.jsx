@@ -1,6 +1,9 @@
 /* eslint-disable */
 import React from 'react';
 import axios from 'axios';
+import ProductCarousel from './ProductCarousel.jsx'
+import ProductImage from './ProductImage.jsx'
+
 
 class ProductImages extends React.Component {
   constructor(props) {
@@ -14,18 +17,31 @@ class ProductImages extends React.Component {
   }
 
   render() {
+    let conditionalRender = () => {
+
+      if (this.props.AppState.productStyles.results) {
+        let photosArray = this.props.AppState.productStyles.results;
+        let selectedStyle = this.props.ProductState.selectedStyle
+        return (
+          <ProductCarousel key={selectedStyle}>
+            {photosArray.map((item, index) => {
+              return (
+                <ProductImage AppState={this.props.AppState} key={index} id={index} item={item}/>
+              )}
+            )}
+          </ProductCarousel>
+
+
+
+        )
+      }
+    }
     return (
       <div className="images">
-        <img
-        style={{ 'width': '100%', 'height': '100%', 'objectFit': 'contain' }}
-        src=
-        {this.props.AppState.productStyles.results
-          ?
-          this.props.AppState.productStyles.results[0].photos[0].url
-          :
-          ''
-        }
-        />
+        {/* <div
+          style={{ 'width': '100%', 'height': '100%', 'objectFit': 'contain' }}> */}
+          {conditionalRender()}
+        {/* </div> */}
       </div>
     )
   }
