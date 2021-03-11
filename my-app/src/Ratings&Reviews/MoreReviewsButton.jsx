@@ -8,7 +8,7 @@ const MoreReviewsButton = ({ more, number }) => {
     return null;
   }
   return (
-    <Button variant="outline-primary"type="button" className="MoreReviews" onClick={more}>
+    <Button variant="outline-primary" type="button" className="MoreReviews" onClick={more}>
       MORE REVIEWS
     </Button>
   );

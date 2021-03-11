@@ -3,13 +3,14 @@ import Question from './Question';
 /* eslint-disable */
 
 const Display = (props) => {
-
   return (
     <div>
       {props.display
         ? (props.clicked === false ?
           props.display.slice(0, 4).map((result, i) => (
               <Question
+                renderQASection={props.renderQASection}
+                questionID={result.question_id}
                 prodID={props.prodID}
                 product={props.product}
                 question={result.question_body}
@@ -21,6 +22,8 @@ const Display = (props) => {
          :
         props.display.map((result, i) => (
           <Question
+            renderQASection={props.renderQASection}
+            questionID={props.question_id}
             prodID={props.prodID}
             product={props.product}
             question={result.question_body}

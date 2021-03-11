@@ -16,6 +16,9 @@ const RatingBreakdown = ({ ratings }) => (
         ['4 star', parseInt(ratings[4], 10)],
         ['5 star', parseInt(ratings[5], 10)],
       ]}
+      options={{
+        legend: 'none',
+      }}
     />
   </div>
 );

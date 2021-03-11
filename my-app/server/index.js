@@ -26,18 +26,39 @@ app.listen(port, () => {
 
 
 app.get('*', (req, res) => {
-  console.log('where is req url??', req.url);
+  console.log('req: ', req.query)
   axios({method: 'get',
-         headers: {'Authorization': config.config},
-         url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-bld${req.url}`,
-        })
+  headers: {'Authorization': config.config},
+  url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-bld${req.url}`,
+})
 
-  .then(response => {
-    // console.log(response);
-    res.status(200).send(response.data);
+.then(response => {
+  // console.log(response);
+  res.status(200).send(response.data);
+})
+.catch(err => {
+  //console.log(err);
+  res.status(err.response.status).send(err.response.data);
+});
+})
+
+
+
+// add answer
+app.post('qa/questions/:id', (req, res) => {
+  const obj = {
+      body : req.body.body,
+      name: req.body.name,
+      email: req.body.email,
+      photos: req.body.photos
+  }
+  axios.post(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-bld/qa/questions/${req.url}`, obj,
+  {
+    headers: {'Authorization': config.config},
+    method: 'post',
   })
-  .catch(err => {
-    //console.log(err);
-    res.status(err.response.status).send(err.response.data);
-  });
+  .then(response => {
+    res.status(201).send('Post has been recorded')
+  })
+  .catch(err => console.log('error with post request: ', err))
 })
