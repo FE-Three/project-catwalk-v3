@@ -417,4 +417,8 @@ code {
   width: 90% !important;
 }
 
+.response {
+  background-color: lightgrey;
+}
+
 
