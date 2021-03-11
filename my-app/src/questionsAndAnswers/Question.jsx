@@ -1,9 +1,12 @@
 import React from 'react';
+import axios from 'axios';
 import AddAnswerModal from './AddAnswerModal';
-// import axios from 'axios';
 import Answer from './Answer';
 import './App.css';
+import config from '../../config/config';
 /* eslint-disable */
+
+// axios.defaults.headers.common.authorization = config
 
 class Question extends React.Component {
   constructor(props) {
@@ -13,11 +16,13 @@ class Question extends React.Component {
       helpfulClicked: false,
       loadAllClick: false,
       showModal: false,
+      data: []
     };
     this.helpfulToggle = this.helpfulToggle.bind(this);
     this.loadTwo = this.loadTwo.bind(this);
     this.loadAll = this.loadAll.bind(this);
     this.selectModal = this.selectModal.bind(this);
+    this.addAnswer = this.addAnswer.bind(this);
   }
 
   helpfulToggle() {
@@ -26,11 +31,11 @@ class Question extends React.Component {
         helpfulClicked: !this.state.helpfulClicked,
         count: this.state.count + 1,
       });
-    } else {
-      this.setState({
-        helpfulClicked: !this.state.helpfulClicked,
-        count: this.state.count - 1,
-      });
+      axios({
+        method: 'put',
+        headers: {'Authorization': config.config},
+        url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-bld/qa/questions/${this.props.questionID}/helpful`,
+      })
     }
   }
 
@@ -46,6 +51,7 @@ class Question extends React.Component {
             return (
               <Answer
                 answer={answer.body}
+                answerID={answer.id}
                 username={answer.answerer_name}
                 date={answer.date}
                 helpfulness={answer.helpfulness}
@@ -65,6 +71,7 @@ class Question extends React.Component {
             return (
               <Answer
                 answer={answer.body}
+                answerID={answer.id}
                 username={answer.answerer_name}
                 date={answer.date}
                 helpfulness={answer.helpfulness}
@@ -92,6 +99,28 @@ class Question extends React.Component {
      });
   }
 
+  addAnswer(answer) {
+    axios({
+      method: 'post',
+      headers: {'Authorization': config.config},
+      url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-bld/qa/questions/${this.props.questionID}/answers`,
+      data: {
+        body : answer.answerBody,
+        name: answer.nicknameBody,
+        email: answer.emailBody,
+      }
+    })
+      .then(res => {
+      console.log('POSTED!')
+    })
+      .catch(err => console.log('ERROR POSTING: ', err))
+
+    // this.setState({
+    //   data: [...this.state.data, answer]
+    // })
+  }
+
+
   render() {
     const answerKeys = Object.values(this.props.answer);
     const sorted = answerKeys.sort((a, b) => {
@@ -112,6 +141,8 @@ class Question extends React.Component {
           <div className="addAnswerLink" onClick={() => this.selectModal()}>
             Add Answer
             <AddAnswerModal
+              questionID={this.props.questionID}
+              addAnswer={this.addAnswer}
               question={this.props.question}
               prodID={this.props.prodID}
               displayModal={this.state.showModal}
@@ -124,10 +155,12 @@ class Question extends React.Component {
           ? sorted.map((answer, i) => (
               <Answer
                 answer={answer.body}
+                answerID={answer.id}
                 username={answer.answerer_name}
                 date={answer.date}
                 helpfulness={answer.helpfulness}
                 key={i}
+                photos={answer.photos}
               />
             ))
           : this.loadTwo()}

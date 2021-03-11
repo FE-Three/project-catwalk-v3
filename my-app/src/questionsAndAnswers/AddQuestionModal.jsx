@@ -12,13 +12,12 @@ class AddQuestionModal extends React.Component {
       maxCharEmail: 60,
       charsLeftNickname: 60,
       maxCharNickname: 60,
-      questionBody: "",
-      emailBody: "",
-      nicknameBody: "",
+      questionBody: this.props.questionBody,
+      emailBody: this.props.emailBody,
+      nicknameBody: this.props.nicknameBody,
+      productID: this.props.fullProduct
     };
-    this.handleWordCountQuestionBody = this.handleWordCountQuestionBody.bind(
-      this
-    );
+    this.handleWordCountQuestionBody = this.handleWordCountQuestionBody.bind(this);
     this.handleWordCountEmail = this.handleWordCountEmail.bind(this);
     this.handleWordCountNickname = this.handleWordCountNickname.bind(this);
     this.handleWordCountButton = this.handleWordCountButton.bind(this);
@@ -26,6 +25,15 @@ class AddQuestionModal extends React.Component {
     this.displayInfo = this.displayInfo.bind(this);
     this.closeModal = this.closeModal.bind(this);
   }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.fullProduct !== prevProps.fullProduct) {
+      this.setState({
+        productID: this.props.fullProduct
+      })
+    }
+  }
+
 
   handleWordCountQuestionBody(event) {
     const charCount = event.target.value.length;
@@ -55,7 +63,8 @@ class AddQuestionModal extends React.Component {
   }
 
   handleWordCountButton() {
-    console.log("button click is working");
+    event.preventDefault();
+    this.props.addQuestion(this.state)
   }
 
   handleWordCountUpload(event) {
@@ -66,7 +75,6 @@ class AddQuestionModal extends React.Component {
   displayInfo() {
     return (
       <form onSubmit={this.handleWordCountButton}>
-        <br></br>
         <div className="title">Ask Your Question</div>
         <br></br>
         <div className="product">About the {this.props.product}</div>
@@ -81,9 +89,11 @@ class AddQuestionModal extends React.Component {
           required
           onChange={this.handleWordCountQuestionBody}
         />
-        <p>Limit: {this.state.charsLeft}</p>
-        <label>
+        <p className='firstLimit'>Limit: {this.state.charsLeft}</p>
+        <div id='emailAndUsername'>
+        <label className='addEmail'>
           *Add Email &nbsp;
+          </label>
           <input
             className="modalEmail"
             placeholder="Example: jack@email.com"
@@ -91,14 +101,12 @@ class AddQuestionModal extends React.Component {
             maxLength="60"
             required
             onChange={this.handleWordCountEmail}
-          ></input>
-          <p>Limit: {this.state.charsLeftEmail}</p>
-        </label>
-        <label>**For authentication reasons, you will not be emailed**</label>
-        <br></br>
-        <br></br>
-        <label>
+            ></input>
+          <p className='nextLimit'>Limit: {this.state.charsLeftEmail}</p>
+        <label className='addEmailAuthentication'>**For authentication reasons, you will not be emailed**</label>
+        <label className='addNickname'>
           *Add Nickname &nbsp;
+          </label>
           <input
             className="modalNickname"
             placeholder="Example: jackson11!"
@@ -106,15 +114,15 @@ class AddQuestionModal extends React.Component {
             maxLength="60"
             required
             onChange={this.handleWordCountNickname}
-          ></input>
-          <p>Limit: {this.state.charsLeftNickname}</p>
-        </label>
-        <label>
+            ></input>
+          <p className='lastLimit'>Limit: {this.state.charsLeftNickname}</p>
+        <label className='addNicknameAuthentication'>
           **For privacy reasons, do not use your full name or email address**
         </label>
+            </div>
         <br></br>
         <br></br>
-        <button onClick={this.handleWordCountButton}>Submit</button>
+        <button className='submitButton' onClick={this.handleWordCountButton}>Submit</button>
       </form>
     );
   }

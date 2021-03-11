@@ -37,7 +37,7 @@ class ProductStyle extends React.Component {
               {styleOptions[selectedStyle].name.toUpperCase()}
               </div>
             </div>
-            {styleOptions.map((item, index) => (<StyleTN key={index} styleNum={index}styleOption={item} onClick={this.props.onStyleClick} />))}
+            {styleOptions.map((item, index) => (<StyleTN key={index} styleNum={index} styleOption={item} onClick={this.props.onStyleClick} selectedStyle={selectedStyle}/>))}
           </React.Fragment>
         )
       }

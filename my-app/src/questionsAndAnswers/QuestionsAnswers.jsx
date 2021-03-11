@@ -12,7 +12,8 @@ class QuestionsAnswers extends React.Component {
 
     this.state = {
       data: [],
-      searched: []
+      searched: [],
+      isClicked: false
     }
     // bindings
     this.renderQASection = this.renderQASection.bind(this);
@@ -42,27 +43,31 @@ class QuestionsAnswers extends React.Component {
   }
 
   handleLoadMoreAnswers() {
-   // console.log('Load More Answers Button is working!')
+    this.setState({
+      isClicked: !this.state.isClicked
+    })
   }
 
 
   render() {
     return (
-      <div>
+      <React.Fragment>
         <div id="qaContainerOne">
-            <div className="searchBar"><SearchForAnswers searchAnswers={this.searchAnswers} data={this.state.data}/></div>
+            <SearchForAnswers searchAnswers={this.searchAnswers} data={this.state.data}/>
             <div className="questionAnswer">
               {this.state.searched.length > 0 ?
               <Display display={this.state.searched}/>
-              : <Display display={this.state.data.results} prodID={this.props.Questions} product={this.props.product}/>
+              : <Display display={this.state.data.results} prodID={this.props.Questions} renderQASection={this.renderQASection} product={this.props.product} clicked={this.state.isClicked}/>
               }
               </div>
             </div>
           <div id="qaContainerTwo">
-            <div className="moreAnsweredQuestions"><MoreAnsweredQuestions loadAnswers={this.handleLoadMoreAnswers}/></div>
-            <div className="addQuestions"><AddQuestion product={this.props.product}/></div>
+          <div className="moreAnsweredQuestions">
+              <MoreAnsweredQuestions loadAnswers={this.handleLoadMoreAnswers} data={this.state.data.results}/>
+            </div>
+            <div className="addQuestions"><AddQuestion data={this.state.data.results} product={this.props.product} fullProduct={this.props.fullProduct}/></div>
           </div>
-      </div>
+          </React.Fragment>
     )
   }
 }

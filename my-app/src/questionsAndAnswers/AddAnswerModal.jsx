@@ -12,11 +12,12 @@ class AddAnswerModal extends React.Component {
       maxCharEmail: 60,
       charsLeftNickname: 60,
       maxCharNickname: 60,
-      questionBody: '',
-      emailBody: '',
-      nicknameBody: ''
+      answerBody: this.props.answerBody,
+      emailBody: this.props.emailBody,
+      nicknameBody: this.props.nicknameBody,
+      question_id: this.props.questionID
     };
-    this.handleWordCountQuestionBody = this.handleWordCountQuestionBody.bind(this);
+    this.handleWordCountQuestionBody = this.handleWordCountAnswerBody.bind(this);
     this.handleWordCountEmail = this.handleWordCountEmail.bind(this);
     this.handleWordCountNickname = this.handleWordCountNickname.bind(this);
     this.handleWordCountButton = this.handleWordCountButton.bind(this);
@@ -25,12 +26,12 @@ class AddAnswerModal extends React.Component {
     this.closeModal = this.closeModal.bind(this);
   }
 
-  handleWordCountQuestionBody(event) {
+  handleWordCountAnswerBody(event) {
     const charCount = event.target.value.length;
     const maxChar = this.state.maxChar;
     const charLength = maxChar - charCount;
     this.setState({ charsLeft: charLength,
-      questionBody: event.target.value });
+      answerBody: event.target.value });
   }
 
   handleWordCountEmail(event) {
@@ -50,7 +51,8 @@ class AddAnswerModal extends React.Component {
   }
 
   handleWordCountButton() {
-    console.log('button click is working')
+    event.preventDefault();
+    this.props.addAnswer(this.state)
   }
 
   handleWordCountUpload(event) {
@@ -61,10 +63,9 @@ class AddAnswerModal extends React.Component {
   displayInfo() {
     return (
       <form onSubmit={this.handleWordCountButton}>
-        <br></br>
         <div className="title">Submit your Answer</div>
         <br></br>
-        <div className="product">{this.props.product}:{this.props.question}</div>
+        <div className="product">{this.props.product}: {this.props.question}</div>
         <br></br>
         <br></br>
         <textarea
@@ -115,7 +116,7 @@ class AddAnswerModal extends React.Component {
         <button className ='uploadPhotoButton' onClick={this.handleWordCountUpload}>Upload Photos</button>
         <br></br>
         <br></br>
-        <button onClick={this.handleWordCountButton}>Submit</button>
+        <button className='submitButton' onClick={this.handleWordCountButton}>Submit</button>
       </form>
     );
   }

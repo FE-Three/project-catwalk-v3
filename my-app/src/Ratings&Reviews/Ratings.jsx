@@ -2,7 +2,7 @@
 import React from 'react';
 import StarRatingComponent from 'react-star-rating-component';
 import RatingBreakdown from './RatingBreakdown.jsx';
-//import RatingFactors from './RatingFactors.jsx';
+import RatingFactors from './RatingFactors.jsx';
 
 const Ratings = ({ ratings }) => {
   if (ratings !== undefined) {
@@ -25,6 +25,7 @@ function ShowRatings({ ratings }) {
   let sum = 0;
   let num = 0;
   const ratingsObj = ratings.ratings;
+  const ratingsChars = ratings.characteristics;
   for (let key in ratingsObj) {
     sum += (key * ratingsObj[key]);
     num += parseInt(ratingsObj[key]);
@@ -36,7 +37,7 @@ function ShowRatings({ ratings }) {
       <StarRatingComponent name="star" starCount={5} value={sum / num} />
       <div>{recommend}% of reviews recommend this product</div>
       <RatingBreakdown ratings={ratingsObj} />
-      {/* <RatingFactors factors={ratings.characteristics} /> */}
+      <RatingFactors chars={ratingsChars} />
     </div>
   );
 }

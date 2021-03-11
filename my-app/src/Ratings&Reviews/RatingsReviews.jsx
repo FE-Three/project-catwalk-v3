@@ -5,6 +5,8 @@ import ReviewList from './ReviewList.jsx';
 import Ratings from './Ratings.jsx';
 import MoreReviewsButton from './MoreReviewsButton.jsx';
 import AddReview from './AddReview.jsx';
+import Button from 'react-bootstrap/Button';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 class RatingsReviews extends React.Component {
   constructor(props) {
@@ -12,7 +14,7 @@ class RatingsReviews extends React.Component {
     this.state = {
       reviews: [],
       reviewIndex: 2,
-      isOpen: true,
+      isOpen: false,
     };
     this.getReviews = this.getReviews.bind(this);
     this.loadMoreReviews = this.loadMoreReviews.bind(this);
@@ -63,7 +65,7 @@ class RatingsReviews extends React.Component {
   render() {
     return (
       <div id="ratingsReviewsContainer">
-        <div className="title">Ratings and Reviews</div>
+        <div className="rrtitle">Ratings and Reviews</div>
         <div className="ratings">
           <Ratings ratings={this.props.ratings} />
         </div>
@@ -72,7 +74,7 @@ class RatingsReviews extends React.Component {
         </div>
         <div className="buttons">
           <MoreReviewsButton more={this.loadMoreReviews} number={this.state.reviews.length} />
-          <button type="button" onClick={this.openModal}>ADD A REVIEW +</button>
+          <Button variant="outline-primary" type="button" className="btn btn-outline-primary mx-5"onClick={this.openModal}>ADD A REVIEW +</Button>
           { this.state.isOpen ? (
             <AddReview
               closeModal={this.closeModal}
