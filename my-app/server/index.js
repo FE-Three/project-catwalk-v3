@@ -26,7 +26,7 @@ app.listen(port, () => {
 
 
 app.get('*', (req, res) => {
-  console.log('req: ', req.query)
+  //console.log('req: ', req.query)
   axios({method: 'get',
   headers: {'Authorization': config.config},
   url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-bld${req.url}`,
