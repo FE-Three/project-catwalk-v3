@@ -1,5 +1,7 @@
 import React from 'react';
 import Moment from 'react-moment';
+import axios from 'axios';
+import config from '../../config/config';
 // import PropTypes from 'prop-types';
 /* eslint-disable */
 class Answer extends React.Component {
@@ -9,6 +11,7 @@ class Answer extends React.Component {
       count: this.props.helpfulness,
       helpfulClicked: false,
       reportClick: false,
+      answerID: this.props.answerID
     };
 
     this.helpfulnessToggle = this.helpfulnessToggle.bind(this);
@@ -16,16 +19,17 @@ class Answer extends React.Component {
   }
 
   helpfulnessToggle() {
+    console.log('this is working with answerID: ', this.state.answerID)
     if (this.state.helpfulClicked === false) {
       this.setState({
         helpfulClicked: !this.state.helpfulClicked,
         count: this.state.count + 1,
       });
-    } else {
-      this.setState({
-        helpfulClicked: !this.state.helpfulClicked,
-        count: this.state.count - 1,
-      });
+      axios({
+        method: 'put',
+        headers: {'Authorization': config.config},
+        url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-bld/qa/answers/${this.state.answerID}/helpful`,
+      })
     }
   }
 
