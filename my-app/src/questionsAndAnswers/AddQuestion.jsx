@@ -1,7 +1,6 @@
 import React from 'react';
 import axios from 'axios';
 import AddQuestionModal from './AddQuestionModal';
-import config from '../../config/config';
 import './App.css';
 /* eslint-disable */
 class AddQuestion extends React.Component {
