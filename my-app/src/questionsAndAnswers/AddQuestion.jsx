@@ -24,8 +24,7 @@ class AddQuestion extends React.Component {
     console.log('question: ', question)
     axios({
       method: 'post',
-      headers: {'Authorization': config.config},
-      url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-bld/qa/questions/`,
+      url: `/qa/questions`,
       data: {
         body : question.questionBody,
         name: question.nicknameBody,
@@ -34,7 +33,7 @@ class AddQuestion extends React.Component {
       }
     })
       .then(res => {
-      console.log('POSTED!')
+      this.props.renderAll()
     })
       .catch(err => console.log('ERROR POSTING: ', err))
 
