@@ -1,5 +1,5 @@
-import React from 'react';
 /* eslint-disable */
+import React from 'react';
 
 const Recommend = ({ recommend }) => {
   if (recommend) {

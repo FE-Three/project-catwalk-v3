@@ -1,7 +1,6 @@
 import React from 'react';
 import Moment from 'react-moment';
 import axios from 'axios';
-import config from '../../config/config';
 // import PropTypes from 'prop-types';
 /* eslint-disable */
 class Answer extends React.Component {

@@ -3,7 +3,6 @@ import axios from 'axios';
 import AddAnswerModal from './AddAnswerModal';
 import Answer from './Answer';
 import './App.css';
-import config from '../../config/config';
 /* eslint-disable */
 
 // axios.defaults.headers.common.authorization = config
