@@ -1,7 +1,6 @@
 import React from 'react';
 import Moment from 'react-moment';
 import axios from 'axios';
-import config from '../../config/config';
 // import PropTypes from 'prop-types';
 /* eslint-disable */
 class Answer extends React.Component {
@@ -10,8 +9,8 @@ class Answer extends React.Component {
     this.state = {
       count: this.props.helpfulness,
       helpfulClicked: false,
-      reportClick: false,
-      answerID: this.props.answerID
+      answerID: this.props.answerID,
+      reported: false
     };
 
     this.helpfulnessToggle = this.helpfulnessToggle.bind(this);
@@ -25,22 +24,20 @@ class Answer extends React.Component {
         helpfulClicked: !this.state.helpfulClicked,
         count: this.state.count + 1,
       });
-      axios({
-        method: 'put',
-        headers: {'Authorization': config.config},
-        url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-bld/qa/answers/${this.state.answerID}/helpful`,
-      })
+      axios.put(`/qa/answers/${this.state.answerID}/helpful`)
     }
   }
 
   reportToggle() {
+    console.log('CLICKING AT: ', this.state.reported)
     this.setState({
-      reportClick: !this.state.reportClick,
+      reported: !this.state.reported,
     });
-    alert("Thank you. Your answer has been recorded 🗣");
+    axios.put(`/qa/answers/${this.state.reported}/helpful`)
   }
 
   render() {
+
     return (
       <div>
         <p className="answers">A: &nbsp; {this.props.answer}</p>
@@ -77,7 +74,7 @@ class Answer extends React.Component {
               ({this.state.count}) &nbsp;{" "}
             </span>
             <span className="dividerTwo"> &nbsp; | &nbsp; </span>
-            {!this.state.reportClick ? (
+            {!this.state.reported ? (
               <span className="report">
                 {" "}
                 &nbsp;{" "}

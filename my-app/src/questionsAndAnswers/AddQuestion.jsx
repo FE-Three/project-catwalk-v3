@@ -1,7 +1,6 @@
 import React from 'react';
 import axios from 'axios';
 import AddQuestionModal from './AddQuestionModal';
-import config from '../../config/config';
 import './App.css';
 /* eslint-disable */
 class AddQuestion extends React.Component {
@@ -25,8 +24,7 @@ class AddQuestion extends React.Component {
     console.log('question: ', question)
     axios({
       method: 'post',
-      headers: {'Authorization': config.config},
-      url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-bld/qa/questions/`,
+      url: `/qa/questions`,
       data: {
         body : question.questionBody,
         name: question.nicknameBody,
@@ -35,7 +33,7 @@ class AddQuestion extends React.Component {
       }
     })
       .then(res => {
-      console.log('POSTED!')
+      this.props.renderAll()
     })
       .catch(err => console.log('ERROR POSTING: ', err))
 

@@ -9,7 +9,8 @@ const Display = (props) => {
         ? (props.clicked === false ?
           props.display.slice(0, 4).map((result, i) => (
               <Question
-                renderQASection={props.renderQASection}
+                reported={result.reported}
+                renderQASection={props.renderAll}
                 questionID={result.question_id}
                 prodID={props.prodID}
                 product={props.product}
@@ -22,7 +23,8 @@ const Display = (props) => {
          :
         props.display.map((result, i) => (
           <Question
-            renderQASection={props.renderQASection}
+            reported={result.reported}
+            renderQASection={props.renderAll}
             questionID={props.question_id}
             prodID={props.prodID}
             product={props.product}

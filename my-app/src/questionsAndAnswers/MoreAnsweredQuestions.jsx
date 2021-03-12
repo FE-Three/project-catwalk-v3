@@ -8,8 +8,6 @@ class MoreAnsweredQuestions extends React.Component {
 
   }
 
-
-
   render() {
     return (
       <div>
