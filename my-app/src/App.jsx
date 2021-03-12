@@ -26,13 +26,13 @@ class App extends React.Component {
   }
 
   getProduct(product_id) {
-    axios.get(`http://localhost:3000/products/${product_id}`)
+    axios.get(`/products/${product_id}`)
       .then((res) => this.setState({product: res.data}))
       .catch((err) => console.log(err));
   }
 
   getStyles(product_id) {
-    axios.get(`http://localhost:3000/products/${product_id}/styles`)
+    axios.get(`/products/${product_id}/styles`)
       .then((res) => this.setState({productStyles: res.data}))
       .catch((err) => console.log(err));
   }
