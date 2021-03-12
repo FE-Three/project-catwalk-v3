@@ -1,3 +1,4 @@
+/* eslint-disable */
 /* eslint-disable react/destructuring-assignment */
 import React from 'react';
 import axios from 'axios';
