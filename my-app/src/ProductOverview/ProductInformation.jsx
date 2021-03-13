@@ -1,5 +1,6 @@
 /* eslint-disable */
 import React from 'react';
+import StarRatingComponent from 'react-star-rating-component';
 
 
 class ProductInformation extends React.Component {
@@ -10,7 +11,6 @@ class ProductInformation extends React.Component {
     }
   }
 
-
   componentDidMount() {
 
   }
@@ -20,9 +20,27 @@ class ProductInformation extends React.Component {
     let info = () => {
       if (this.props.AppState.product.category) {
 
+        let sum = 0;
+        let num = 0;
+        let ratingsObj = this.props.AppState.ratings;
+        for (let key in ratingsObj) {
+          sum += (key * ratingsObj[key]);
+          num += parseInt(ratingsObj[key]);
+        }
+
         return (
           <React.Fragment>
-            {/* <div><Ratings ratings={this.props.AppState.ratings}/></div> */}
+            <div> &nbsp; </div>
+            <div style = {{'display':'flex'}}>
+              <StarRatingComponent name="star1" starCount={5} value={sum / num} className="review-rating"/>
+              <div
+                onClick={()=> {document.getElementById('ratingsScroll').scrollIntoView()}}
+                className="btn-link"
+                style = {{'paddingLeft':'5px'}}
+                >
+                Read all reviews
+              </div>
+            </div>
             <div>
               {this.props.AppState.product.category.toUpperCase()}
             </div>
