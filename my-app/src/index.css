@@ -150,11 +150,12 @@ code {
 }
 
 .overlap{
-  top: 12px;
+  top: 14px;
   position: relative;
   left: 30px;
   width: 15px;
-  background-color: white;
+  color: white;
+  background-color:  rgb(123, 199, 224);
 }
 
 .TN {

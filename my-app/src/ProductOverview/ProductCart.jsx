@@ -3,6 +3,8 @@ import React from 'react';
 import axios from 'axios';
 import ProductSize from './ProductSize.jsx';
 import ProductQty from './ProductQty.jsx';
+import Button from 'react-bootstrap/Button';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 class ProductCart extends React.Component {
   constructor(props) {
@@ -83,7 +85,10 @@ class ProductCart extends React.Component {
               </select>
             </div>
             <div style={{'height': '40%'}}>
-              <button style={{'width': '80%', 'height': '100%', 'fontWeight': 'bold'}}>ADD TO BAG+</button>
+            <Button variant="outline-primary" type="button" className="MoreReviews" onClick={more}>
+              ADD TO BAG+
+            </Button>
+              {/* <button style={{'width': '80%', 'height': '100%', 'fontWeight': 'bold'}}>ADD TO BAG+</button> */}
               <button style={{'width': '10%', 'height': '100%'}}>
                 <i class="far fa-star"></i>
               </button>
@@ -104,3 +109,5 @@ class ProductCart extends React.Component {
 }
 
 export default ProductCart;
+
+
