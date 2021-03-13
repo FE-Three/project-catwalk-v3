@@ -10,7 +10,8 @@ class ProductCart extends React.Component {
     this.state = {
       selectedSizeIndex: 0,
       qtyValue: '-',
-      sizeValue: 'Select Size'
+      sizeValue: 'Select Size',
+      bagMsg: ''
     }
     this.handleDropdownChange = this.handleDropdownChange.bind(this);
   }
@@ -56,7 +57,8 @@ class ProductCart extends React.Component {
 
         return (
           <React.Fragment>
-            <div style={{'height': '40%'}}>
+            <div style={{'textAlign': 'center', 'color':'red'}}>{this.state.bagMsg} &nbsp;</div>
+            <div style={{'height': '20%'}}>
               <select
               style={{'width': '60%', 'height': '100%', 'fontWeight': 'bold'}}
               id="sizeValue"
@@ -82,12 +84,16 @@ class ProductCart extends React.Component {
                 }
               </select>
             </div>
-            <div style={{'height': '40%'}}>
-              <button style={{'width': '80%', 'height': '100%', 'fontWeight': 'bold'}}>ADD TO BAG+</button>
-              <button style={{'width': '10%', 'height': '100%'}}>
-                <i className="far fa-star"></i>
-              </button>
-
+            <div style={{'height': '20%'}}>
+              <button
+                onClick={()=>{
+                  if (this.state.sizeValue === 'Select Size') {
+                    this.setState({bagMsg: 'Select Size'});
+                  } else {
+                    this.setState({bagMsg: 'Added to Bag'});
+                  }
+                }}
+                style={{'width': '90%', 'height': '100%', 'fontWeight': 'bold'}}>ADD TO BAG+</button>
             </div>
           </React.Fragment>
         )
