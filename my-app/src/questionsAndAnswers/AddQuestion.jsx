@@ -1,7 +1,10 @@
 import React from 'react';
+import Button from 'react-bootstrap/Button';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
 import AddQuestionModal from './AddQuestionModal';
 import './App.css';
+
 /* eslint-disable */
 class AddQuestion extends React.Component {
   constructor(props) {
@@ -37,8 +40,12 @@ class AddQuestion extends React.Component {
   render() {
     return (
       <div>
-        <button className="addQuestionButton" onClick={ () => this.selectModal() }> ADD A QUESTION +
-        </button>
+        <Button
+          variant="outline-primary"
+          type="button"
+          className="addQuestionButton MoreReviews btn btn-outline-primary"
+          onClick={ () => this.selectModal() }> ADD A QUESTION +
+        </Button>
         <AddQuestionModal
           addQuestion={this.addQuestion}
           displayModal={this.state.showModal}

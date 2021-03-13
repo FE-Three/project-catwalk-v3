@@ -1,5 +1,7 @@
 import React from 'react';
 /* eslint-disable */
+import Button from 'react-bootstrap/Button';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 class MoreAnsweredQuestions extends React.Component {
   constructor(props) {
@@ -10,10 +12,16 @@ class MoreAnsweredQuestions extends React.Component {
   render() {
     return (
       <div>
-        <button className='moreAnsweredQuestionsButton' onClick={this.props.loadAnswers}>MORE ANSWERED QUESTIONS</button>
+        <Button
+         variant="outline-primary"
+         type="button"
+          className='moreAnsweredQuestionsButton MoreReviews btn btn-outline-primary'
+          onClick={this.props.loadAnswers}>MORE ANSWERED QUESTIONS
+        </Button>
       </div>
     )
   }
 }
 
 export default MoreAnsweredQuestions;
+
