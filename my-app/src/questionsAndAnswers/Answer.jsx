@@ -29,15 +29,17 @@ class Answer extends React.Component {
   }
 
   reportToggle() {
-    console.log('CLICKING AT: ', this.state.reported)
-    this.setState({
-      reported: !this.state.reported,
-    });
-    axios.put(`/qa/answers/${this.state.reported}/helpful`)
+    console.log('CLICKING AT: ', this.state.answerID)
+    axios.put(`/qa/answers/${this.state.answerID}/report`)
+      .then(() => {
+        this.setState({
+          reported: !this.state.reported,
+        });
+      })
+      .catch(err => console.log('NAAAA'))
   }
 
   render() {
-
     return (
       <div>
         <p className="answers">A: &nbsp; {this.props.answer}</p>
