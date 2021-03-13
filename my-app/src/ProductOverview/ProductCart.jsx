@@ -90,7 +90,7 @@ class ProductCart extends React.Component {
                   if (this.state.sizeValue === 'Select Size') {
                     this.setState({bagMsg: 'Select Size'});
                   } else {
-                    this.setState({bagMsg: 'Added to Bag'});
+                    this.setState({bagMsg: ''});
                   }
                 }}
                 style={{'width': '90%', 'height': '100%', 'fontWeight': 'bold'}}>ADD TO BAG+</button>
