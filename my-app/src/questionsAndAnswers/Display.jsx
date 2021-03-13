@@ -5,36 +5,21 @@ import Question from './Question';
 const Display = (props) => {
   return (
     <div>
-      {props.display
-        ? (props.clicked === false ?
-          props.display.slice(0, 4).map((result, i) => (
-              <Question
-                reported={result.reported}
-                renderQASection={props.renderAll}
-                questionID={result.question_id}
-                prodID={props.prodID}
-                product={props.product}
-                question={result.question_body}
-                answer={result.answers}
-                helpful={result.question_helpfulness}
-                key={i}
-              />
-            ))
-         :
-        props.display.map((result, i) => (
-          <Question
-            reported={result.reported}
-            renderQASection={props.renderAll}
-            questionID={props.question_id}
-            prodID={props.prodID}
-            product={props.product}
-            question={result.question_body}
-            answer={result.answers}
-            helpful={result.question_helpfulness}
-            key={i}
-          />
-        )))
-        : "Loading Questions..."}
+        {props.display ?
+          props.display.map((result, i) => (
+            <Question
+              reported={result.reported}
+              renderQASection={props.renderQASection}
+              questionID={result.question_id}
+              prodID={props.prodID}
+              product={props.product}
+              question={result.question_body}
+              answer={result.answers}
+              helpful={result.question_helpfulness}
+              key={i}
+            />
+          ))
+         : "Loading Questions..."}
       <br></br>
     </div>
   );

@@ -34,7 +34,7 @@ app.get('/:id(\\d+)/', (req, res) =>{
 //   res.sendFile(path.join(path.join(__dirname, '../public/index.html')));
 // });
 // app.get('/:id(\\d+)/', (req, res) =>{
-//   res.sendFile(path.join(path.join(__dirname, '../public/index.html'))):
+//   res.sendFile(path.join(path.join(__dirname, '../public/index.html')));
 // });
 
 
