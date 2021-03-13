@@ -1,4 +1,6 @@
 import React from 'react';
+import Button from 'react-bootstrap/Button';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
 import AddAnswerModal from './AddAnswerModal';
 import Answer from './Answer';
@@ -53,9 +55,13 @@ class Question extends React.Component {
               />
             );
           })}
-          <button className="collapseButton" onClick={() => this.loadAll()}>
+          <Button
+            variant="outline-primary"
+            type="button"
+            className="collapseButton btn btn-outline-primary"
+            onClick={() => this.loadAll()}>
             Load more answers
-          </button>
+          </Button>
         </div>
       );
     } else {
@@ -73,13 +79,18 @@ class Question extends React.Component {
               />
             );
           })}
-          <button className="collapseButton" onClick={() => this.loadAll()}>
+          <Button
+            variant="outline-primary"
+            type="button"
+            className="collapseButton btn btn-outline-primary"
+            onClick={() => this.loadAll()}>
             Collapse answers
-          </button>
+          </Button>
         </div>
       );
     }
   }
+
 
   loadAll() {
     this.setState({

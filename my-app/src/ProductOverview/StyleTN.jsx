@@ -25,7 +25,7 @@ class StyleTN extends React.Component {
       if(this.props.styleNum === this.props.selectedStyle) {
         return (
           <div className={`TN${this.props.styleNum}`}>
-            <i className="overlap far fa-check-circle"></i>
+            <i className="overlap fas fas fa-check"></i>
             <img className="TN" onClick={this.props.onClick} src={this.props.styleOption.photos[0].thumbnail_url} />
           </div>
         )

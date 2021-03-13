@@ -6,9 +6,10 @@ const app = express();
 const axios = require('axios');
 const cors = require('cors');
 const config = require('../config/config.js')
+const compression = require('compression');
+app.use(compression());
 
 app.use(express.static(path.join(__dirname, '../build')));
-
 // app.use(express.static(path.join(__dirname, '../public')));
 
 app.use(cors());
@@ -23,6 +24,7 @@ app.use(function(req, res, next) {
 app.listen(port, () => {
   console.log(`Server listening at localhost:${port}!`);
 });
+
 
 app.get('/item/*', (req, res) =>{
   res.sendFile(path.join(path.join(__dirname, '../build/index.html')));
