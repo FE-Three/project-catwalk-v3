@@ -23,11 +23,13 @@ class Reviews extends React.Component {
     let display;
     if (resultsLoaded) {
       display = (
-        <div>
+        <div className="review">
           <div className="review-top">
             <StarRatingComponent name="star1" starCount={5} value={this.props.review.rating} className="review-rating"/>
-            <span className="review-user">{this.props.review.reviewer_name}, </span>
-            <Moment format='MMMM D, YYYY' className="review-date" date={this.props.review.date} />
+            <div>
+              <span className="review-user">{this.props.review.reviewer_name}, </span>
+              <Moment format='MMMM D, YYYY' className="review-date" date={this.props.review.date} />
+            </div>
           </div>
           <div className="review-summ">{this.props.review.summary}</div>
           <div className="review-body">{this.props.review.body}</div>

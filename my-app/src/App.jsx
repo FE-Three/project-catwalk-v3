@@ -57,6 +57,7 @@ class App extends React.Component {
       <div id="container">
         <ProductOverview AppState={this.state} />
         <QuestionsAnswers Questions={this.state.product_id} product={this.state.product.name} fullProduct={this.state.product}/>
+        <div id="ratingsScroll"></div>
         <RatingsReviews className="ratingsReviewsContainer" ratings={this.state.ratingsMeta} productID={this.state.product_id} />
       </div>
     );
