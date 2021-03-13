@@ -7,7 +7,7 @@ const axios = require('axios');
 const cors = require('cors');
 const config = require('../config/config.js')
 
-// app.use(express.static(path.join(__dirname, '../build')));
+//app.use(express.static(path.join(__dirname, '../build')));
 app.use(express.static(path.join(__dirname, '../public')));
 
 app.use(cors());
@@ -37,20 +37,11 @@ app.get('/:id(\\d+)/', (req, res) =>{
 });
 
 
-
-
-
 app.get('*', (req, res) => {
   axios({method: 'get',
   headers: {'Authorization': config.config},
   url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-bld${req.url}`,
 })
-
-// app.get('*', (req, res) => {
-//   axios({method: 'get',
-//   headers: {'Authorization': config.config},
-//   url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-bld${req.url}&count=10`,
-// })
 
 .then(response => {
   // console.log(response);
@@ -67,7 +58,6 @@ app.get('*', (req, res) => {
           // add question
 //=======================================
 app.post('/qa/questions', (req, res) => {
-  // console.log('PRODUCTID: ', req.params.product_id)
   axios({
     method: 'post',
     headers: {'Authorization': config.config},
@@ -114,7 +104,6 @@ app.post('/qa/questions/answers', (req, res) => {
     // put request QUESTION HELPFUL
 //=======================================
 app.put('/qa/questions/:question_id/helpful', (req, res) => {
-  console.log('req: ', req.params)
   axios({
     method: 'put',
     headers: {'Authorization': config.config},
@@ -149,7 +138,6 @@ app.put(`/qa/answers/:answer_id/helpful`, (req, res) => {
      // put request REPORT ANSWER
 //=======================================
 app.put(`/qa/answers/:answer_id/report`, (req, res) => {
-  console.log('PARTYCOW: ', req.params)
   axios.put(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-bld/qa/answers/${req.params.answer_id}/report`, {}, {
     headers: {
       'Authorization': config.config
