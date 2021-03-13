@@ -25,21 +25,13 @@ class AddQuestion extends React.Component {
     axios({
       method: 'post',
       url: `/qa/questions`,
-      data: {
-        body : question.questionBody,
-        name: question.nicknameBody,
-        email: question.emailBody,
-        product_id: question.productID
-      }
+      data: question
     })
       .then(res => {
-      this.props.renderAll()
+        this.props.renderAll()
+        console.log('response: ', res.status)
     })
-      .catch(err => console.log('ERROR POSTING: ', err))
-
-    // this.setState({
-    //   data: [...this.state.data, answer]
-    // })
+      .catch(err => console.log('ERROR POSTING: ', err.response.status))
   }
 
   render() {

@@ -50,6 +50,7 @@ class ProductDescription extends React.Component {
           </div>
         </div>
         <div style={{'width': '30%', 'marginLeft': 'auto'}}>
+
           {features()}
         </div>
       </div>
