@@ -64,7 +64,12 @@ class AddQuestionModal extends React.Component {
 
   handleWordCountButton() {
     event.preventDefault();
-    this.props.addQuestion(this.state)
+    this.props.addQuestion({
+      body: this.state.questionBody,
+      name: this.state.nicknameBody,
+      email: this.state.emailBody,
+      product_id: this.props.fullProduct
+    })
   }
 
   handleWordCountUpload(event) {

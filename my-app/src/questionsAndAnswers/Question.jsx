@@ -5,8 +5,6 @@ import Answer from './Answer';
 import './App.css';
 /* eslint-disable */
 
-// axios.defaults.headers.common.authorization = config
-
 class Question extends React.Component {
   constructor(props) {
     super(props);
@@ -25,16 +23,13 @@ class Question extends React.Component {
   }
 
   helpfulToggle() {
+    console.log('this is working with: ', this.props.questionID)
     if (this.state.helpfulClicked === false) {
       this.setState({
         helpfulClicked: !this.state.helpfulClicked,
         count: this.state.count + 1,
       });
-      axios({
-        method: 'put',
-        headers: {'Authorization': config.config},
-        url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-bld/qa/questions/${this.props.questionID}/helpful`,
-      })
+      axios.put(`/qa/questions/${this.props.questionID}/helpful`)
     }
   }
 
@@ -99,24 +94,22 @@ class Question extends React.Component {
   }
 
   addAnswer(answer) {
+    console.log('answer: ', answer)
     axios({
       method: 'post',
-      headers: {'Authorization': config.config},
-      url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-bld/qa/questions/${this.props.questionID}/answers`,
+      url: `/qa/questions/answers`,
       data: {
-        body : answer.answerBody,
-        name: answer.nicknameBody,
-        email: answer.emailBody,
+        question_id: answer.question_id,
+        body : answer.body,
+        name: answer.name,
+        email: answer.email,
       }
     })
       .then(res => {
-      console.log('POSTED!')
+        console.log('answer posted!')
+        this.props.renderQASection();
     })
       .catch(err => console.log('ERROR POSTING: ', err))
-
-    // this.setState({
-    //   data: [...this.state.data, answer]
-    // })
   }
 
 
@@ -153,6 +146,7 @@ class Question extends React.Component {
         {answerKeys.length <= 2
           ? sorted.map((answer, i) => (
               <Answer
+                reported={answer.reported}
                 answer={answer.body}
                 answerID={answer.id}
                 username={answer.answerer_name}

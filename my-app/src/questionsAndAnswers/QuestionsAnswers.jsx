@@ -57,7 +57,7 @@ class QuestionsAnswers extends React.Component {
             <div className="questionAnswer">
               {this.state.searched.length > 0 ?
               <Display display={this.state.searched}/>
-              : <Display display={this.state.data.results} prodID={this.props.Questions} renderQASection={this.renderQASection} product={this.props.product} clicked={this.state.isClicked}/>
+              : <Display display={this.state.data.results} prodID={this.props.Questions} renderAll={this.renderQASection} product={this.props.product} clicked={this.state.isClicked}/>
               }
               </div>
             </div>
@@ -65,7 +65,7 @@ class QuestionsAnswers extends React.Component {
           <div className="moreAnsweredQuestions">
               <MoreAnsweredQuestions loadAnswers={this.handleLoadMoreAnswers} data={this.state.data.results}/>
             </div>
-            <div className="addQuestions"><AddQuestion data={this.state.data.results} product={this.props.product} fullProduct={this.props.fullProduct}/></div>
+            <div className="addQuestions"><AddQuestion data={this.state.data.results} product={this.props.product} fullProduct={this.props.fullProduct} renderAll={this.renderQASection}/></div>
           </div>
           </React.Fragment>
     )
