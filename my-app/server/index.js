@@ -7,13 +7,8 @@ const axios = require('axios');
 const cors = require('cors');
 const config = require('../config/config.js')
 
-<<<<<<< HEAD
-// app.use(express.static(path.join(__dirname, '../build')));
+//app.use(express.static(path.join(__dirname, '../build')));
 app.use(express.static(path.join(__dirname, '../public')));
-=======
-app.use(express.static(path.join(__dirname, '../build')));
-// app.use(express.static(path.join(__dirname, '../public')));
->>>>>>> e383a7f3b2a9d8e4a782e8dedcce206b8925df42
 
 app.use(cors());
 app.use(express.json());
@@ -40,14 +35,6 @@ app.get('/item/*', (req, res) =>{
 app.get('/:id(\\d+)/', (req, res) =>{
   res.sendFile(path.join(path.join(__dirname, '../public/index.html')));
 });
-
-// app.get('/item/*', (req, res) =>{
-//   res.sendFile(path.join(path.join(__dirname, '../public/index.html')));
-// });
-// app.get('/:id(\\d+)/', (req, res) =>{
-//   res.sendFile(path.join(path.join(__dirname, '../public/index.html'))):
-// });
-
 
 
 app.get('*', (req, res) => {
