@@ -18,7 +18,7 @@ class Answer extends React.Component {
   }
 
   helpfulnessToggle() {
-    console.log('this is working with answerID: ', this.state.answerID)
+    // console.log('this is working with answerID: ', this.state.answerID)
     if (this.state.helpfulClicked === false) {
       this.setState({
         helpfulClicked: !this.state.helpfulClicked,
@@ -29,14 +29,14 @@ class Answer extends React.Component {
   }
 
   reportToggle() {
-    console.log('CLICKING AT: ', this.state.answerID)
+    // console.log('CLICKING AT: ', this.state.answerID)
     axios.put(`/qa/answers/${this.state.answerID}/report`)
       .then(() => {
         this.setState({
           reported: !this.state.reported,
         });
       })
-      .catch(err => console.log('NAAAA'))
+      .catch(err => console.log('ERROR WITH: ', err))
   }
 
   render() {

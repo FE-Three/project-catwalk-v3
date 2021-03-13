@@ -136,12 +136,12 @@ class AddAnswerModal extends React.Component {
       display: this.props.displayModal ? "block" : "none",
     };
     return (
-      <div className="modal" onClick={this.closeModal} style={divStyle}>
-        <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-          <span className="close" onClick={this.closeModal}>
+      <div className="graham-modal" onClick={this.closeModal} style={divStyle}>
+        <div className="graham-modal-content" onClick={(e) => e.stopPropagation()}>
+          <span className="graham-close" onClick={this.closeModal}>
             &times;
           </span>
-          <div className="modal-flex">{this.displayInfo()}</div>
+          <div className="graham-modal-flex">{this.displayInfo()}</div>
         </div>
       </div>
     );

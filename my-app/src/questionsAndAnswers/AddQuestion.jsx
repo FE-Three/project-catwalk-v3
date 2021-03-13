@@ -28,7 +28,7 @@ class AddQuestion extends React.Component {
       data: question
     })
       .then(res => {
-        this.props.renderAll()
+        this.props.renderQASection()
         console.log('response: ', res.status)
     })
       .catch(err => console.log('ERROR POSTING: ', err.response.status))
