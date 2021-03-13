@@ -144,7 +144,7 @@ class AddQuestionModal extends React.Component {
     return (
       <div>
         <div className="modal" onClick={this.closeModal} style={divStyle}>
-          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+          <div className="graham-modal-content" onClick={(e) => e.stopPropagation()}>
             <span className="close" onClick={this.closeModal}>
               &times;
             </span>

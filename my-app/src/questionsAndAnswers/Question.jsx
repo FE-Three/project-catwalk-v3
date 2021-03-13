@@ -23,7 +23,7 @@ class Question extends React.Component {
   }
 
   helpfulToggle() {
-    console.log('this is working with: ', this.props.questionID)
+    // console.log('this is working with: ', this.props.questionID)
     if (this.state.helpfulClicked === false) {
       this.setState({
         helpfulClicked: !this.state.helpfulClicked,
