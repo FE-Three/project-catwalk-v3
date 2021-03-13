@@ -45,7 +45,7 @@ class ProductCart extends React.Component {
         let skus = Object.entries(styleData.skus);
         let sizeQty = skus[this.state.selectedSizeIndex][1].quantity;
 
-        console.log('stock level:', sizeQty);
+        // console.log('stock level:', sizeQty);
         if (sizeQty > 15) {
           sizeQty = 15;
         }
@@ -85,7 +85,7 @@ class ProductCart extends React.Component {
             <div style={{'height': '40%'}}>
               <button style={{'width': '80%', 'height': '100%', 'fontWeight': 'bold'}}>ADD TO BAG+</button>
               <button style={{'width': '10%', 'height': '100%'}}>
-                <i class="far fa-star"></i>
+                <i className="far fa-star"></i>
               </button>
 
             </div>

@@ -17,9 +17,8 @@ class ProductInformation extends React.Component {
 
 
   render() {
-    let info = () => {
-      if (this.props.AppState.product.category) {
-
+    let reviews = () => {
+      if (this.props.AppState.ratings) {
         let sum = 0;
         let num = 0;
         let ratingsObj = this.props.AppState.ratings;
@@ -27,20 +26,35 @@ class ProductInformation extends React.Component {
           sum += (key * ratingsObj[key]);
           num += parseInt(ratingsObj[key]);
         }
+        if (num === 0) {
+          return (<React.Fragment></React.Fragment>)
+        } else {
+          return (
+            <React.Fragment>
+              <div> &nbsp; </div>
+              <div style = {{'display':'flex'}}>
+                <StarRatingComponent name="star1" starCount={5} value={sum / num} className="review-rating"/>
+                <div
+                  onClick={()=> {document.getElementById('ratingsScroll').scrollIntoView()}}
+                  className="btn-link"
+                  style = {{'paddingLeft':'5px'}}
+                  >
+                  Read all {num} reviews
+                </div>
+              </div>
+            </React.Fragment>
+          )
+        }
+      } else {
+        return (<React.Fragment></React.Fragment>)
+      }
+    }
+    let info = () => {
+      if (this.props.AppState.product.category) {
 
         return (
           <React.Fragment>
-            <div> &nbsp; </div>
-            <div style = {{'display':'flex'}}>
-              <StarRatingComponent name="star1" starCount={5} value={sum / num} className="review-rating"/>
-              <div
-                onClick={()=> {document.getElementById('ratingsScroll').scrollIntoView()}}
-                className="btn-link"
-                style = {{'paddingLeft':'5px'}}
-                >
-                Read all reviews
-              </div>
-            </div>
+            {reviews()}
             <div>
               {this.props.AppState.product.category.toUpperCase()}
             </div>
