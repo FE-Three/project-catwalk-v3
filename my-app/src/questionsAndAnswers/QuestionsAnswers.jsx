@@ -11,9 +11,10 @@ class QuestionsAnswers extends React.Component {
     super(props);
 
     this.state = {
-      data: [],
       searched: [],
-      isClicked: false
+      isClicked: false,
+      data: [],
+      count: 4
     }
     // bindings
     this.renderQASection = this.renderQASection.bind(this);
@@ -28,11 +29,15 @@ class QuestionsAnswers extends React.Component {
   renderQASection() {
     axios.get('/qa/questions', {
       params: {
-        product_id: this.props.Questions
+        product_id: this.props.Questions,
+        count: 50
       }
     })
       .then(res => {
-        this.setState({data: res.data})
+        this.setState({
+          data: res.data,
+          searched: res.data.results
+        })
       })
   }
 
@@ -44,7 +49,7 @@ class QuestionsAnswers extends React.Component {
 
   handleLoadMoreAnswers() {
     this.setState({
-      isClicked: !this.state.isClicked
+      count: this.state.count += 2
     })
   }
 
@@ -56,16 +61,15 @@ class QuestionsAnswers extends React.Component {
             <SearchForAnswers searchAnswers={this.searchAnswers} data={this.state.data}/>
             <div className="questionAnswer">
               {this.state.searched.length > 0 ?
-              <Display display={this.state.searched}/>
-              : <Display display={this.state.data.results} prodID={this.props.Questions} renderAll={this.renderQASection} product={this.props.product} clicked={this.state.isClicked}/>
-              }
+              <Display display={this.state.searched.slice(0, this.state.count)} prodID={this.props.Questions} renderQASection={this.renderQASection} product={this.props.product} clicked={this.state.isClicked}/>
+              : 'loading...'}
               </div>
             </div>
           <div id="qaContainerTwo">
           <div className="moreAnsweredQuestions">
               <MoreAnsweredQuestions loadAnswers={this.handleLoadMoreAnswers} data={this.state.data.results}/>
             </div>
-            <div className="addQuestions"><AddQuestion data={this.state.data.results} product={this.props.product} fullProduct={this.props.fullProduct} renderAll={this.renderQASection}/></div>
+            <div className="addQuestions"><AddQuestion data={this.state.data.results} product={this.props.product} fullProduct={this.props.fullProduct} renderQASection={this.renderQASection}/></div>
           </div>
           </React.Fragment>
     )
