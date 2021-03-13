@@ -29,14 +29,12 @@ app.get('/item/*', (req, res) =>{
 app.get('/:id(\\d+)/', (req, res) =>{
   res.sendFile(path.join(path.join(__dirname, '../build/index.html')));
 });
-
 // app.get('/item/*', (req, res) =>{
 //   res.sendFile(path.join(path.join(__dirname, '../public/index.html')));
 // });
 // app.get('/:id(\\d+)/', (req, res) =>{
-//   res.sendFile(path.join(path.join(__dirname, '../public/index.html'))):
+//   res.sendFile(path.join(path.join(__dirname, '../public/index.html')));
 // });
-
 
 
 app.get('*', (req, res) => {
