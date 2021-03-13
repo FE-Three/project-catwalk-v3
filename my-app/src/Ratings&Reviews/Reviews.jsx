@@ -4,7 +4,7 @@ import StarRatingComponent from 'react-star-rating-component';
 import Recommend from './Recommend.jsx';
 import Moment from 'react-moment';
 import Button from 'react-bootstrap/Button';
-import 'bootstrap/dist/css/bootstrap.min.css';
+//import 'bootstrap/dist/css/bootstrap.min.css';
 import Response from './Response.jsx';
 
 class Reviews extends React.Component {

@@ -13,6 +13,34 @@ code {
   monospace;
 }
 
+header {
+  height: 70px;
+  background-color: rgb(20, 20, 20);
+  color:rgb(123, 199, 224);
+}
+
+.headerContainer {
+  display:flex;
+  justify-content: space-between;
+  align-content: center;
+}
+
+.logo {
+  padding-left: 40px;
+  padding-top: 10px;
+  font-size: 35px;
+}
+
+.names {
+  padding-right: 40px;
+  padding-top: 20px;
+  font-size: 25px;
+}
+
+footer {
+  height: 150px;
+}
+
 
 .carousel-container {
   width: 100%;
@@ -531,5 +559,9 @@ code {
 
 .rfDescriptors {
   font-size: smaller;
+}
+
+.helpful {
+  margin-bottom: 50px;
 }
 
