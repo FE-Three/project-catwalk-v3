@@ -181,15 +181,15 @@ footer {
 }
 
 .overlap{
-  top: 12px;
+  top: 14px;
   position: relative;
   left: 30px;
   width: 15px;
-  background-color: white;
+  color: white;
+  background-color:  #007bff
 }
 
 .TN {
-  background-color: #FF0000;
   height: 50px;
   width: 50px;
   border-radius: 50%;
@@ -412,14 +412,14 @@ footer {
   background-color: rgb(123, 199, 224);
   color: white;
   font-weight: bolder;
-  height: 50px;
+  /* height: 50px; */
 }
 
 .addQuestionButton {
   background-color: rgb(123, 199, 224);
   color: white;
   font-weight: bolder;
-  height: 50px;
+  /* height: 50px; */
 }
 
 .collapseButton {

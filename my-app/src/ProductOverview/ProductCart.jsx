@@ -3,6 +3,8 @@ import React from 'react';
 import axios from 'axios';
 import ProductSize from './ProductSize.jsx';
 import ProductQty from './ProductQty.jsx';
+import Button from 'react-bootstrap/Button';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 class ProductCart extends React.Component {
   constructor(props) {
@@ -58,9 +60,9 @@ class ProductCart extends React.Component {
         return (
           <React.Fragment>
             <div style={{'textAlign': 'center', 'color':'red'}}>{this.state.bagMsg} &nbsp;</div>
-            <div style={{'height': '20%'}}>
+            <div style={{'height': '20%', 'padding':'5px'}}>
               <select
-              style={{'width': '60%', 'height': '100%', 'fontWeight': 'bold'}}
+              style={{'width': '60%', 'height': '100%', 'fontWeight': 'bold', 'color':'#007bff'}}
               id="sizeValue"
               onChange={this.handleDropdownChange}
               value={this.state.sizeValue}>
@@ -70,7 +72,7 @@ class ProductCart extends React.Component {
                     )})
                 }
               </select>
-              <select style={{'width': '30%', 'height': '100%', 'fontWeight': 'bold'}}
+              <select style={{'width': '30%', 'height': '100%', 'fontWeight': 'bold', 'color':'#007bff'}}
               id="qtyValue"
               onChange={this.handleDropdownChange}
               value={this.state.qtyValue}>
@@ -84,8 +86,11 @@ class ProductCart extends React.Component {
                 }
               </select>
             </div>
-            <div style={{'height': '20%'}}>
-              <button
+            <div style={{'height': '20%', 'padding':'5px'}}>
+              <Button
+                variant="outline-primary"
+                type="button"
+                className="MoreReviews btn btn-outline-primary"
                 onClick={()=>{
                   if (this.state.sizeValue === 'Select Size') {
                     this.setState({bagMsg: 'Select Size'});
@@ -93,7 +98,9 @@ class ProductCart extends React.Component {
                     this.setState({bagMsg: ''});
                   }
                 }}
-                style={{'width': '90%', 'height': '100%', 'fontWeight': 'bold'}}>ADD TO BAG+</button>
+                style={{'width': '90%'}}>ADD TO BAG +
+              </Button>
+
             </div>
           </React.Fragment>
         )
@@ -110,3 +117,5 @@ class ProductCart extends React.Component {
 }
 
 export default ProductCart;
+
+
