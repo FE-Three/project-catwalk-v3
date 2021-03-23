@@ -35,6 +35,8 @@ class Answer extends React.Component {
         this.setState({
           reported: !this.state.reported,
         });
+        // get request
+        this.props.renderQASection();
       })
       .catch(err => console.log('ERROR WITH: ', err))
   }

@@ -50,6 +50,7 @@ class Question extends React.Component {
                 date={answer.date}
                 helpfulness={answer.helpfulness}
                 key={i}
+                renderQASection={this.props.renderQASection}
               />
             );
           })}
@@ -70,6 +71,7 @@ class Question extends React.Component {
                 date={answer.date}
                 helpfulness={answer.helpfulness}
                 key={i}
+                renderQASection={this.props.renderQASection}
               />
             );
           })}
@@ -154,6 +156,7 @@ class Question extends React.Component {
                 helpfulness={answer.helpfulness}
                 key={i}
                 photos={answer.photos}
+                renderQASection={this.props.renderQASection}
               />
             ))
           : this.loadTwo()}

@@ -27,6 +27,7 @@ import {
     }
 
     useEffect(() => {
+      //probably adding too many listeners and not unsubscribing them?  Though the error is actually with the above
       document.addEventListener("keydown", productSelect, false);
     })
 

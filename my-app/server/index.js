@@ -9,7 +9,10 @@ const config = require('../config/config.js')
 
 /**********************change this url for development or production (aws) server**********************************/
 const url = 'http://localhost:8080';
+const url1 = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-bld';
+//switch back and forth to test
 // 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-bld'
+// 'http://localhost:8080'
 
 /************************************************************************************* */
 //they have both a build and a public folder.  Can only change things with public.
@@ -49,7 +52,7 @@ app.get('/:id(\\d+)/', (req, res) => {
 app.get('*', (req, res) => {
   console.log(req.url)
   if (req.url.indexOf('questions') !== -1) {
-    console.log('questions requests: ', req.url)
+    // console.log('questions requests: ', req.url)
     axios({
       method: 'get',
       headers: { 'Authorization': config.config },
@@ -68,10 +71,39 @@ app.get('*', (req, res) => {
   }
   else if (req.url.indexOf('products') !== -1) {
     //axios get requests to products server
+    axios({
+      method: 'get',
+      headers: { 'Authorization': config.config },
+      url: `${url1}${req.url}`,
+    })
+
+      .then(response => {
+        // console.log(response);
+        // console.log(response.data)
+        res.status(200).send(response.data);
+      })
+      .catch(err => {
+        //console.log(err);
+        res.status(err.response.status).send(err.response.data);
+      });
 
   } else if (req.url.indexOf('reviews') !== -1) {
     //axios get requests to reviews server
+    axios({
+      method: 'get',
+      headers: { 'Authorization': config.config },
+      url: `${url1}${req.url}`,
+    })
 
+      .then(response => {
+        // console.log(response);
+        // console.log(response.data)
+        res.status(200).send(response.data);
+      })
+      .catch(err => {
+        //console.log(err);
+        res.status(err.response.status).send(err.response.data);
+      });
   }
 
 })
