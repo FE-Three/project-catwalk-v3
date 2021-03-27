@@ -8,7 +8,7 @@ const cors = require('cors');
 const config = require('../config/config.js')
 
 /**********************change this url for development or production (aws) server**********************************/
-const url = 'http://localhost:8080';
+const url = 'http://13.52.101.68:8080';
 const url1 = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-bld';
 //switch back and forth to test
 // 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-bld'
