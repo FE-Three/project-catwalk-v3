@@ -2,10 +2,11 @@
 Project Catwalk is a front-end design for a ficticious e-commerce website. Users can browse through stylish clothing options and add them to their cart. They can also read through questions and answers submitted by previous shoppers. Users can even view product ratings and reviews and submit their own.
 
 # Demo Video
-
+<!-- blank line -->
 <figure class="video_container">
-<iframe width="560" height="315" src="https://www.youtube.com/embed/KSDhYtEFzpc?start=21" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen> </iframe>
+  <iframe src="https://www.youtube.com/embed/KSDhYtEFzpc?start=21" frameborder="0" allowfullscreen="true"> </iframe>
 </figure>
+<!-- blank line -->
 
 # Authors:
 Johnny Frame (Github: jbframe)
