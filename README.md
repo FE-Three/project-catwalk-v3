@@ -1,5 +1,5 @@
-# About
-Project Catwalk is a front-end design for a ficticious e-commerce website. Users can browse through stylish clothing options and add them to their cart. They can also read through questions and answers submitted by previous shoppers. Users can even view product ratings and reviews and submit their own.
+# [fe3catwalk.com](http://fe3catwalk.com) #
+fe3catwalk.com is a e-commerce website. Users can browse through stylish clothing options and add them to their cart. They can also read through questions and answers submitted by previous shoppers. Users can even view product ratings and reviews and submit their own.
 
 # Demo Video
 [![Alt text](/screenshots/demo.png)](https://youtu.be/KSDhYtEFzpc?t=21)
