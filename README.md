@@ -5,8 +5,8 @@ fe3catwalk.com is a e-commerce website. Users can browse through stylish clothin
 [![Alt text](/screenshots/demo.png)](https://youtu.be/KSDhYtEFzpc?t=21)
 
 # Authors:
-[John Frame](https://github.com/jbframe)
-[Graham Kirsch](https://github.com/21grahams)
+[John Frame](https://github.com/jbframe)\
+[Graham Kirsch](https://github.com/21grahams)\
 [Mason Hoffman](https://github.com/mhoffman39)
 
 # Built With:
