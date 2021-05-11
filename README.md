@@ -31,8 +31,8 @@ Launch the app in production mode:
 
 ```
 $ npm run server
-```
 open [http://localhost:3001](http://localhost:3001) in a web browser
+```
 
 Test the application using Jest and Enzyme:
 
