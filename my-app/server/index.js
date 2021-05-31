@@ -1,5 +1,5 @@
 /* eslint-disable */
-const port = 3001;
+const port = 3000;
 const path = require('path');
 const dotenv = require('dotenv');
 dotenv.config();
