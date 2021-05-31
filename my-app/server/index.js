@@ -7,7 +7,6 @@ const express = require('express');
 const app = express();
 const axios = require('axios');
 const cors = require('cors');
-const config = require('../config/config.js')
 const compression = require('compression');
 app.use(compression());
 
