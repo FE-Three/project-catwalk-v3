@@ -5,6 +5,7 @@
 /my-app/public/app.js
 /.pnp
 .pnp.js
+.env
 
 # testing
 /coverage
