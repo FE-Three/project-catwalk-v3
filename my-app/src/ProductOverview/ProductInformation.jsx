@@ -12,7 +12,6 @@ class ProductInformation extends React.Component {
   }
 
   componentDidMount() {
-
   }
 
 
@@ -26,12 +25,12 @@ class ProductInformation extends React.Component {
           sum += (key * ratingsObj[key]);
           num += parseInt(ratingsObj[key]);
         }
-        if (num === 0) {
+        if (num === 0 || this.props.AppState.isMobile) {
           return (<React.Fragment></React.Fragment>)
         } else {
           return (
             <React.Fragment>
-              {/* <div> &nbsp; </div>
+              <div> &nbsp; </div>
               <div style = {{'display':'flex'}}>
                 <StarRatingComponent name="star1" starCount={5} value={sum / num} className="review-rating"/>
                 <div
@@ -41,7 +40,7 @@ class ProductInformation extends React.Component {
                   >
                   Read all {num} reviews
                 </div>
-              </div> */}
+              </div>
             </React.Fragment>
           )
         }
