@@ -51,7 +51,7 @@ import {
     <Router>
       <Switch>
         <Route exact path="/">
-          <Redirect to={"/18201"} />
+          <Redirect to={"/18265"} />
         </Route>
         <Route path="/item/:id" render={(path)=> (<Child key={path.match.params.id}/>)} />
         <Route path="/:id" render={(path)=> (<Child key={path.match.params.id}/>)} />

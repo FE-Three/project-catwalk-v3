@@ -20,6 +20,7 @@ header {
 }
 
 .headerContainer {
+  height: 70px;
   display:flex;
   justify-content: space-between;
   align-content: center;
@@ -27,14 +28,16 @@ header {
 
 .logo {
   padding-left: 40px;
+  font-size: 200%;
   padding-top: 10px;
-  font-size: 35px;
+
 }
 
 .names {
   padding-right: 40px;
-  padding-top: 20px;
-  font-size: 25px;
+  font-size: 200%;
+  padding-top: 10px;
+
 }
 
 footer {

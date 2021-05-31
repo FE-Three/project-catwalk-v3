@@ -29,6 +29,13 @@ class ProductOverview extends React.Component {
 
   render() {
     return (
+      <React.Fragment>
+      <header>
+      <div class="headerContainer">
+        <span class="logo">FE3CATWALK</span>
+        {/* <span class="names">John | Graham | Mason</span> */}
+      </div>
+      </header>
       <div id="productOverviewContainer">
         <ProductImages AppState={this.props.AppState} ProductState={this.state} />
         <ProductInformation AppState={this.props.AppState} ProductState={this.state} />
@@ -42,6 +49,7 @@ class ProductOverview extends React.Component {
         </div>
         <ProductDescription AppState={this.props.AppState} ProductState={this.state} />
       </div>
+      </React.Fragment>
     )
   }
 
