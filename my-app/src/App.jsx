@@ -13,16 +13,29 @@ class App extends React.Component {
       product: [],
       productStyles: [],
       ratings: {},
+      isMobile: false
     };
     this.getProduct = this.getProduct.bind(this);
     this.getStyles = this.getStyles.bind(this);
     this.getRatings = this.getRatings.bind(this);
+    this.handleWindowResize = this.handleWindowResize.bind(this)
   }
 
   componentDidMount() {
     this.getProduct(this.state.product_id);
     this.getStyles(this.state.product_id);
     this.getRatings(this.state.product_id);
+    this.handleWindowResize()
+    window.addEventListener('resize', this.handleWindowResize)
+  }
+
+  handleWindowResize() {
+    if (!this.state.isMobile && window.innerWidth < 700) {
+        this.setState({isMobile: true})
+    }
+    if (this.state.isMobile && window.innerWidth > 700) {
+        this.setState({isMobile: false})
+    }
   }
 
   getProduct(product_id) {
@@ -52,14 +65,28 @@ class App extends React.Component {
   }
 
   render() {
-    // setEndPoint(222)
+    const conditionalRender = () => {
+      if(!this.state.isMobile) {
+        return (
+          <div id="container">
+            <ProductOverview AppState={this.state} />
+            <QuestionsAnswers Questions={this.state.product_id} product={this.state.product.name} fullProduct={this.state.product}/>
+            <div id="ratingsScroll"></div>
+            <RatingsReviews className="ratingsReviewsContainer" ratings={this.state.ratingsMeta} productID={this.state.product_id} />
+          </div>
+        )
+      } else {
+        return (
+          <div id="container">
+            <ProductOverview AppState={this.state} />
+          </div>
+        )
+      }
+    }
     return (
-      <div id="container">
-        <ProductOverview AppState={this.state} />
-        <QuestionsAnswers Questions={this.state.product_id} product={this.state.product.name} fullProduct={this.state.product}/>
-        <div id="ratingsScroll"></div>
-        <RatingsReviews className="ratingsReviewsContainer" ratings={this.state.ratingsMeta} productID={this.state.product_id} />
-      </div>
+      <React.Fragment>
+        {conditionalRender()}
+      </React.Fragment>
     );
   }
 }

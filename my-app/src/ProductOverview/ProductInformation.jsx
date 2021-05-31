@@ -31,7 +31,7 @@ class ProductInformation extends React.Component {
         } else {
           return (
             <React.Fragment>
-              <div> &nbsp; </div>
+              {/* <div> &nbsp; </div>
               <div style = {{'display':'flex'}}>
                 <StarRatingComponent name="star1" starCount={5} value={sum / num} className="review-rating"/>
                 <div
@@ -41,7 +41,7 @@ class ProductInformation extends React.Component {
                   >
                   Read all {num} reviews
                 </div>
-              </div>
+              </div> */}
             </React.Fragment>
           )
         }

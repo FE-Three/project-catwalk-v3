@@ -1,6 +1,8 @@
 /* eslint-disable */
 const port = 3001;
 const path = require('path');
+const dotenv = require('dotenv');
+dotenv.config();
 const express = require('express');
 const app = express();
 const axios = require('axios');
@@ -8,9 +10,6 @@ const cors = require('cors');
 const config = require('../config/config.js')
 const compression = require('compression');
 app.use(compression());
-
-app.use(express.static(path.join(__dirname, '../build')));
-// app.use(express.static(path.join(__dirname, '../public')));
 
 app.use(cors());
 app.use(express.json());
@@ -25,21 +24,21 @@ app.listen(port, () => {
   console.log(`Server listening at localhost:${port}!`);
 });
 
+let buildDir = '';
+if(process.env.NODE_ENV === 'DEV') {
+  console.log('Serving Development Build');
+  buildDir = '../public'
+  console.log(buildDir)
+} else {
+  console.log('Serving Production Build');
+  buildDir = '../build';
+  console.log(buildDir)
+}
 
-app.get('/item/*', (req, res) =>{
-  res.sendFile(path.join(path.join(__dirname, '../build/index.html')));
-});
+app.use(express.static(path.join(__dirname, buildDir)));
 app.get('/:id(\\d+)/', (req, res) =>{
-  res.sendFile(path.join(path.join(__dirname, '../build/index.html')));
+  res.sendFile(path.join(path.join(__dirname, buildDir + '/index.html')));
 });
-
-// app.get('/item/*', (req, res) =>{
-//   res.sendFile(path.join(path.join(__dirname, '../public/index.html')));
-// });
-// app.get('/:id(\\d+)/', (req, res) =>{
-//   res.sendFile(path.join(path.join(__dirname, '../public/index.html')));
-// });
-
 
 app.get('*', (req, res) => {
   axios({method: 'get',
