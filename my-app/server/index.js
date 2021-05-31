@@ -41,7 +41,7 @@ app.get('/:id(\\d+)/', (req, res) =>{
 
 app.get('*', (req, res) => {
   axios({method: 'get',
-  headers: {'Authorization': config.config},
+  headers: {'Authorization': process.env.API_KEY},
   url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-bld${req.url}`,
 })
 
@@ -62,7 +62,7 @@ app.get('*', (req, res) => {
 app.post('/qa/questions', (req, res) => {
   axios({
     method: 'post',
-    headers: {'Authorization': config.config},
+    headers: {'Authorization': process.env.API_KEY},
     url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-bld/qa/questions/`,
     data: {
       body : req.body.body,
@@ -86,7 +86,7 @@ app.post('/qa/questions', (req, res) => {
 app.post('/qa/questions/answers', (req, res) => {
   axios({
     method: 'post',
-    headers: {'Authorization': config.config},
+    headers: {'Authorization': process.env.API_KEY},
     url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-bld/qa/questions/${req.body.question_id}/answers`,
     data: {
       body : req.body.body,
@@ -108,7 +108,7 @@ app.post('/qa/questions/answers', (req, res) => {
 app.put('/qa/questions/:question_id/helpful', (req, res) => {
   axios({
     method: 'put',
-    headers: {'Authorization': config.config},
+    headers: {'Authorization': process.env.API_KEY},
     url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-bld/qa/questions/${req.params.question_id}/helpful`,
   })
   .then(response => {
@@ -123,7 +123,7 @@ app.put('/qa/questions/:question_id/helpful', (req, res) => {
 app.put(`/qa/answers/:answer_id/helpful`, (req, res) => {
   axios.put(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-bld/qa/answers/${req.params.answer_id}/helpful`, {}, {
     headers: {
-      'Authorization': config.config
+      'Authorization': process.env.API_KEY
     },
   })
   .then((response) => {
@@ -142,7 +142,7 @@ app.put(`/qa/answers/:answer_id/helpful`, (req, res) => {
 app.put(`/qa/answers/:answer_id/report`, (req, res) => {
   axios.put(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-bld/qa/answers/${req.params.answer_id}/report`, {}, {
     headers: {
-      'Authorization': config.config
+      'Authorization': process.env.API_KEY
     },
   })
   .then((response) => {
