@@ -7,7 +7,6 @@ const express = require('express');
 const app = express();
 const axios = require('axios');
 const cors = require('cors');
-const config = require('../config/config.js')
 const compression = require('compression');
 app.use(compression());
 
@@ -42,7 +41,7 @@ app.get('/:id(\\d+)/', (req, res) =>{
 
 app.get('*', (req, res) => {
   axios({method: 'get',
-  headers: {'Authorization': config.config},
+  headers: {'Authorization': process.env.API_KEY},
   url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-bld${req.url}`,
 })
 
