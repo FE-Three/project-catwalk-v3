@@ -1,16 +1,14 @@
 /* eslint-disable */
 const port = 3000;
 const path = require('path');
+const dotenv = require('dotenv');
+dotenv.config();
 const express = require('express');
 const app = express();
 const axios = require('axios');
 const cors = require('cors');
-const config = require('../config/config.js')
 const compression = require('compression');
 app.use(compression());
-
-app.use(express.static(path.join(__dirname, '../build')));
-// app.use(express.static(path.join(__dirname, '../public')));
 
 app.use(cors());
 app.use(express.json());
@@ -25,25 +23,25 @@ app.listen(port, () => {
   console.log(`Server listening at localhost:${port}!`);
 });
 
+let buildDir = '';
+if(process.env.NODE_ENV === 'DEV') {
+  console.log('Serving Development Build');
+  buildDir = '../public'
+  console.log(buildDir)
+} else {
+  console.log('Serving Production Build');
+  buildDir = '../build';
+  console.log(buildDir)
+}
 
-app.get('/item/*', (req, res) =>{
-  res.sendFile(path.join(path.join(__dirname, '../build/index.html')));
-});
+app.use(express.static(path.join(__dirname, buildDir)));
 app.get('/:id(\\d+)/', (req, res) =>{
-  res.sendFile(path.join(path.join(__dirname, '../build/index.html')));
+  res.sendFile(path.join(path.join(__dirname, buildDir + '/index.html')));
 });
-
-// app.get('/item/*', (req, res) =>{
-//   res.sendFile(path.join(path.join(__dirname, '../public/index.html')));
-// });
-// app.get('/:id(\\d+)/', (req, res) =>{
-//   res.sendFile(path.join(path.join(__dirname, '../public/index.html')));
-// });
-
 
 app.get('*', (req, res) => {
   axios({method: 'get',
-  headers: {'Authorization': config.config},
+  headers: {'Authorization': process.env.API_KEY},
   url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-bld${req.url}`,
 })
 
@@ -64,7 +62,7 @@ app.get('*', (req, res) => {
 app.post('/qa/questions', (req, res) => {
   axios({
     method: 'post',
-    headers: {'Authorization': config.config},
+    headers: {'Authorization': process.env.API_KEY},
     url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-bld/qa/questions/`,
     data: {
       body : req.body.body,
@@ -88,7 +86,7 @@ app.post('/qa/questions', (req, res) => {
 app.post('/qa/questions/answers', (req, res) => {
   axios({
     method: 'post',
-    headers: {'Authorization': config.config},
+    headers: {'Authorization': process.env.API_KEY},
     url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-bld/qa/questions/${req.body.question_id}/answers`,
     data: {
       body : req.body.body,
@@ -110,7 +108,7 @@ app.post('/qa/questions/answers', (req, res) => {
 app.put('/qa/questions/:question_id/helpful', (req, res) => {
   axios({
     method: 'put',
-    headers: {'Authorization': config.config},
+    headers: {'Authorization': process.env.API_KEY},
     url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-bld/qa/questions/${req.params.question_id}/helpful`,
   })
   .then(response => {
@@ -125,7 +123,7 @@ app.put('/qa/questions/:question_id/helpful', (req, res) => {
 app.put(`/qa/answers/:answer_id/helpful`, (req, res) => {
   axios.put(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-bld/qa/answers/${req.params.answer_id}/helpful`, {}, {
     headers: {
-      'Authorization': config.config
+      'Authorization': process.env.API_KEY
     },
   })
   .then((response) => {
@@ -144,7 +142,7 @@ app.put(`/qa/answers/:answer_id/helpful`, (req, res) => {
 app.put(`/qa/answers/:answer_id/report`, (req, res) => {
   axios.put(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-bld/qa/answers/${req.params.answer_id}/report`, {}, {
     headers: {
-      'Authorization': config.config
+      'Authorization': process.env.API_KEY
     },
   })
   .then((response) => {

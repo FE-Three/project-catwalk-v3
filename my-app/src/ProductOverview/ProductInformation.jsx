@@ -12,7 +12,6 @@ class ProductInformation extends React.Component {
   }
 
   componentDidMount() {
-
   }
 
 
@@ -28,6 +27,15 @@ class ProductInformation extends React.Component {
         }
         if (num === 0) {
           return (<React.Fragment></React.Fragment>)
+        } else if (this.props.AppState.isMobile) {
+          return (
+            <React.Fragment>
+              <div> &nbsp; </div>
+              <div style = {{'display':'flex'}}>
+                <StarRatingComponent name="star1" starCount={5} value={sum / num} className="review-rating"/>
+              </div>
+            </React.Fragment>
+          )
         } else {
           return (
             <React.Fragment>

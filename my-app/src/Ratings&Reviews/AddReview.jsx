@@ -2,7 +2,7 @@
 import React from 'react';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
-import Button from 'react-bootstrap/button';
+import Button from 'react-bootstrap/Button';
 import "../index.css";
 
 class AddReview extends React.Component {

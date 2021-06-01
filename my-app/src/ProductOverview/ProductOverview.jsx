@@ -29,11 +29,18 @@ class ProductOverview extends React.Component {
 
   render() {
     return (
+      <React.Fragment>
+      <header>
+      <div class="headerContainer">
+        <span class="logo">FE3 Catwalk</span>
+        {/* <span class="names">John | Graham | Mason</span> */}
+      </div>
+      </header>
       <div id="productOverviewContainer">
         <ProductImages AppState={this.props.AppState} ProductState={this.state} />
         <ProductInformation AppState={this.props.AppState} ProductState={this.state} />
         <ProductStyle AppState={this.props.AppState} onStyleClick={this.onStyleClick} ProductState={this.state} />
-        <ProductCart AppState={this.props.AppState} ProductState={this.state} key={this.state.selectedStyle} />
+        <ProductCart AppState={this.props.AppState} ProductState={this.state} key={this.state.selectedStyle} handleAddToBag={this.props.handleAddToBag} />
         <div className="whiteSpace"></div>
         <div className="social" style={{'paddingBottom': '10px'}}>
           {/* <i className="fab fa-facebook-f" style={{'paddingRight': '30px', 'fontSize':'150%'}}></i>
@@ -42,6 +49,7 @@ class ProductOverview extends React.Component {
         </div>
         <ProductDescription AppState={this.props.AppState} ProductState={this.state} />
       </div>
+      </React.Fragment>
     )
   }
 
