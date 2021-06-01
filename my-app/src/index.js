@@ -2,7 +2,9 @@
 import React, {useState, useEffect} from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import { UserConsumer } from './userContext.js'
 import App from './App';
+import { UserProvider } from './userContext.js';
 import {
   BrowserRouter as Router,
   Route,
@@ -48,14 +50,15 @@ import {
 
 
   ReactDOM.render(
-    <Router>
-      <Switch>
-        <Route exact path="/">
-          <Redirect to={"/18265"} />
-        </Route>
-        <Route path="/item/:id" render={(path)=> (<Child key={path.match.params.id}/>)} />
-        <Route path="/:id" render={(path)=> (<Child key={path.match.params.id}/>)} />
-      </Switch>
-    </Router>,
+    <UserProvider>
+      <Router>
+        <Switch>
+          <Route exact path="/">
+            <Redirect to={"/18265"} />
+          </Route>
+          <Route path="/:id" render={(path)=> (<Child key={path.match.params.id}/>)} />
+        </Switch>
+      </Router>
+    </UserProvider>,
   document.getElementById('root')
   );

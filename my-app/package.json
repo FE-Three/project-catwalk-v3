@@ -31,7 +31,7 @@
     "web-vitals": "^1.1.0"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "PORT=3001 react-scripts start",
     "server": "nodemon server",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -59,6 +59,7 @@
   },
   "devDependencies": {
     "@babel/core": "7.13.1",
+    "@babel/plugin-proposal-class-properties": "^7.13.0",
     "@babel/preset-env": "^7.13.8",
     "@babel/preset-react": "^7.12.13",
     "css-loader": "^4.3.0",

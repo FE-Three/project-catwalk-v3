@@ -1,11 +1,13 @@
 /* eslint-disable */
 import React from 'react';
 import axios from 'axios';
+import UserContext from './userContext.js';
 import ProductOverview from './ProductOverview/ProductOverview.jsx'
 import QuestionsAnswers from '../src/questionsAndAnswers/QuestionsAnswers.jsx'
 import RatingsReviews from './Ratings&Reviews/RatingsReviews.jsx'
 
 class App extends React.Component {
+  static contextType = UserContext;
   constructor(props) {
     super(props);
     this.state = {
@@ -13,20 +15,27 @@ class App extends React.Component {
       product: [],
       productStyles: [],
       ratings: {},
-      isMobile: false
+      isMobile: false,
+      bagItems: []
     };
     this.getProduct = this.getProduct.bind(this);
     this.getStyles = this.getStyles.bind(this);
     this.getRatings = this.getRatings.bind(this);
-    this.handleWindowResize = this.handleWindowResize.bind(this)
+    this.handleWindowResize = this.handleWindowResize.bind(this);
+    this.handleAddToBag = this.handleAddToBag.bind(this);
   }
 
   componentDidMount() {
     this.getProduct(this.state.product_id);
     this.getStyles(this.state.product_id);
     this.getRatings(this.state.product_id);
-    this.handleWindowResize()
-    window.addEventListener('resize', this.handleWindowResize)
+    this.handleWindowResize();
+    window.addEventListener('resize', this.handleWindowResize);
+  }
+
+  handleAddToBag(sku) {
+    console.log('bag')
+    this.setState({bagItems: [...this.state.bagItems, this.state.product_id]})
   }
 
   handleWindowResize() {
@@ -65,11 +74,12 @@ class App extends React.Component {
   }
 
   render() {
+    const { user, setUser } = this.context
     const conditionalRender = () => {
       if(!this.state.isMobile) {
         return (
           <div id="container">
-            <ProductOverview AppState={this.state} />
+            <ProductOverview AppState={this.state} handleAddToBag={this.handleAddToBag} />
             <QuestionsAnswers Questions={this.state.product_id} product={this.state.product.name} fullProduct={this.state.product}/>
             <div id="ratingsScroll"></div>
             <RatingsReviews className="ratingsReviewsContainer" ratings={this.state.ratingsMeta} productID={this.state.product_id} />
@@ -78,7 +88,7 @@ class App extends React.Component {
       } else {
         return (
           <div id="container">
-            <ProductOverview AppState={this.state} />
+            <ProductOverview AppState={this.state} handleAddToBag={this.handleAddToBag} />
           </div>
         )
       }
