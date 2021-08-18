@@ -3,7 +3,7 @@ Project Catwalk is a front-end design for a ficticious e-commerce website. Users
 
 # Authors:
 Johnny Frame (Github: jbframe)
-Graham Kirsch (Github: 21grahams)
+Graham Kirsh (Github: 21grahams)
 Mason Hoffman (Github: mhoffman39)
 
 # Built With:
